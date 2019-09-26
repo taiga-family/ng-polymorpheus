@@ -1,0 +1,22 @@
+:host {
+    position: relative;
+    display: block;
+    height: 44px;
+}
+
+.icon {
+    position: relative;
+    cursor: pointer;
+    transition: transform .3s;
+
+    &_opened {
+        transform: rotate(180deg);
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+}

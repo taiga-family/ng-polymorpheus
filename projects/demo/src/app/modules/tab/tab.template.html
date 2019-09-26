@@ -1,0 +1,21 @@
+<span class="text">
+    {{text}}
+</span>
+<polymorpheus-outlet
+    *ngIf="content"
+    [class.template_active]="templateActive"
+    [content]="content"
+>
+    <ng-template let-primitive>
+        <div
+            *ngIf="isNumber(primitive); else icon"
+            class="number"
+            [class.number_active]="active"
+        >
+            {{primitive}}
+        </div>
+        <ng-template #icon>
+            <div [class.icon_active]="active" [innerHTML]="primitive"></div>
+        </ng-template>
+    </ng-template>
+</polymorpheus-outlet>

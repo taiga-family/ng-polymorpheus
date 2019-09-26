@@ -1,0 +1,21 @@
+<ng-container *ngIf="isTemplate(content)">
+    <ng-container
+        [ngTemplateOutlet]="getTemplate(content)"
+        [ngTemplateOutletContext]="context"
+    ></ng-container>
+</ng-container>
+<ng-container *ngIf="isComponent(content)">
+    <ng-container
+        [ngComponentOutlet]="content.component"
+        [ngComponentOutletInjector]="content | injector : context"
+    ></ng-container>
+</ng-container>
+<ng-container *ngIf="primitive">
+    <ng-container *ngIf="!template; else child">{{primitive}}</ng-container>
+    <ng-template #child>
+        <ng-container
+            [ngTemplateOutlet]="template"
+            [ngTemplateOutletContext]="{ $implicit: primitive }"
+        ></ng-container>
+    </ng-template>
+</ng-container>

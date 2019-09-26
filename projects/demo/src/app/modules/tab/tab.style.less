@@ -1,0 +1,52 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pop {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+:host {
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.text {
+    margin-right: 8px;
+}
+
+.number {
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: #79818c;
+
+    &_active {
+        background: #ffdd2d;
+        color: #333;
+    }
+}
+
+.template_active {
+    animation: pop .2s 2 alternate;
+}
+
+.icon_active {
+    animation: rotate 1s;
+}

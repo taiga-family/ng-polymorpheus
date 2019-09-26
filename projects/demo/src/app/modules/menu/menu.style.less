@@ -1,0 +1,39 @@
+:host {
+    display: block;
+    border-radius: 4px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 8px 16px -4px rgba(51, 51, 51, 0.2);
+}
+
+.item {
+    cursor: pointer;
+
+    &_active {
+        background: #f5f5f6;
+    }
+
+    &:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+}
+
+.string {
+    padding: 0 16px;
+    height: 44px;
+    line-height: 44px;
+}
+
+.empty {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: #79818c;
+}

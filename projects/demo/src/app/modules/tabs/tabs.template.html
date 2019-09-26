@@ -1,0 +1,8 @@
+<polymorpheus-outlet
+    *ngFor="let tab of tabs"
+    class="tab"
+    [class.tab_active]="isActive(tab)"
+    [content]="content"
+    [context]="getContext(tab)"
+    (click)="onClick(tab)"
+></polymorpheus-outlet>

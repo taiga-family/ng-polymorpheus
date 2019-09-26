@@ -6,8 +6,6 @@
 >
 > It is 1 KB gzip, dependency free and allows you to make pretty cool things.
 
-![Polymorpheus](projects/demo/assets/logo.svg)
-
 ## What does it do?
 
 It abstracts over different ways of view customization in Angular with one simple component:

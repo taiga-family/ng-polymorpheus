@@ -1,0 +1,17 @@
+<input
+    #input
+    type="text"
+    class="input"
+    [placeholder]="placeholder"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
+/>
+<polymorpheus-outlet
+    class="outlet"
+    [content]="content"
+    (mousedown)="onMouseDown($event, input)"
+>
+    <ng-template let-icon>
+        <div [innerHTML]="icon"></div>
+    </ng-template>
+</polymorpheus-outlet>

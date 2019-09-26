@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    height: 56px;
+    box-shadow: inset 0 -1px #e7e8ea;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+    cursor: pointer;
+    color: #79818c;
+
+    &:hover {
+        box-shadow: inset 0 -2px #e7e8ea;
+    }
+
+    &&_active {
+        box-shadow: inset 0 -2px #ffdd2d;
+        color: #333;
+        cursor: default;
+    }
+}

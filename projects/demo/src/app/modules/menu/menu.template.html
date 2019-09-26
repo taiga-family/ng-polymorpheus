@@ -1,0 +1,20 @@
+<polymorpheus-outlet
+    *ngIf="!items.length; else menu"
+    class="empty"
+    [content]="emptyContent"
+></polymorpheus-outlet>
+<ng-template #menu>
+    <polymorpheus-outlet
+        *ngFor="let item of items"
+        class="item"
+        [class.item_active]="isActive(item)"
+        [content]="content"
+        [context]="getContext(item)"
+        (click)="itemClicked.emit(item)"
+        (mouseenter)="onMouseEnter(item)"
+    >
+        <ng-template let-string>
+            <div class="string">{{string}}</div>
+        </ng-template>
+    </polymorpheus-outlet>
+</ng-template>
