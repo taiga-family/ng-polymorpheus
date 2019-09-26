@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 const DEMO_FOLDER = join(DIST_FOLDER, 'demo', 'browser');
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('../demo/server/main');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('../server/main');
 
 app.engine(
     'html',

@@ -4,5 +4,5 @@
         "outDir": "../../dist/demo/ssr",
         "module": "commonjs"
     },
-    "include": ["server.ts", "prerender.ts"]
+    "include": ["server.ts"]
 }
