@@ -1,5 +1,8 @@
 # Polymorpheus
 
+[![npm version](https://img.shields.io/npm/v/@tinkoff/ng-polymorpheus.svg)](https://npmjs.com/package/@tinkoff/ng-polymorpheus)
+[![Build Status](https://travis-ci.org/TinkoffCreditSystems/ng-polymorpheus.svg?branch=master)](https://travis-ci.org/TinkoffCreditSystems/ng-polymorpheus)
+[![Coverage Status](https://coveralls.io/repos/github/TinkoffCreditSystems/ng-polymorpheus/badge.svg?branch=master)](https://coveralls.io/github/TinkoffCreditSystems/ng-polymorpheus?branch=master)
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
 > **Polymorpheus** is a tiny library for polymorphic templates in Angular.
@@ -10,7 +13,7 @@
 
 It abstracts over different ways of view customization in Angular with one simple component:
 
-```typescript
+```html
 <polymorpheus-outlet [content]="content" [context]="context"></polymorpheus-outlet>
 ```
 
@@ -30,9 +33,9 @@ context by itself. Say a menu list where you can configure how each item should 
 like by passing a template. And context would be item itself and, for example,
 whether it is focused or not.
 
-Please see extensive demo here: https://stackblitz.com/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo
+Please see [extensive demo](https://stackblitz.com/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo). 
 
-You can read about this concept in detail here: TBD
+You can also [read about this concept in detail](TBD).
 
 ## Open-source
 
