@@ -12,6 +12,7 @@ import {ComboBoxDemoModule} from './modules/comboBoxDemo/comboBoxDemo.module';
 import {InputDemoModule} from './modules/inputDemo/inputDemo.module';
 import {MenuDemoModule} from './modules/menuDemo/menuDemo.module';
 import {StarWarsDemoModule} from './modules/starWarsDemo/starWarsDemo.module';
+import {StarWarsModule} from './modules/starWars/starWars.module';
 import {TabsDemoModule} from './modules/tabsDemo/tabsDemo.module';
 
 export function hljsLanguages(): ReadonlyArray<HighlightLanguage> {
@@ -30,6 +31,7 @@ export function hljsLanguages(): ReadonlyArray<HighlightLanguage> {
         MenuDemoModule,
         ComboBoxDemoModule,
         TabsDemoModule,
+        StarWarsModule,
         StarWarsDemoModule,
         HighlightModule.forRoot({
             languages: hljsLanguages,

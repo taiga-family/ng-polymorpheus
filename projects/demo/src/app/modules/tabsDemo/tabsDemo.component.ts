@@ -56,7 +56,9 @@ export class TabsDemoComponent extends AbstractDemo {
     customTabs: ReadonlyArray<ICustomTab> | null = null;
 
     get tabCode(): string {
-        return this.anotherExample[this.activeTabTab];
+        const code: any = this.anotherExample[this.activeTabTab];
+
+        return typeof code === 'string' ? code : code.default;
     }
 
     getTabs(content: PolymorpheusContent<never>): ReadonlyArray<ICustomTab> {
