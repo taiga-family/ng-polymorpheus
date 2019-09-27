@@ -1,3 +1,5 @@
+import * as avatar from '!!file-loader!../../../../assets/avatar.jpg';
+
 import * as typescript from '!!raw-loader!../tabs/tabs.component.ts';
 import * as css from '!!raw-loader!../tabs/tabs.style.less';
 import * as html from '!!raw-loader!../tabs/tabs.template.html';
@@ -35,6 +37,8 @@ const ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" vie
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsDemoComponent extends AbstractDemo {
+    readonly avatar = avatar;
+
     readonly items = ['Search for Holy Grail', 'Run away!', 'Taunt a second time'];
 
     readonly example = {

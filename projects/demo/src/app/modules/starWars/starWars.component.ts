@@ -1,3 +1,10 @@
+import * as yoda from '!!file-loader!../../../../assets/yoda.png';
+import * as luke from '!!file-loader!../../../../assets/luke.png';
+import * as ben from '!!file-loader!../../../../assets/ben.png';
+import * as vader from '!!file-loader!../../../../assets/vader.png';
+import * as jedi from '!!file-loader!../../../../assets/jedi.png';
+import * as sith from '!!file-loader!../../../../assets/sith.png';
+
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 interface IStarWarsChar {
@@ -13,17 +20,19 @@ interface IStarWarsChar {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StarWarsComponent {
+    readonly yoda = yoda;
+
     readonly stringify = ({name}: IStarWarsChar) => name;
 
     readonly items: ReadonlyArray<IStarWarsChar> = [
         {
             name: 'Luke Skywalker',
-            avatar: 'assets/luke.png',
+            avatar: luke,
             jedi: true,
         },
         {
             name: 'Obi-Wan Kenobi',
-            avatar: 'assets/ben.png',
+            avatar: ben,
             jedi: true,
         },
         {
@@ -33,7 +42,7 @@ export class StarWarsComponent {
         },
         {
             name: 'Darth Vader',
-            avatar: 'assets/vader.png',
+            avatar: vader,
             jedi: false,
         },
         {
@@ -51,6 +60,6 @@ export class StarWarsComponent {
     }
 
     getRace(isJedi: boolean): string {
-        return isJedi ? 'assets/jedi.png' : 'assets/sith.png';
+        return isJedi ? jedi : sith;
     }
 }

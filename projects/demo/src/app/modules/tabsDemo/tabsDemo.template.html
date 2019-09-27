@@ -13,10 +13,10 @@
     Making it a separate component will allow us to reuse it.
 </blockquote>
 <p>
-    <app-tabs [tabs]="customTabs || getTabs(avatar)" [content]="content"></app-tabs>
+    <app-tabs [tabs]="customTabs || getTabs(avatarTemplate)" [content]="content"></app-tabs>
 </p>
-<ng-template #avatar>
-    <img class="avatar" src="assets/avatar.jpg" alt="Avatar" />
+<ng-template #avatarTemplate>
+    <img class="avatar" [src]="avatar" alt="Avatar" />
 </ng-template>
 <p class="big">
     Here we have two levels of <code><strong>PolymorpheusContent</strong></code> — one

@@ -21,14 +21,7 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.stackblitz.json",
                         "aot": false,
-                        "assets": [
-                            "src/favicon.ico",
-                            {
-                                "glob": "**/*",
-                                "input": "assets/",
-                                "output": "./assets/"
-                            }
-                        ],
+                        "assets": ["src/favicon.ico"],
                         "styles": [
                             "node_modules/highlight.js/styles/idea.css",
                             "src/styles.css"
