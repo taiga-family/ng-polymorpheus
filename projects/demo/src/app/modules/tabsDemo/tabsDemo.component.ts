@@ -9,9 +9,9 @@ import * as html2 from '!!raw-loader!../tab/tab.template.html';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PolymorpheusComponent, PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 import {AbstractDemo} from '../abstractDemo';
+import {avatar, gear} from '../constants';
 import {ICustomTab} from '../interfaces';
 import {TabComponent} from '../tab/tab.component';
-import {avatar, gear} from '../constants';
 
 @Component({
     selector: 'app-tabs-demo',

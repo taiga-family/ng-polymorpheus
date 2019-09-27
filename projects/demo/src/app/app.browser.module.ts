@@ -11,8 +11,8 @@ import {AppComponent} from './app.component';
 import {ComboBoxDemoModule} from './modules/comboBoxDemo/comboBoxDemo.module';
 import {InputDemoModule} from './modules/inputDemo/inputDemo.module';
 import {MenuDemoModule} from './modules/menuDemo/menuDemo.module';
-import {StarWarsDemoModule} from './modules/starWarsDemo/starWarsDemo.module';
 import {StarWarsModule} from './modules/starWars/starWars.module';
+import {StarWarsDemoModule} from './modules/starWarsDemo/starWarsDemo.module';
 import {TabsDemoModule} from './modules/tabsDemo/tabsDemo.module';
 
 export function hljsLanguages(): ReadonlyArray<HighlightLanguage> {
