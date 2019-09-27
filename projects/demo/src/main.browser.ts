@@ -3,18 +3,16 @@ import './polyfills';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppBrowserModule} from './app/app.browser.module';
 
-document.addEventListener('DOMContentLoaded', () => {
-    platformBrowserDynamic()
-        .bootstrapModule(AppBrowserModule)
-        .then(ref => {
-            const windowRef: any = window;
+platformBrowserDynamic()
+    .bootstrapModule(AppBrowserModule)
+    .then(ref => {
+        const windowRef: any = window;
 
-            // Ensure Angular destroys itself on hot reloads for Stackblitz
-            if (windowRef['ngRef']) {
-                windowRef['ngRef'].destroy();
-            }
+        // Ensure Angular destroys itself on hot reloads for Stackblitz
+        if (windowRef['ngRef']) {
+            windowRef['ngRef'].destroy();
+        }
 
-            windowRef['ngRef'] = ref;
-        })
-        .catch(err => console.error(err));
-});
+        windowRef['ngRef'] = ref;
+    })
+    .catch(err => console.error(err));

@@ -29,7 +29,10 @@
                                 "output": "assets"
                             }
                         ],
-                        "styles": ["projects/demo/src/styles.css"],
+                        "styles": [
+                            "node_modules/highlight.js/styles/idea.css",
+                            "projects/demo/src/styles.css"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
