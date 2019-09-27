@@ -34,9 +34,9 @@ like by passing a template. And context would be item itself and, for example,
 whether it is focused or not.
 
 Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo). 
-
+<!---
 You can also [read about this concept in detail](TBD).
-
+-->
 ## Open-source
 
 Do you also want to open-source something, but hate the collateral work?
