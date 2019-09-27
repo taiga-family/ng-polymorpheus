@@ -19,7 +19,6 @@
         "@tinkoff/ng-polymorpheus": "latest",
         "core-js": "2.6.9",
         "dompurify": "^1.0.11",
-        "file-loader": "^3.0.1",
         "highlight.js": "^9.15.5",
         "ngx-highlightjs": "3.0.3",
         "rxjs": "6.5.2",

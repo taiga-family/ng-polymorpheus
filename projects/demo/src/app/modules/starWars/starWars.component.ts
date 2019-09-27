@@ -1,11 +1,5 @@
-import * as yoda from '!!file-loader!../../../../assets/yoda.png';
-import * as luke from '!!file-loader!../../../../assets/luke.png';
-import * as ben from '!!file-loader!../../../../assets/ben.png';
-import * as vader from '!!file-loader!../../../../assets/vader.png';
-import * as jedi from '!!file-loader!../../../../assets/jedi.png';
-import * as sith from '!!file-loader!../../../../assets/sith.png';
-
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ben, jedi, luke, sith, vader, yoda} from '../constants';
 
 interface IStarWarsChar {
     readonly name: string;

@@ -1,5 +1,5 @@
-import * as logo from '!!file-loader!../../assets/logo.svg';
 import {Component} from '@angular/core';
+import {logo} from './modules/constants';
 
 @Component({
     selector: 'my-app',
