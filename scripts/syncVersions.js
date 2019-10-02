@@ -7,24 +7,21 @@ const {version} = require('../package.json');
 syncVersions('projects');
 
 function syncVersions(root) {
-    glob(
-        root + '/**/package.json',
-        (_, files) => {
-            files.forEach(file => {
-                const packageJson = JSON.parse(fs.readFileSync(file));
+    glob(root + '/**/package.json', (_, files) => {
+        files.forEach(file => {
+            const packageJson = JSON.parse(fs.readFileSync(file));
 
-                fs.writeFileSync(
-                    file,
-                    JSON.stringify(
-                        {
-                            ...packageJson,
-                            version,
-                        },
-                        null,
-                        JSON_INDENTATION_LEVEL,
-                    ),
-                );
-            });
-        },
-    );
+            fs.writeFileSync(
+                file,
+                JSON.stringify(
+                    {
+                        ...packageJson,
+                        version,
+                    },
+                    null,
+                    JSON_INDENTATION_LEVEL,
+                ),
+            );
+        });
+    });
 }

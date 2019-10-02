@@ -7,7 +7,7 @@ coveralls();
 function coveralls() {
     const coverageFolder = resolve(__dirname, '..', 'coverage');
 
-    readdirSync(coverageFolder, { withFileTypes: true })
+    readdirSync(coverageFolder, {withFileTypes: true})
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name)
         .forEach(folder => {
