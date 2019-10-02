@@ -35,10 +35,10 @@ context by itself. Say a menu list where you can configure how each item should 
 like by passing a template. And context would be item itself and, for example,
 whether it is focused or not.
 
-Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo). 
-<!---
-You can also [read about this concept in detail](TBD).
--->
+Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo).
+
+You can also [read about this concept in detail](https://blog.angularindepth.com/agnostic-components-in-angular-2427923b742d).
+
 ## Open-source
 
 Do you also want to open-source something, but hate the collateral work?
