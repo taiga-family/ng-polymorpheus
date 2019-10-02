@@ -2,8 +2,8 @@
     "name": "@tinkoff/ng-polymorpheus",
     "version": "1.0.1",
     "peerDependencies": {
-        "@angular/common": ">=4.0.0",
-        "@angular/core": ">=4.0.0"
+        "@angular/common": ">=5.0.0",
+        "@angular/core": ">=5.0.0"
     },
     "description": "This is a tiny library for customizing components appearance",
     "keywords": [
