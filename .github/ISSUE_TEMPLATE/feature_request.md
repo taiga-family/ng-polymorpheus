@@ -1,5 +1,5 @@
 ---
-name: 🚀Feature request
+name: 🚀 Feature request
 about: Suggest an idea for this project
 title: "[FEATURE]"
 labels: ''
@@ -7,7 +7,7 @@ assignees: waterplea
 
 ---
 
-# 🚀Feature request
+# 🚀 Feature request
 
 ### Is your feature request related to a problem?
 <!-- A clear and concise description of what the problem is. Ex. -->
