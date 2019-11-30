@@ -37,7 +37,7 @@ whether it is focused or not.
 
 Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo).
 
-You can also [read about this concept in detail](https://blog.angularindepth.com/agnostic-components-in-angular-2427923b742d).
+You can also [read about this concept in detail](https://medium.com/angular-in-depth/agnostic-components-in-angular-2427923b742d).
 
 ## Open-source
 
