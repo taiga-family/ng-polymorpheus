@@ -5,9 +5,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/TinkoffCreditSystems/ng-polymorpheus/badge.svg?branch=master)](https://coveralls.io/github/TinkoffCreditSystems/ng-polymorpheus?branch=master)
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
-> **Polymorpheus** is a tiny library for polymorphic templates in Angular.
->
-> It is 1 KB gzip, dependency free and allows you to make pretty cool things.
+**Polymorpheus** is a tiny library for polymorphic templates in Angular.
+
+It is 1 KB gzip, dependency free and allows you to make pretty cool things.
 
 ![Polymorpheus](projects/demo/assets/logo.svg)
 
