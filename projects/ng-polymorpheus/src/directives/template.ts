@@ -7,7 +7,7 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
     selector: 'ng-template[polymorpheus]',
     exportAs: 'polymorpheus',
 })
-export class PolymorpheusTemplate<T extends object> {
+export class PolymorpheusTemplate<T extends object = {}> {
     constructor(
         @Inject(TemplateRef)
         @Self()
