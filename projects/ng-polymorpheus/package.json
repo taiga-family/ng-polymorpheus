@@ -1,6 +1,6 @@
 {
     "name": "@tinkoff/ng-polymorpheus",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "peerDependencies": {
         "@angular/common": ">=5.0.0",
         "@angular/core": ">=5.0.0"
@@ -21,7 +21,10 @@
         "ngComponentOutlet"
     ],
     "license": "Apache-2.0",
-    "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
+    "authors": [
+        "Roman Sedov <r.sedov@tinkoff.ru>",
+        "Alex Inkin <a.inkin@tinkoff.ru>"
+    ],
     "repository": "https://github.com/TinkoffCreditSystems/ng-polymorpheus",
     "bugs": "https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues",
     "homepage": "https://github.com/TinkoffCreditSystems/ng-polymorpheus#README"
