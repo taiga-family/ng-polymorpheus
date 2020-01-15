@@ -6,6 +6,7 @@
         "start": "ng serve",
         "start:ssr": "npm run build:demo:ssr && npm run serve:ssr",
         "build": "ng build",
+        "postbuild": "node scripts/postbuild.js",
         "build:schematics": "tsc -p tsconfig.schematics.json",
         "build:demo:client": "ng run demo:build",
         "build:demo:server": "ng run demo:server",
