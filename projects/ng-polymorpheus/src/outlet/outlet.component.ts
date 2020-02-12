@@ -3,6 +3,8 @@ import {
     Component,
     ContentChild,
     DoCheck,
+    Inject,
+    Injector,
     Input,
     TemplateRef,
 } from '@angular/core';
@@ -24,17 +26,13 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck {
     @Input()
     content: PolymorpheusContent<C> | null = null;
 
-    @Input('context')
-    set contextSetter(context: C) {
-        // We need to make a shallow copy because ngTemplateOutlet mutates context:
-        // https://github.com/angular/angular/issues/24515
-        this.context = Object.assign({}, context);
-    }
-
+    @Input()
     context!: C;
 
     @ContentChild(TemplateRef)
     readonly template: TemplateRef<C> | null = null;
+
+    constructor(@Inject(Injector) readonly injector: Injector) {}
 
     get primitive(): PolymorpheusPrimitive {
         if (
@@ -68,7 +66,17 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck {
         return content instanceof PolymorpheusComponent;
     }
 
-    getTemplate(content: PolymorpheusTemplate<C> | TemplateRef<C>): TemplateRef<C> {
+    getTemplate(
+        content:
+            | PolymorpheusComponent<object, C>
+            | PolymorpheusTemplate<C>
+            | TemplateRef<C>,
+        componentTmp: TemplateRef<C>,
+    ): TemplateRef<C> {
+        if (this.isComponent(content)) {
+            return componentTmp;
+        }
+
         return this.isDirective(content) ? content.template : content;
     }
 
