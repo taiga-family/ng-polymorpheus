@@ -1,16 +1,24 @@
 <ng-container
-    *ngIf="isTemplate(content)"
-    [ngTemplateOutlet]="getTemplate(content)"
+    *ngIf="isTemplate(content) || isComponent(content)"
+    #mutableContext="context"
+    context
+    [ngTemplateOutlet]="getTemplate(content, component)"
     [ngTemplateOutletContext]="context"
-></ng-container>
-<ng-container
-    *ngIf="isComponent(content)"
-    [ngComponentOutlet]="content.component"
-    [ngComponentOutletInjector]="content | injector: context"
-></ng-container>
+>
+    <ng-template #component>
+        <ng-container
+            *ngIf="isComponent(content)"
+            [ngComponentOutlet]="content.component"
+            [ngComponentOutletInjector]="content | injector : mutableContext.context : injector"
+        ></ng-container>
+    </ng-template>
+</ng-container>
 <ng-container *ngIf="primitive">
-    <ng-container *ngIf="!template; else child">{{ primitive }}</ng-container>
+    <ng-container *ngIf="!template; else child">{{primitive}}</ng-container>
     <ng-template #child>
-        <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{$implicit: primitive}"></ng-container>
+        <ng-container
+            [ngTemplateOutlet]="template"
+            [ngTemplateOutletContext]="{$implicit: primitive}"
+        ></ng-container>
     </ng-template>
 </ng-container>
