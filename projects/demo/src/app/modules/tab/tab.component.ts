@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {
-    POLYMOPRHEUS_CONTEXT,
+    POLYMORPHEUS_CONTEXT,
     PolymorpheusContent,
     PolymorpheusTemplate,
 } from '@tinkoff/ng-polymorpheus';
@@ -14,7 +14,7 @@ import {IContextWithActive, ICustomTab} from '../interfaces';
 })
 export class TabComponent {
     constructor(
-        @Inject(POLYMOPRHEUS_CONTEXT)
+        @Inject(POLYMORPHEUS_CONTEXT)
         private readonly context: IContextWithActive<ICustomTab>,
     ) {}
 

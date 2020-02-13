@@ -1,12 +1,18 @@
+import {NgComponentOutlet} from '@angular/common';
 import {
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
+    ComponentRef,
     ContentChild,
     DoCheck,
     Inject,
     Injector,
     Input,
+    OnChanges,
+    SimpleChanges,
     TemplateRef,
+    ViewChild,
 } from '@angular/core';
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
@@ -22,7 +28,7 @@ import {PolymorpheusPrimitive} from '../types/primitive';
     styles: [':host { display: block; }'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PolymorpheusOutletComponent<C extends object> implements DoCheck {
+export class PolymorpheusOutletComponent<C extends object> implements DoCheck, OnChanges {
     @Input()
     content: PolymorpheusContent<C> | null = null;
 
@@ -31,6 +37,9 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck {
 
     @ContentChild(TemplateRef)
     readonly template: TemplateRef<C> | null = null;
+
+    @ViewChild(NgComponentOutlet)
+    readonly outlet?: NgComponentOutlet;
 
     constructor(@Inject(Injector) readonly injector: Injector) {}
 
@@ -78,6 +87,18 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck {
         }
 
         return this.isDirective(content) ? content.template : content;
+    }
+
+    ngOnChanges({content, context}: SimpleChanges) {
+        // TODO: Keep an eye on private field, name can change
+        const componentRef = (!content &&
+            context &&
+            this.outlet &&
+            this.outlet['_componentRef']) as ComponentRef<object> | null | false;
+
+        if (componentRef) {
+            componentRef.injector.get(ChangeDetectorRef).markForCheck();
+        }
     }
 
     ngDoCheck() {

@@ -1,11 +1,18 @@
 import {CommonModule} from '@angular/common';
-import {Component, ElementRef, Inject, NgModule, TemplateRef, ViewChild} from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Inject,
+    NgModule,
+    TemplateRef,
+    ViewChild,
+} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {configureTestSuite} from 'ng-bullet';
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
 import {PolymorpheusModule} from '../polymorpheus.module';
-import {POLYMOPRHEUS_CONTEXT} from '../tokens/context';
+import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 import {PolymorpheusContent} from '../types/content';
 
 describe('PolymorpheusOutlet', () => {
@@ -32,20 +39,20 @@ describe('PolymorpheusOutlet', () => {
                 ></polymorpheus-outlet>
             </ng-template>
             <ng-template #plain let-value>
-                <strong>{{value}}</strong>
+                <strong>{{ value }}</strong>
             </ng-template>
             <ng-template #polymorpheus="polymorpheus" polymorpheus let-value>
-                <strong>{{value}}</strong>
+                <strong>{{ value }}</strong>
             </ng-template>
         `,
     })
     class TestComponent {
         @ViewChild('element', {read: ElementRef})
         element!: ElementRef<HTMLElement>;
-        
+
         @ViewChild('plain')
         template!: TemplateRef<{}>;
-        
+
         @ViewChild('polymorpheus')
         polymorpheus!: PolymorpheusTemplate<{}>;
 
@@ -61,10 +68,12 @@ describe('PolymorpheusOutlet', () => {
     }
 
     @Component({
-        template: `Component: {{context.$implicit}}`,
+        template: `
+            Component: {{ context.$implicit }}
+        `,
     })
     class ComponentContent {
-        constructor(@Inject(POLYMOPRHEUS_CONTEXT) readonly context: any) {}
+        constructor(@Inject(POLYMORPHEUS_CONTEXT) readonly context: any) {}
     }
 
     @NgModule({
