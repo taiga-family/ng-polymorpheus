@@ -1,5 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {
+    ChangeDetectionStrategy,
     Component,
     ElementRef,
     Inject,
@@ -14,6 +15,8 @@ import {PolymorpheusTemplate} from '../directives/template';
 import {PolymorpheusModule} from '../polymorpheus.module';
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 import {PolymorpheusContent} from '../types/content';
+
+let COUNTER = 0;
 
 describe('PolymorpheusOutlet', () => {
     @Component({
@@ -71,9 +74,12 @@ describe('PolymorpheusOutlet', () => {
         template: `
             Component: {{ context.$implicit }}
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class ComponentContent {
-        constructor(@Inject(POLYMORPHEUS_CONTEXT) readonly context: any) {}
+        constructor(@Inject(POLYMORPHEUS_CONTEXT) readonly context: any) {
+            COUNTER++;
+        }
     }
 
     @NgModule({
@@ -229,13 +235,33 @@ describe('PolymorpheusOutlet', () => {
         });
     });
 
-    it('PolymorpheusComponent', () => {
-        testComponent.context = {
-            $implicit: 'string',
-        };
-        testComponent.content = new PolymorpheusComponent(ComponentContent);
-        fixture.detectChanges();
+    describe('PolymorpheusComponent', () => {
+        it('creates component', () => {
+            testComponent.context = {
+                $implicit: 'string',
+            };
+            testComponent.content = new PolymorpheusComponent(ComponentContent);
+            fixture.detectChanges();
 
-        expect(text()).toBe('Component: string');
+            expect(text()).toBe('Component: string');
+        });
+
+        it('does not recreate component if context changes to the same shape', () => {
+            testComponent.context = {
+                $implicit: 'string',
+            };
+            testComponent.content = new PolymorpheusComponent(ComponentContent);
+            fixture.detectChanges();
+
+            const counter = COUNTER;
+
+            testComponent.context = {
+                $implicit: 'number',
+            };
+            fixture.detectChanges();
+
+            expect(text()).toBe('Component: number');
+            expect(COUNTER).toBe(counter);
+        });
     });
 });
