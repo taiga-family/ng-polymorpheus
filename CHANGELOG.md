@@ -8,11 +8,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 -   **Component:** Polymorpheus components now behave the same way as Angular templates and mutate context instead of reinstantiating if the shape of the context stayed the same ([#12](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/12)) ([57cd932](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/57cd932))
 
-## [1.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v1.0.2...v1.1.0) (2020-02-12)
+### BREAKING CHANGES:
 
-### Features
-
--   **Component:** Polymorpheus components now behave the same way as Angular templates and mutate context instead of reinstantiating if the shape of the context stayed the same ([#12](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/12)) ([57cd932](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/57cd932))
+-   **POLYMORPHEUS_CONTEXT**: fix typo in the name
 
 ### [1.0.4](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v1.0.2...v1.0.4) (2020-01-20)
 
