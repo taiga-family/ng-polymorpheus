@@ -23,7 +23,7 @@ import {PolymorpheusPrimitive} from '../types/primitive';
  * Outlet instantiating {@link PolymorpheusContent} with given context
  */
 @Component({
-    selector: 'polymorpheus-outlet',
+    selector: 'polymorpheus-outlet, [polymorpheus-outlet]',
     templateUrl: './outlet.template.html',
     styles: [':host { display: block; }'],
     changeDetection: ChangeDetectionStrategy.OnPush,

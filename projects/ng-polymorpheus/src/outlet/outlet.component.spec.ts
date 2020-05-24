@@ -21,9 +21,10 @@ let COUNTER = 0;
 describe('PolymorpheusOutlet', () => {
     @Component({
         template: `
-            <polymorpheus-outlet
+            <div
                 *ngIf="polymorphic; else basic"
                 #element
+                polymorpheus-outlet
                 [content]="content"
                 [context]="context"
             >
@@ -33,13 +34,14 @@ describe('PolymorpheusOutlet', () => {
                     </div>
                     <ng-template #str>String: {{ primitive }}</ng-template>
                 </ng-template>
-            </polymorpheus-outlet>
+            </div>
             <ng-template #basic>
-                <polymorpheus-outlet
+                <div
+                    polymorpheus-outlet
                     #element
                     [content]="content"
                     [context]="context"
-                ></polymorpheus-outlet>
+                ></div>
             </ng-template>
             <ng-template #plain let-value>
                 <strong>{{ value }}</strong>
