@@ -1,8 +1,9 @@
 <span class="text">
     {{text}}
 </span>
-<polymorpheus-outlet
+<div
     *ngIf="content"
+    polymorpheus-outlet
     [class.template_active]="templateActive"
     [content]="content"
 >
@@ -18,4 +19,4 @@
             <div [class.icon_active]="active" [innerHTML]="primitive"></div>
         </ng-template>
     </ng-template>
-</polymorpheus-outlet>
+</div>

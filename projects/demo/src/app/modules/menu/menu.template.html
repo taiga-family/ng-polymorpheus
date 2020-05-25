@@ -1,11 +1,13 @@
-<polymorpheus-outlet
+<div
     *ngIf="!items.length; else menu"
+    polymorpheus-outlet
     class="empty"
     [content]="emptyContent"
-></polymorpheus-outlet>
+></div>
 <ng-template #menu>
-    <polymorpheus-outlet
+    <div
         *ngFor="let item of items"
+        polymorpheus-outlet
         class="item"
         [class.item_active]="isActive(item)"
         [content]="content"
@@ -16,5 +18,5 @@
         <ng-template let-string>
             <div class="string">{{string}}</div>
         </ng-template>
-    </polymorpheus-outlet>
+    </div>
 </ng-template>
