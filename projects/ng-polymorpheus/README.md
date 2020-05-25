@@ -14,7 +14,7 @@
 It abstracts over different ways of view customization in Angular with one simple _attribute_ component:
 
 ```html
-<h1 polymorpheus-outlet [content]="content" [context]="context"></h1>
+<header polymorpheus-outlet [content]="content" [context]="context"></header>
 ```
 
 **Content** accepts:
