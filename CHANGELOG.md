@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v1.0.2...v2.1.0) (2020-05-25)
+
+
+### Bug Fixes
+
+* **readme:** fix link to the Medium article ([#7](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/7)) ([6b77cfd](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/6b77cfd))
+
+
+### Features
+
+* **Component:** handle change detection properly ([#14](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/14)) ([334a713](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/334a713))
+* **Component:** Polymorpheus components now behave the same way as Angular templates and mutate context instead of reinstantiating if the shape of the context stayed the same ([#12](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/12)) ([57cd932](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/57cd932))
+* **outlet:** allow attribute usage so it can be applied to native tags ([#17](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/17)) ([62d7a5a](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/62d7a5a))
+* **template:** add default type as empty object ([#8](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/8)) ([231ba62](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/231ba62))
+
 ## [2.0.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v1.0.2...v2.0.0) (2020-02-14)
 
 ### Features
