@@ -39,9 +39,12 @@
         "ngComponentOutlet"
     ],
     "license": "Apache-2.0",
-    "authors": [
-        "Roman Sedov <r.sedov@tinkoff.ru>",
-        "Alex Inkin <a.inkin@tinkoff.ru>"
+    "author": {
+        "name": "Alex Inkin",
+        "email": "alexander@inkin.ru"
+    },
+    "contributors": [
+        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
     ],
     "repository": "https://github.com/TinkoffCreditSystems/ng-polymorpheus",
     "bugs": "https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues",
