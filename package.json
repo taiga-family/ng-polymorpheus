@@ -65,7 +65,7 @@
         "@nguniversal/express-engine": "^7.1.1",
         "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
         "core-js": "^2.5.4",
-        "dompurify": "2.0.7",
+        "dompurify": "2.0.17",
         "highlight.js": "^9.15.5",
         "ngx-highlightjs": "3.0.3",
         "rxjs": "^6.5.2",
