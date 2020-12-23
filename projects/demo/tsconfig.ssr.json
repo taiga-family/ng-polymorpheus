@@ -1,8 +1,0 @@
-{
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "outDir": "../../dist/demo/ssr",
-        "module": "commonjs"
-    },
-    "include": ["server.ts"]
-}

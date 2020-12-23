@@ -23,32 +23,27 @@ import {PolymorpheusPrimitive} from '../types/primitive';
  * Outlet instantiating {@link PolymorpheusContent} with given context
  */
 @Component({
-    selector: 'polymorpheus-outlet, [polymorpheus-outlet]',
+    selector: '[polymorpheus-outlet]',
     templateUrl: './outlet.template.html',
-    styles: [':host { display: block; }'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PolymorpheusOutletComponent<C extends object> implements DoCheck, OnChanges {
-    @Input()
-    content: PolymorpheusContent<C> | null = null;
-
-    @Input()
-    context!: C;
-
     @ContentChild(TemplateRef)
     readonly template: TemplateRef<C> | null = null;
 
     @ViewChild(NgComponentOutlet)
     readonly outlet?: NgComponentOutlet;
 
+    @Input()
+    content: PolymorpheusContent<C> | null = null;
+
+    @Input()
+    context!: C;
+
     constructor(@Inject(Injector) readonly injector: Injector) {}
 
     get primitive(): PolymorpheusPrimitive {
-        if (
-            !this.content ||
-            this.isComponent(this.content) ||
-            this.isTemplate(this.content)
-        ) {
+        if (!this.content || this.isAdvanced(this.content)) {
             return '';
         }
 
@@ -57,22 +52,13 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck, O
             : this.content;
     }
 
-    isDirective(
+    isAdvanced(
         content: PolymorpheusContent<C> | null,
-    ): content is PolymorpheusTemplate<C> {
-        return content instanceof PolymorpheusTemplate;
-    }
-
-    isTemplate(
-        content: PolymorpheusContent<C> | null,
-    ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
-        return this.isDirective(content) || content instanceof TemplateRef;
-    }
-
-    isComponent(
-        content: PolymorpheusContent<C> | null,
-    ): content is PolymorpheusComponent<object, C> {
-        return content instanceof PolymorpheusComponent;
+    ): content is
+        | PolymorpheusTemplate<C>
+        | TemplateRef<C>
+        | PolymorpheusComponent<object, C> {
+        return isTemplate(content) || isComponent(content);
     }
 
     getTemplate(
@@ -82,11 +68,17 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck, O
             | TemplateRef<C>,
         componentTmp: TemplateRef<C>,
     ): TemplateRef<C> {
-        if (this.isComponent(content)) {
+        if (isComponent(content)) {
             return componentTmp;
         }
 
-        return this.isDirective(content) ? content.template : content;
+        return isDirective(content) ? content.template : content;
+    }
+
+    guard(
+        content: PolymorpheusContent<C> | null,
+    ): content is PolymorpheusComponent<object, C> {
+        return isComponent(content);
     }
 
     ngOnChanges({content, context}: SimpleChanges) {
@@ -102,8 +94,26 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck, O
     }
 
     ngDoCheck() {
-        if (this.isDirective(this.content)) {
+        if (isDirective(this.content)) {
             this.content.check();
         }
     }
+}
+
+function isDirective<C extends object>(
+    content: PolymorpheusContent<C> | null,
+): content is PolymorpheusTemplate<C> {
+    return content instanceof PolymorpheusTemplate;
+}
+
+function isComponent<C extends object>(
+    content: PolymorpheusContent<C> | null,
+): content is PolymorpheusComponent<object, C> {
+    return content instanceof PolymorpheusComponent;
+}
+
+function isTemplate<C extends object>(
+    content: PolymorpheusContent<C> | null,
+): content is PolymorpheusTemplate<C> | TemplateRef<C> {
+    return isDirective(content) || content instanceof TemplateRef;
 }

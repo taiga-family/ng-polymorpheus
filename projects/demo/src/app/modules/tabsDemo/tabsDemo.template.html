@@ -1,6 +1,4 @@
-<span class="big">
-    Tabs that are used in this demo are a lot like the menu:
-</span>
+<span class="big"> Tabs that are used in this demo are a lot like the menu: </span>
 <p>
     <app-tabs [tabs]="tabs" [(activeTab)]="activeTab"></app-tabs>
 </p>
@@ -9,11 +7,12 @@
     Let's show the strength of <code><strong>polymorpheus-outlet</strong></code> by
     creating a <code><strong>tab</strong></code> component.
 </p>
-<blockquote>
-    Making it a separate component will allow us to reuse it.
-</blockquote>
+<blockquote>Making it a separate component will allow us to reuse it.</blockquote>
 <p>
-    <app-tabs [tabs]="customTabs || getTabs(avatarTemplate)" [content]="content"></app-tabs>
+    <app-tabs
+        [tabs]="customTabs || getTabs(avatarTemplate)"
+        [content]="content"
+    ></app-tabs>
 </p>
 <ng-template #avatarTemplate>
     <img class="avatar" [src]="avatar" alt="Avatar" />
@@ -26,10 +25,6 @@
     while primitives are treated differently. Numbers are shown in a 'badge' component
     while string is used as source for SVG icon.
 </p>
-<blockquote>
-    Keep in mind you need to add your component to
-    <code><strong>entryComponents</strong></code>
-</blockquote>
 <p class="big">
     Take a look at the source code for
     <code><strong>tab</strong></code> component:

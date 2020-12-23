@@ -1,5 +1,5 @@
 <ng-container
-    *ngIf="isTemplate(content) || isComponent(content)"
+    *ngIf="isAdvanced(content)"
     #mutableContext="context"
     context
     [ngTemplateOutlet]="getTemplate(content, component)"
@@ -7,9 +7,9 @@
 >
     <ng-template #component>
         <ng-container
-            *ngIf="isComponent(content)"
+            *ngIf="guard(content)"
             [ngComponentOutlet]="content.component"
-            [ngComponentOutletInjector]="content | injector : mutableContext.context : injector"
+            [ngComponentOutletInjector]="content | injector : mutableContext.context"
         ></ng-container>
     </ng-template>
 </ng-container>

@@ -9,8 +9,7 @@ import {Directive, EmbeddedViewRef, Inject, ViewContainerRef} from '@angular/cor
 })
 export class ContextDirective<C> {
     constructor(
-        @Inject(ViewContainerRef)
-        private readonly viewContainerRef: ViewContainerRef,
+        @Inject(ViewContainerRef) private readonly viewContainerRef: ViewContainerRef,
     ) {}
 
     get context(): C | null {
