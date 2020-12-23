@@ -1,14 +1,14 @@
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 
-export interface IContextWithImplicit<T> {
+export interface ContextWithImplicit<T> {
     readonly $implicit: T;
 }
 
-export interface IContextWithActive<T> extends IContextWithImplicit<T> {
+export interface ContextWithActive<T> extends ContextWithImplicit<T> {
     readonly active: boolean;
 }
 
-export interface ICustomTab {
+export interface CustomTab {
     text: string;
     content?: PolymorpheusContent<never>;
 }

@@ -4,7 +4,7 @@ import {
     PolymorpheusContent,
     PolymorpheusTemplate,
 } from '@tinkoff/ng-polymorpheus';
-import {IContextWithActive, ICustomTab} from '../interfaces';
+import {ContextWithActive, CustomTab} from '../interfaces';
 
 @Component({
     selector: 'app-tab',
@@ -15,7 +15,7 @@ import {IContextWithActive, ICustomTab} from '../interfaces';
 export class TabComponent {
     constructor(
         @Inject(POLYMORPHEUS_CONTEXT)
-        private readonly context: IContextWithActive<ICustomTab>,
+        private readonly context: ContextWithActive<CustomTab>,
     ) {}
 
     get text(): string {

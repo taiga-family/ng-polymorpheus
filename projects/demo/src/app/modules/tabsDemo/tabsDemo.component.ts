@@ -10,7 +10,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PolymorpheusComponent, PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 import {AbstractDemo} from '../abstractDemo';
 import {avatar, gear} from '../constants';
-import {ICustomTab} from '../interfaces';
+import {CustomTab} from '../interfaces';
 import {TabComponent} from '../tab/tab.component';
 
 @Component({
@@ -40,7 +40,7 @@ export class TabsDemoComponent extends AbstractDemo {
 
     activeTabTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
 
-    customTabs: ReadonlyArray<ICustomTab> | null = null;
+    customTabs: ReadonlyArray<CustomTab> | null = null;
 
     get tabCode(): string {
         const code: any = this.anotherExample[this.activeTabTab];
@@ -48,7 +48,7 @@ export class TabsDemoComponent extends AbstractDemo {
         return typeof code === 'string' ? code : code.default;
     }
 
-    getTabs(content: PolymorpheusContent<never>): ReadonlyArray<ICustomTab> {
+    getTabs(content: PolymorpheusContent<never>): ReadonlyArray<CustomTab> {
         const customTabs = [
             {
                 text: 'Alex Inkin',
