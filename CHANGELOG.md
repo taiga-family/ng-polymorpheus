@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v2.1.0...v3.0.0) (2020-12-24)
+
+### Features
+
+-   **outlet:** remove display: block ([#25](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/25)) ([9dcd7f8](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/9dcd7f8fa1bab685f4fb41b40de9d14c7d00edea))
+
+### BREAKING CHANGES:
+
+-   Bumped Angular to version 9
+-   Remove the component selector for outlet
+
 ## [2.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v2.0.0...v2.1.0) (2020-05-25)
 
 ### Features

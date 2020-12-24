@@ -6,8 +6,6 @@ import {
     ComponentRef,
     ContentChild,
     DoCheck,
-    Inject,
-    Injector,
     Input,
     OnChanges,
     SimpleChanges,
@@ -39,8 +37,6 @@ export class PolymorpheusOutletComponent<C extends object> implements DoCheck, O
 
     @Input()
     context!: C;
-
-    constructor(@Inject(Injector) readonly injector: Injector) {}
 
     get primitive(): PolymorpheusPrimitive {
         if (!this.content || this.isAdvanced(this.content)) {
