@@ -1,4 +1,4 @@
-import {Injector, Pipe, PipeTransform} from '@angular/core';
+import {Inject, Injector, Pipe, PipeTransform} from '@angular/core';
 import {PolymorpheusComponent} from '../classes/component';
 
 /**
@@ -9,11 +9,9 @@ import {PolymorpheusComponent} from '../classes/component';
     name: 'injector',
 })
 export class InjectorPipe<C extends object> implements PipeTransform {
-    transform(
-        content: PolymorpheusComponent<object, C>,
-        context: C,
-        injector: Injector,
-    ): Injector {
-        return content.createInjector(injector, context);
+    constructor(@Inject(Injector) private readonly injector: Injector) {}
+
+    transform(content: PolymorpheusComponent<object, C>, context: C): Injector {
+        return content.createInjector(this.injector, context);
     }
 }

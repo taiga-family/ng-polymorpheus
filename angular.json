@@ -64,8 +64,39 @@
                     "builder": "@angular-devkit/build-angular:server",
                     "options": {
                         "outputPath": "dist/demo/server",
-                        "main": "projects/demo/src/main.server.ts",
+                        "main": "projects/demo/server.ts",
                         "tsConfig": "projects/demo/tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "outputHashing": "media",
+                            "sourceMap": false,
+                            "optimization": true
+                        }
+                    }
+                },
+                "serve-ssr": {
+                    "builder": "@nguniversal/builders:ssr-dev-server",
+                    "options": {
+                        "browserTarget": "demo:build",
+                        "serverTarget": "demo:server"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "demo:build:production",
+                            "serverTarget": "demo:server:production"
+                        }
+                    }
+                },
+                "prerender": {
+                    "builder": "@nguniversal/builders:prerender",
+                    "options": {
+                        "browserTarget": "demo:build:production",
+                        "serverTarget": "demo:server:production",
+                        "routes": ["/"]
+                    },
+                    "configurations": {
+                        "production": {}
                     }
                 },
                 "lint": {
@@ -106,9 +137,7 @@
                             "projects/ng-polymorpheus/tsconfig.lib.json",
                             "projects/ng-polymorpheus/tsconfig.spec.json"
                         ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }

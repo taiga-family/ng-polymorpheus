@@ -1,5 +1,6 @@
 body {
-    font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', system-ui, 'Roboto', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', system-ui, 'Roboto',
+        'Helvetica Neue', sans-serif;
     color: #333;
     margin: 0 auto;
     padding: 24px;
@@ -21,6 +22,19 @@ pre {
 
 h2 {
     margin-top: 40px;
+}
+
+img {
+    vertical-align: middle
+}
+
+a {
+    color: #526ed3;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #6c86e2;
 }
 
 footer {
@@ -53,7 +67,8 @@ app-input {
     font-weight: bold;
 }
 
-.center {
+.logo {
+    height: 382px;
     text-align: center;
 }
 

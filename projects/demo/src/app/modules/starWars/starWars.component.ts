@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
 
-interface IStarWarsChar {
+interface StarWarsChar {
     readonly name: string;
     readonly avatar: string;
     readonly jedi: boolean;
@@ -16,9 +16,9 @@ interface IStarWarsChar {
 export class StarWarsComponent {
     readonly yoda = yoda;
 
-    readonly stringify = ({name}: IStarWarsChar) => name;
+    readonly stringify = ({name}: StarWarsChar) => name;
 
-    readonly items: ReadonlyArray<IStarWarsChar> = [
+    readonly items: ReadonlyArray<StarWarsChar> = [
         {
             name: 'Luke Skywalker',
             avatar: luke,

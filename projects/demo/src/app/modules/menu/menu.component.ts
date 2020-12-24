@@ -7,7 +7,7 @@ import {
     Output,
 } from '@angular/core';
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {IContextWithActive} from '../interfaces';
+import {ContextWithActive} from '../interfaces';
 
 @Component({
     selector: 'app-menu',
@@ -16,13 +16,15 @@ import {IContextWithActive} from '../interfaces';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent<T> {
+    private activeItem: T | null = null;
+
     @Input()
     items: ReadonlyArray<T> = [];
 
     @Input()
-    content: PolymorpheusContent<IContextWithActive<T>> = ({
+    content: PolymorpheusContent<ContextWithActive<T>> = ({
         $implicit,
-    }: IContextWithActive<T>) => String($implicit);
+    }: ContextWithActive<T>) => String($implicit);
 
     @Input()
     emptyContent: PolymorpheusContent<never> = 'Nothing is found';
@@ -30,13 +32,11 @@ export class MenuComponent<T> {
     @Output()
     readonly itemClicked = new EventEmitter<T>();
 
-    private activeItem: T | null = null;
-
     isActive(item: T): boolean {
         return item === this.activeItem;
     }
 
-    getContext($implicit: T): IContextWithActive<T> {
+    getContext($implicit: T): ContextWithActive<T> {
         return {
             $implicit,
             active: this.isActive($implicit),

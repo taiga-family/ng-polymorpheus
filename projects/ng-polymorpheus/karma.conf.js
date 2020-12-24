@@ -16,7 +16,7 @@ module.exports = function(config) {
             clearContext: false, // leave Jasmine Spec Runner output visible in browser
         },
         coverageIstanbulReporter: {
-            dir: require('path').join(__dirname, '../../coverage/ng-polymorpheus'),
+            dir: require('path').join(__dirname, '../../coverage'),
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true,
         },
@@ -34,9 +34,9 @@ module.exports = function(config) {
                     '--no-sandbox',
                     '--headless',
                     '--disable-gpu',
-                    '--remote-debugging-port=9222'
-                ]
-            }
+                    '--remote-debugging-port=9222',
+                ],
+            },
         },
     });
 };

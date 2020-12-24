@@ -6,7 +6,7 @@ import {
     Output,
 } from '@angular/core';
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {IContextWithActive} from '../interfaces';
+import {ContextWithActive} from '../interfaces';
 
 @Component({
     selector: 'app-combo-box',
@@ -15,6 +15,10 @@ import {IContextWithActive} from '../interfaces';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComboBoxComponent<T> {
+    stringValue = '';
+
+    opened = false;
+
     @Input()
     placeholder = '';
 
@@ -22,9 +26,9 @@ export class ComboBoxComponent<T> {
     items: ReadonlyArray<T> = [];
 
     @Input()
-    content: PolymorpheusContent<IContextWithActive<T>> = ({
+    content: PolymorpheusContent<ContextWithActive<T>> = ({
         $implicit,
-    }: IContextWithActive<T>) => String($implicit);
+    }: ContextWithActive<T>) => String($implicit);
 
     @Input()
     emptyContent: PolymorpheusContent<never> = 'Nothing is found';
@@ -37,10 +41,6 @@ export class ComboBoxComponent<T> {
 
     @Output()
     valueChange = new EventEmitter<T | null>();
-
-    stringValue = '';
-
-    opened = false;
 
     get valueSelected(): boolean {
         return !!this.value && this.items.includes(this.value);
