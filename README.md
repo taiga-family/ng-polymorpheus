@@ -39,6 +39,20 @@ Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems
 
 You can also [read about this concept in detail](https://medium.com/angular-in-depth/agnostic-components-in-angular-2427923b742d).
 
+### Adding type to template context
+
+You can use `polymorpehus` directive to add type to template context:
+
+```typescript
+readonly context!: { $implicit: number };
+```
+
+```html
+<ng-template #temlate="polymorpheus" [polymorpheus]="context" let-item>
+    {{ item.toFixed(2) }} <-- type 'number'
+</ng-template>
+```
+
 ## Open-source
 
 Do you also want to open-source something, but hate the collateral work?

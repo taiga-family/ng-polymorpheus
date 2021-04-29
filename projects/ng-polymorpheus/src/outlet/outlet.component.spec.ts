@@ -73,9 +73,7 @@ describe('PolymorpheusOutlet', () => {
     }
 
     @Component({
-        template: `
-            Component: {{ context.$implicit }}
-        `,
+        template: ` Component: {{ context.$implicit }} `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class ComponentContent {
@@ -117,6 +115,11 @@ describe('PolymorpheusOutlet', () => {
 
     it('Empty by default', () => {
         expect(text()).toBe('');
+    });
+
+    it('Static type check exists', () => {
+        // @ts-ignore
+        expect(PolymorpheusTemplate.ngTemplateContextGuard()).toBe(true);
     });
 
     describe('Primitive', () => {
