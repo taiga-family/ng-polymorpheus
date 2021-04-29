@@ -2,13 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [3.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v2.1.0...v3.1.0) (2021-04-29)
-
+## [3.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/3.0.0...v3.1.0) (2021-04-29)
 
 ### Features
 
-* **outlet:** remove display: block ([#25](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/25)) ([9dcd7f8](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/9dcd7f8))
-* **template:** add a way to type context ([#27](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/27)) ([f4141f4](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/f4141f4))
+-   **template:** add a way to type context ([#27](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/27)) ([f4141f4](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/f4141f4))
 
 ## [3.0.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v2.1.0...v3.0.0) (2020-12-24)
 
