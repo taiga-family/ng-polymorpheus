@@ -6,8 +6,11 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
 @Directive({
     selector: 'ng-template[polymorpheus]',
     exportAs: 'polymorpheus',
+    inputs: ['polymorpheus'],
 })
 export class PolymorpheusTemplate<T extends object> {
+    polymorpheus!: T;
+
     constructor(
         @Inject(TemplateRef)
         @Self()
@@ -17,5 +20,12 @@ export class PolymorpheusTemplate<T extends object> {
 
     check() {
         this.changeDetectorRef.markForCheck();
+    }
+
+    static ngTemplateContextGuard<T extends {}>(
+        _dir: PolymorpheusTemplate<T>,
+        _ctx: any,
+    ): _ctx is T {
+        return true;
     }
 }
