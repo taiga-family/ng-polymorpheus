@@ -98,7 +98,7 @@
         "karma-jasmine-html-reporter": "^1.5.4",
         "lint-staged": "^10.5.3",
         "ng-bullet": "^1.0.3",
-        "ng-packagr": "9.1.5",
+        "ng-packagr": "10.1.1",
         "prettier": "^2.2.1",
         "standard-version": "^9.0.0",
         "stylelint": "^10.0.1",
