@@ -22,10 +22,10 @@ export class PolymorpheusTemplate<T extends object = object> {
         this.changeDetectorRef.markForCheck();
     }
 
-    static ngTemplateContextGuard<T extends {}>(
-        _dir: PolymorpheusTemplate<T>,
+    static ngTemplateContextGuard<T extends object>(
+        {polymorpheus}: PolymorpheusTemplate<T>,
         _ctx: any,
     ): _ctx is T {
-        return true;
+        return typeof polymorpheus !== 'string';
     }
 }
