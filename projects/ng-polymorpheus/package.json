@@ -24,5 +24,8 @@
     "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
     "repository": "https://github.com/TinkoffCreditSystems/ng-polymorpheus",
     "bugs": "https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues",
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
     "homepage": "https://github.com/TinkoffCreditSystems/ng-polymorpheus#README"
 }
