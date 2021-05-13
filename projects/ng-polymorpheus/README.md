@@ -14,9 +14,9 @@
 It abstracts over different ways of view customization in Angular with one simple _structural directive_:
 
 ```html
-<ng-container *polymorpheusOutlet="content as text; context: context"
-    >{{text}}</ng-container
->
+<ng-container *polymorpheusOutlet="content as text; context: context">
+    {{text}}
+</ng-container>
 ```
 
 **Content** accepts:
