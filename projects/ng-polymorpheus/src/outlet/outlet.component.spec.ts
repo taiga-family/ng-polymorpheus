@@ -119,7 +119,9 @@ describe('PolymorpheusOutlet', () => {
 
     it('Static type check exists', () => {
         // @ts-ignore
-        expect(PolymorpheusTemplate.ngTemplateContextGuard()).toBe(true);
+        expect(PolymorpheusTemplate.ngTemplateContextGuard({polymorpheus: {}})).toBe(
+            true,
+        );
     });
 
     describe('Primitive', () => {

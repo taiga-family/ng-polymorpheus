@@ -1,14 +1,14 @@
 import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/core';
 
 /**
- * ng-template wrapper directive also storing {@link ChangeDetectorRef} to properly handle change detection.
+ * ng-template wrapper directive also stores {@link ChangeDetectorRef} to properly handle change detection.
  */
 @Directive({
     selector: 'ng-template[polymorpheus]',
     exportAs: 'polymorpheus',
     inputs: ['polymorpheus'],
 })
-export class PolymorpheusTemplate<T extends object> {
+export class PolymorpheusTemplate<T extends object = object> {
     polymorpheus!: T;
 
     constructor(
@@ -22,10 +22,10 @@ export class PolymorpheusTemplate<T extends object> {
         this.changeDetectorRef.markForCheck();
     }
 
-    static ngTemplateContextGuard<T extends {}>(
-        _dir: PolymorpheusTemplate<T>,
+    static ngTemplateContextGuard<T extends object>(
+        {polymorpheus}: PolymorpheusTemplate<T>,
         _ctx: any,
     ): _ctx is T {
-        return true;
+        return typeof polymorpheus !== 'string';
     }
 }
