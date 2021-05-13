@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {
-    POLYMORPHEUS_CONTEXT,
     PolymorpheusContent,
     PolymorpheusTemplate,
+    POLYMORPHEUS_CONTEXT,
 } from '@tinkoff/ng-polymorpheus';
 import {ContextWithActive, CustomTab} from '../interfaces';
 
