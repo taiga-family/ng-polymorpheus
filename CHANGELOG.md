@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.0...v3.1.1) (2021-05-13)
+
+### Bug Fixes
+
+-   **directive:** fix default generic value ([e420116](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/e420116086e280bf42b5453b26cb5a8d92b89f17))
+
 ## [3.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/3.0.0...v3.1.0) (2021-04-29)
 
 ### Features

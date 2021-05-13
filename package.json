@@ -1,6 +1,6 @@
 {
     "name": "@tinkoff/ng-polymorpheus",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -38,9 +38,7 @@
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
-    "contributors": [
-        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
-    ],
+    "contributors": ["Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"],
     "repository": "https://github.com/TinkoffCreditSystems/ng-polymorpheus",
     "bugs": "https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues",
     "homepage": "https://github.com/TinkoffCreditSystems/ng-polymorpheus#README",
@@ -114,10 +112,7 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": [
-            "prettier --write",
-            "git add"
-        ],
+        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
         "*.ts": "tslint"
     },
     "standard-version": {
