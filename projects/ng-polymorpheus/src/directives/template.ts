@@ -8,13 +8,13 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
     exportAs: 'polymorpheus',
     inputs: ['polymorpheus'],
 })
-export class PolymorpheusTemplate<T extends object = object> {
-    polymorpheus!: T;
+export class PolymorpheusTemplate<C extends object = object> {
+    polymorpheus!: C | string;
 
     constructor(
         @Inject(TemplateRef)
         @Self()
-        readonly template: TemplateRef<T>,
+        readonly template: TemplateRef<C>,
         @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
     ) {}
 
