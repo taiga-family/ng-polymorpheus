@@ -1,22 +1,18 @@
-<div
-    *ngIf="!items.length; else menu"
-    polymorpheus-outlet
-    class="empty"
-    [content]="emptyContent"
-></div>
+<div *ngIf="!items.length; else menu" class="empty">
+    <ng-container *polymorpheusOutlet="emptyContent as text">{{text}}</ng-container>
+</div>
 <ng-template #menu>
     <div
         *ngFor="let item of items"
-        polymorpheus-outlet
         class="item"
         [class.item_active]="isActive(item)"
-        [content]="content"
-        [context]="getContext(item)"
         (click)="itemClicked.emit(item)"
         (mouseenter)="onMouseEnter(item)"
     >
-        <ng-template let-string>
-            <div class="string">{{string}}</div>
-        </ng-template>
+        <ng-container
+            *polymorpheusOutlet="content as primitive; context: getContext(item)"
+        >
+            <div class="string">{{primitive}}</div>
+        </ng-container>
     </div>
 </ng-template>

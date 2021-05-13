@@ -5,7 +5,7 @@ import {PolymorpheusHandler} from './handler';
 import {PolymorpheusPrimitive} from './primitive';
 
 /**
- * All content types supported by {@link PolymorpheusOutletComponent}
+ * All content types supported by {@link PolymorpheusOutletDirective}
  */
 export type PolymorpheusContent<C extends object = {}> =
     | TemplateRef<C>
