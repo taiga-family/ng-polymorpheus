@@ -8,8 +8,8 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
     exportAs: 'polymorpheus',
     inputs: ['polymorpheus'],
 })
-export class PolymorpheusTemplate<C extends object = object> {
-    polymorpheus!: C | string;
+export class PolymorpheusTemplate<C> {
+    polymorpheus!: C;
 
     constructor(
         @Inject(TemplateRef)
@@ -22,10 +22,10 @@ export class PolymorpheusTemplate<C extends object = object> {
         this.changeDetectorRef.markForCheck();
     }
 
-    static ngTemplateContextGuard<T extends object>(
-        {polymorpheus}: PolymorpheusTemplate<T>,
+    static ngTemplateContextGuard<T>(
+        _dir: PolymorpheusTemplate<T>,
         _ctx: any,
-    ): _ctx is T {
-        return typeof polymorpheus !== 'string';
+    ): _ctx is T extends string ? any : T {
+        return true;
     }
 }

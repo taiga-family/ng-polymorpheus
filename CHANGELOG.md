@@ -4,13 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [3.1.7](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.6...v3.1.7) (2021-05-13)
 
-### [3.1.6](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.5...v3.1.6) (2021-05-13)
-
-### [3.1.5](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.4...v3.1.5) (2021-05-13)
-
 ### Bug Fixes
 
--   **directive:** fix default generic value ([e420116](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/e420116086e280bf42b5453b26cb5a8d92b89f17))
+-   **template:** fix default generic value ([e420116](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/e420116086e280bf42b5453b26cb5a8d92b89f17))
 
 ## [3.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/3.0.0...v3.1.0) (2021-04-29)
 
