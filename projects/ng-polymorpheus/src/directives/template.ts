@@ -8,8 +8,8 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
     exportAs: 'polymorpheus',
     inputs: ['polymorpheus'],
 })
-export class PolymorpheusTemplate<C> {
-    polymorpheus!: C;
+export class PolymorpheusTemplate<C extends Record<any, any>> {
+    polymorpheus: C | string = '';
 
     constructor(
         @Inject(TemplateRef)
