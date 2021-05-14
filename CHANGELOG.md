@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.8](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.7...v3.1.8) (2021-05-14)
+
+### Bug Fixes
+
+-   **template:** fix falling back to string generic ([43cc5f0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/43cc5f0dec11c29505b8e6b3344dae6ae628c1f5))
+
 ### [3.1.7](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.6...v3.1.7) (2021-05-13)
 
 ### Bug Fixes
