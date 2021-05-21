@@ -71,29 +71,27 @@ pre-commit checks, linting, versioning + changelog, code coverage and all that j
                     width="100"
                     style="margin-bottom: -4px; border-radius: 8px;"
                     alt="Alex Inkin"
-                /><br /><sub><b>Alex Inkin</b></sub></a
+                /><br /><b>Alex Inkin</b></a
             >
             <div style="margin-top: 4px">
                 <a
-                    style="margin-left: 8px"
                     href="https://twitter.com/waterplea"
                     title="Twitter"
                     ><img
-                        width="16"
-                        src="https://image.flaticon.com/icons/svg/733/733579.svg"
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/twitter.svg"
                 /></a>
                 <a href="https://github.com/waterplea" title="Github"
                     ><img
-                        width="16"
-                        src="https://image.flaticon.com/icons/svg/2111/2111425.svg"
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/github.svg"
                 /></a>
                 <a
-                    style="margin-left: 8px"
                     href="https://t.me/waterplea"
                     title="Telegram"
                     ><img
-                        width="16"
-                        src="https://image.flaticon.com/icons/svg/2111/2111644.svg"
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/send.svg"
                 /></a>
             </div>
         </td>
@@ -104,29 +102,29 @@ pre-commit checks, linting, versioning + changelog, code coverage and all that j
                     width="100"
                     style="margin-bottom: -4px; border-radius: 8px;"
                     alt="Roman Sedov"
-                /><br /><sub><b>Roman Sedov</b></sub></a
+                /><br /><b>Roman Sedov</b></a
             >
             <div style="margin-top: 4px">
                 <a
-                    style="margin-left: 8px"
                     href="https://twitter.com/marsibarsi"
                     title="Twitter"
                     ><img
-                        width="16"
-                        src="https://image.flaticon.com/icons/svg/733/733579.svg"
-                /></a>
-                <a href="https://github.com/marsibarsi" title="Github"
-                    ><img
-                        width="16"
-                        src="https://image.flaticon.com/icons/svg/2111/2111425.svg"
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/twitter.svg"
                 /></a>
                 <a
-                    style="margin-left: 8px"
+                    href="https://github.com/marsibarsi"
+                    title="GitHub"
+                    ><img
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/github.svg"
+                /></a>
+                <a
                     href="https://t.me/marsibarsi"
                     title="Telegram"
                     ><img
-                        width="16"
-                        src="https://image.flaticon.com/icons/svg/2111/2111644.svg"
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/send.svg"
                 /></a>
             </div>
         </td>
