@@ -41,6 +41,24 @@ Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems
 
 You can also [read about this concept in detail](https://medium.com/angular-in-depth/agnostic-components-in-angular-2427923b742d).
 
+### Accessing context in dynamic component
+
+If you use component content you can inject context with `POLYMORPHEUS_CONTEXT` token.
+
+**Important!** This object is _live_ so if you change it, your component will not be recreated:
+
+```ts
+@Component({
+  template: '{{context.active}}`, // <-- this will automatically update
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class MyComponent {
+  constructor(
+    @Inject(POLYMORPHEUS_CONTEXT) readonly context: { active: boolean }
+  ) {}
+}
+```
+
 ### Adding type to template context
 
 You can use `polymorpehus` directive to add type to template context:
