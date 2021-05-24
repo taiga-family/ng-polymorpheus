@@ -26,14 +26,19 @@
                             "node_modules/highlight.js/styles/idea.css",
                             "projects/demo/src/styles.css"
                         ],
-                        "scripts": []
+                        "scripts": [],
+                        "vendorChunk": true,
+                        "extractLicenses": false,
+                        "buildOptimizer": false,
+                        "sourceMap": true,
+                        "optimization": false,
+                        "namedChunks": true
                     },
                     "configurations": {
                         "production": {
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
-                            "extractCss": true,
                             "namedChunks": false,
                             "aot": true,
                             "extractLicenses": true,
@@ -65,7 +70,9 @@
                     "options": {
                         "outputPath": "dist/demo/server",
                         "main": "projects/demo/server.ts",
-                        "tsConfig": "projects/demo/tsconfig.server.json"
+                        "tsConfig": "projects/demo/tsconfig.server.json",
+                        "sourceMap": true,
+                        "optimization": false
                     },
                     "configurations": {
                         "production": {
@@ -114,7 +121,7 @@
             "sourceRoot": "projects/ng-polymorpheus/src",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
                         "tsConfig": "projects/ng-polymorpheus/tsconfig.lib.json",
                         "project": "projects/ng-polymorpheus/ng-package.json"

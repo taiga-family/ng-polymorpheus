@@ -13,10 +13,12 @@ It is 1 KB gzip, dependency free and allows you to make pretty cool things.
 
 ## What does it do?
 
-It abstracts over different ways of view customization in Angular with one simple _attribute_ component:
+It abstracts over different ways of view customization in Angular with one simple _structural directive_:
 
 ```html
-<header polymorpheus-outlet [content]="content" [context]="context"></header>
+<ng-container *polymorpheusOutlet="content as text; context: context">
+    {{text}}
+</ng-container>
 ```
 
 **Content** accepts:

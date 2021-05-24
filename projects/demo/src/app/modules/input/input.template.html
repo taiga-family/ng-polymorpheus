@@ -6,13 +6,8 @@
     [ngModel]="value"
     (ngModelChange)="onValueChange($event)"
 />
-<div
-    polymorpheus-outlet
-    class="outlet"
-    [content]="content"
-    (mousedown)="onMouseDown($event, input)"
->
-    <ng-template let-icon>
+<div class="outlet" (mousedown)="onMouseDown($event, input)">
+    <ng-container *polymorpheusOutlet="content as icon">
         <div [innerHTML]="icon"></div>
-    </ng-template>
+    </ng-container>
 </div>

@@ -1,13 +1,6 @@
-<span class="text">
-    {{text}}
-</span>
-<div
-    *ngIf="content"
-    polymorpheus-outlet
-    [class.template_active]="templateActive"
-    [content]="content"
->
-    <ng-template let-primitive>
+<span class="text"> {{text}} </span>
+<div *ngIf="content" [class.template_active]="templateActive">
+    <ng-container *polymorpheusOutlet="content as primitive">
         <div
             *ngIf="isNumber(primitive); else icon"
             class="number"
@@ -18,5 +11,5 @@
         <ng-template #icon>
             <div [class.icon_active]="active" [innerHTML]="primitive"></div>
         </ng-template>
-    </ng-template>
+    </ng-container>
 </div>

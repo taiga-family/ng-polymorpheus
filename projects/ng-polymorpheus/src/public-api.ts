@@ -3,7 +3,7 @@
  */
 export * from './classes/component';
 export * from './directives/template';
-export * from './outlet/outlet.component';
+export * from './directives/outlet';
 export * from './tokens/context';
 export * from './types/content';
 export * from './types/handler';
