@@ -68,7 +68,7 @@ readonly context!: { $implicit: number };
 ```
 
 ```html
-<ng-template #temlate="polymorpheus" [polymorpheus]="context" let-item>
+<ng-template #template="polymorpheus" [polymorpheus]="context" let-item>
     {{ item.toFixed(2) }} <-- type 'number'
 </ng-template>
 ```
