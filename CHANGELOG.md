@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.8...v4.0.0) (2021-05-24)
+
+### Features
+
+-   **outlet:** switch to using structural directive ([#30](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/30)) ([99c8108](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/99c81087fffb7161f63271a207456c61607699f5))
+
+### BREAKING CHANGES:
+
+-   Bumped Angular to version 12 and Ivy compilation
+-   **Entire** syntax has changed to structural directive
+
 ### [3.1.8](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v3.1.7...v3.1.8) (2021-05-14)
 
 ### Bug Fixes
