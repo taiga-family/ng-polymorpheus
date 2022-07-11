@@ -1,5 +1,6 @@
 import {Injector, Type} from '@angular/core';
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
+import {PolymorpheusObject} from '../types/object';
 
 /**
  * Wrapper class for a component that will be used as content for {@link PolymorpheusOutletDirective}
@@ -7,7 +8,10 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * @param component — an Angular component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
-export class PolymorpheusComponent<T extends object, C extends object> {
+export class PolymorpheusComponent<
+    T extends PolymorpheusObject,
+    C extends PolymorpheusObject
+> {
     constructor(
         readonly component: Type<T>,
         private readonly injector: Injector | null = null,

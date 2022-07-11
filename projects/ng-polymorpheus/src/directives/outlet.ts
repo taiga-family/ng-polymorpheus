@@ -15,18 +15,20 @@ import {
 import {PolymorpheusComponent} from '../classes/component';
 import {PrimitiveContext} from '../classes/primitive-context';
 import {PolymorpheusContent} from '../types/content';
+import {PolymorpheusObject} from '../types/object';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
     selector: '[polymorpheusOutlet]',
 })
-export class PolymorpheusOutletDirective<C extends object> implements OnChanges, DoCheck {
+export class PolymorpheusOutletDirective<C extends PolymorpheusObject>
+    implements OnChanges, DoCheck {
     private viewRef?: EmbeddedViewRef<unknown>;
 
     private componentRef?: ComponentRef<unknown>;
 
     @Input('polymorpheusOutlet')
-    content: PolymorpheusContent<C> = '';
+    content: PolymorpheusContent<C> | '' = '';
 
     @Input('polymorpheusOutletContext')
     context!: C;
@@ -99,19 +101,19 @@ export class PolymorpheusOutletDirective<C extends object> implements OnChanges,
     }
 }
 
-function isDirective<C extends object>(
+function isDirective<C extends PolymorpheusObject>(
     content: PolymorpheusContent<C> | null,
 ): content is PolymorpheusTemplate<C> {
     return content instanceof PolymorpheusTemplate;
 }
 
-function isComponent<C extends object>(
+function isComponent<C extends PolymorpheusObject>(
     content: PolymorpheusContent<C> | null,
-): content is PolymorpheusComponent<object, C> {
+): content is PolymorpheusComponent<PolymorpheusObject, C> {
     return content instanceof PolymorpheusComponent;
 }
 
-function isTemplate<C extends object>(
+function isTemplate<C extends PolymorpheusObject>(
     content: PolymorpheusContent<C> | null,
 ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
     return isDirective(content) || content instanceof TemplateRef;
