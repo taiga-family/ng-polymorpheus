@@ -7,10 +7,7 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * @param component — an Angular component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
-export class PolymorpheusComponent<
-    T extends Record<any, any>,
-    C extends Record<any, any>
-> {
+export class PolymorpheusComponent<T extends object, C extends object> {
     constructor(
         readonly component: Type<T>,
         private readonly injector: Injector | null = null,

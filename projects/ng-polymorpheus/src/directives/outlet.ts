@@ -20,8 +20,7 @@ import {PolymorpheusTemplate} from './template';
 @Directive({
     selector: '[polymorpheusOutlet]',
 })
-export class PolymorpheusOutletDirective<C extends Record<any, any>>
-    implements OnChanges, DoCheck {
+export class PolymorpheusOutletDirective<C extends object> implements OnChanges, DoCheck {
     private viewRef?: EmbeddedViewRef<unknown>;
 
     private componentRef?: ComponentRef<unknown>;
@@ -100,20 +99,20 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
     }
 }
 
-function isDirective<C extends Record<any, any>>(
-    content: PolymorpheusContent<C>,
+function isDirective<C extends object>(
+    content: PolymorpheusContent<C> | null,
 ): content is PolymorpheusTemplate<C> {
     return content instanceof PolymorpheusTemplate;
 }
 
-function isComponent<C extends Record<any, any>>(
-    content: PolymorpheusContent<C>,
-): content is PolymorpheusComponent<Record<any, any>, C> {
+function isComponent<C extends object>(
+    content: PolymorpheusContent<C> | null,
+): content is PolymorpheusComponent<object, C> {
     return content instanceof PolymorpheusComponent;
 }
 
-function isTemplate<C extends Record<any, any>>(
-    content: PolymorpheusContent<C>,
+function isTemplate<C extends object>(
+    content: PolymorpheusContent<C> | null,
 ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
     return isDirective(content) || content instanceof TemplateRef;
 }
