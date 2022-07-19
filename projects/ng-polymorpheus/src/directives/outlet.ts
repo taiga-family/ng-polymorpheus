@@ -99,19 +99,15 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
     }
 
     private getContext(): unknown {
-        if (isTemplate(this.content)) {
+        if (isTemplate(this.content) || isComponent(this.content)) {
             return this.context;
         }
 
-        if (!isComponent(this.content)) {
-            return new PolymorpheusContext(
-                typeof this.content === 'function'
-                    ? this.content(this.context!)
-                    : this.content,
-            );
-        }
-
-        throw new Error('Unable to match content and context');
+        return new PolymorpheusContext(
+            typeof this.content === 'function'
+                ? this.content(this.context!)
+                : this.content,
+        );
     }
 }
 
