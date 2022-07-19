@@ -7,7 +7,5 @@
     (ngModelChange)="onValueChange($event)"
 />
 <div class="outlet" (mousedown)="onMouseDown($event, input)">
-    <ng-container *polymorpheusOutlet="content as icon">
-        <div [innerHTML]="icon"></div>
-    </ng-container>
+    <div *polymorpheusOutlet="content as icon" [innerHTML]="icon"></div>
 </div>
