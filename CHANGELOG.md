@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.1...v4.0.2) (2022-07-19)
+
+### Features
+
+-   properly type primitive context ([#54](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/54)) ([ca295de](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/ca295de2c99cb67272543d969b0f0c22ec524d07))
+
 ### [4.0.1](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.0...v4.0.1) (2022-07-15)
 
 ### Features
