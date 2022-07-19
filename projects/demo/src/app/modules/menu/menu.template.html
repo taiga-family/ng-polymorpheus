@@ -9,10 +9,11 @@
         (click)="itemClicked.emit(item)"
         (mouseenter)="onMouseEnter(item)"
     >
-        <ng-container
+        <div
             *polymorpheusOutlet="content as primitive; context: getContext(item)"
+            class="string"
         >
-            <div class="string">{{primitive}}</div>
-        </ng-container>
+            {{primitive}}
+        </div>
     </div>
 </ng-template>

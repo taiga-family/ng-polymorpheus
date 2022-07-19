@@ -13,7 +13,7 @@ import {
     ViewContainerRef,
 } from '@angular/core';
 import {PolymorpheusComponent} from '../classes/component';
-import {PrimitiveContext} from '../classes/primitive-context';
+import {PolymorpheusContext} from '../classes/context';
 import {PolymorpheusContent} from '../types/content';
 import {PolymorpheusTemplate} from './template';
 
@@ -30,12 +30,12 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
     content: PolymorpheusContent<C> = '';
 
     @Input('polymorpheusOutletContext')
-    context!: C;
+    context?: C;
 
     constructor(
         private readonly viewContainerRef: ViewContainerRef,
         private readonly injector: Injector,
-        private readonly templateRef: TemplateRef<PrimitiveContext>,
+        private readonly templateRef: TemplateRef<PolymorpheusContext<string>>,
     ) {}
 
     private get template(): TemplateRef<unknown> {
@@ -62,9 +62,11 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
         this.viewContainerRef.clear();
 
         if (isComponent(this.content)) {
-            const proxy = new Proxy(this.context, {
-                get: (_, key) => this.context[key as keyof C],
-            });
+            const proxy =
+                this.context &&
+                new Proxy(this.context, {
+                    get: (_, key) => this.context?.[key as keyof C],
+                });
             const injector = this.content.createInjector(this.injector, proxy);
             const componentFactory = injector
                 .get(ComponentFactoryResolver)
@@ -89,14 +91,23 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
         }
     }
 
+    static ngTemplateContextGuard<T>(
+        _dir: PolymorpheusOutletDirective<T>,
+        _ctx: any,
+    ): _ctx is PolymorpheusContext<string> {
+        return true;
+    }
+
     private getContext(): unknown {
-        return isTemplate(this.content)
-            ? this.context
-            : new PrimitiveContext(
-                  typeof this.content === 'function'
-                      ? this.content(this.context)
-                      : this.content,
-              );
+        if (isTemplate(this.content) || isComponent(this.content)) {
+            return this.context;
+        }
+
+        return new PolymorpheusContext(
+            typeof this.content === 'function'
+                ? this.content(this.context!)
+                : this.content,
+        );
     }
 }
 

@@ -15,7 +15,7 @@ import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 })
 export class InputComponent {
     @Input()
-    content: PolymorpheusContent<never> | null = null;
+    content: PolymorpheusContent<never> = null;
 
     @Input()
     placeholder = '';

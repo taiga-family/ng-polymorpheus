@@ -13,13 +13,13 @@ export class PolymorpheusComponent<T, C extends Record<any, any>> {
         private readonly injector: Injector | null = null,
     ) {}
 
-    createInjector(injector: Injector, context: C): Injector {
+    createInjector(injector: Injector, useValue?: C): Injector {
         return Injector.create({
             parent: this.injector || injector,
             providers: [
                 {
                     provide: POLYMORPHEUS_CONTEXT,
-                    useValue: context,
+                    useValue,
                 },
             ],
         });
