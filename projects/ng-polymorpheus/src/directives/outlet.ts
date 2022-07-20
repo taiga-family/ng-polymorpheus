@@ -77,7 +77,8 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
                 0,
                 injector,
             );
-        } else {
+            // tslint:disable-next-line:triple-equals
+        } else if (this.content != null) {
             this.viewRef = this.viewContainerRef.createEmbeddedView(
                 this.template,
                 this.getContext(),
