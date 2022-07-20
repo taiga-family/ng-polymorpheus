@@ -47,8 +47,10 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
     }
 
     ngOnChanges({content}: SimpleChanges) {
+        const context = this.getContext();
+
         if (this.viewRef) {
-            this.viewRef.context = this.getContext();
+            this.viewRef.context = context;
         }
 
         if (this.componentRef) {
@@ -77,11 +79,17 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
                 0,
                 injector,
             );
-            // tslint:disable-next-line:triple-equals
-        } else if (this.content != null) {
+
+            return;
+        }
+
+        const $implicit = context instanceof PolymorpheusContext && context.$implicit;
+
+        // tslint:disable-next-line:triple-equals
+        if ($implicit != null) {
             this.viewRef = this.viewContainerRef.createEmbeddedView(
                 this.template,
-                this.getContext(),
+                context,
             );
         }
     }

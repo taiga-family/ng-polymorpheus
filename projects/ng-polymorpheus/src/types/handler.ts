@@ -3,4 +3,4 @@
  */
 export type PolymorpheusHandler<C extends Record<any, any>> = (
     context: C,
-) => string | number;
+) => string | number | null | undefined;
