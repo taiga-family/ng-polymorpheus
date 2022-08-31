@@ -8,7 +8,7 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
     exportAs: 'polymorpheus',
     inputs: ['polymorpheus'],
 })
-export class PolymorpheusTemplate<C extends Record<any, any> = any> {
+export class PolymorpheusTemplate<C = any> {
     polymorpheus: C | string = '';
 
     constructor(

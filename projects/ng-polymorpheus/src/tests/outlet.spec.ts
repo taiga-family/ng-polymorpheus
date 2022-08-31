@@ -81,7 +81,6 @@ describe('PolymorpheusOutlet', () => {
 
     @NgModule({
         declarations: [ComponentContent],
-        entryComponents: [ComponentContent],
         exports: [ComponentContent],
     })
     class ComponentModule {}
