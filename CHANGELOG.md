@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.7](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.6...v4.0.7) (2022-09-05)
+
+### Features
+
+-   compat with Angular 14 and TS 4.8 ([#56](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/56)) ([95b932f](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/95b932f50d8b228020aca003cfe24d897bdd6c8c))
+
 ### [4.0.6](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.5...v4.0.6) (2022-08-16)
 
 ### Bug Fixes
