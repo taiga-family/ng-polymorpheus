@@ -20,8 +20,7 @@ import {PolymorpheusTemplate} from './template';
 @Directive({
     selector: '[polymorpheusOutlet]',
 })
-export class PolymorpheusOutletDirective<C extends Record<any, any>>
-    implements OnChanges, DoCheck {
+export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     private viewRef?: EmbeddedViewRef<unknown>;
 
     private componentRef?: ComponentRef<unknown>;
@@ -66,10 +65,13 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
         if (isComponent(this.content)) {
             const proxy =
                 this.context &&
-                new Proxy(this.context, {
+                new Proxy((this.context as unknown) as object, {
                     get: (_, key) => this.context?.[key as keyof C],
                 });
-            const injector = this.content.createInjector(this.injector, proxy);
+            const injector = this.content.createInjector(
+                this.injector,
+                (proxy as unknown) as C,
+            );
             const componentFactory = injector
                 .get(ComponentFactoryResolver)
                 .resolveComponentFactory(this.content.component);
@@ -120,19 +122,19 @@ export class PolymorpheusOutletDirective<C extends Record<any, any>>
     }
 }
 
-function isDirective<C extends Record<any, any>>(
+function isDirective<C>(
     content: PolymorpheusContent<C>,
 ): content is PolymorpheusTemplate<C> {
     return content instanceof PolymorpheusTemplate;
 }
 
-function isComponent<C extends Record<any, any>>(
+function isComponent<C>(
     content: PolymorpheusContent<C>,
 ): content is PolymorpheusComponent<any, C> {
     return content instanceof PolymorpheusComponent;
 }
 
-function isTemplate<C extends Record<any, any>>(
+function isTemplate<C>(
     content: PolymorpheusContent<C>,
 ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
     return isDirective(content) || content instanceof TemplateRef;

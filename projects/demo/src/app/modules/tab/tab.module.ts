@@ -6,7 +6,6 @@ import {TabComponent} from './tab.component';
 @NgModule({
     imports: [CommonModule, PolymorpheusModule],
     declarations: [TabComponent],
-    exports: [TabComponent],
-    entryComponents: [TabComponent],
+    exports: [TabComponent]
 })
 export class TabModule {}

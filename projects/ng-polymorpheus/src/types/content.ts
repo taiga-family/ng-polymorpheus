@@ -6,7 +6,7 @@ import {PolymorpheusHandler} from './handler';
 /**
  * All content types supported by {@link PolymorpheusOutletDirective}
  */
-export type PolymorpheusContent<C extends Record<any, any> = any> =
+export type PolymorpheusContent<C = any> =
     | TemplateRef<C>
     | PolymorpheusTemplate<C>
     | PolymorpheusComponent<any, C>
