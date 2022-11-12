@@ -26,7 +26,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     private componentRef?: ComponentRef<unknown>;
 
     @Input('polymorpheusOutlet')
-    content: PolymorpheusContent<C> = '';
+    content: PolymorpheusContent<Partial<C>> = '';
 
     @Input('polymorpheusOutletContext')
     context?: C;
