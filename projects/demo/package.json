@@ -1,6 +1,6 @@
 {
     "name": "demo",
-    "version": "4.0.7",
+    "version": "4.0.8",
     "private": true,
     "scripts": {
         "ng": "ng",
