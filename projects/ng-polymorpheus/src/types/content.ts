@@ -7,8 +7,8 @@ import {PolymorpheusHandler} from './handler';
  * All content types supported by {@link PolymorpheusOutletDirective}
  */
 export type PolymorpheusContent<C = any> =
-    | TemplateRef<C>
-    | PolymorpheusTemplate<C>
+    | TemplateRef<Partial<C>>
+    | PolymorpheusTemplate<Partial<C>>
     | PolymorpheusComponent<any, C>
     | PolymorpheusHandler<C>
     | string
