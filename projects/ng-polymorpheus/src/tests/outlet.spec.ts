@@ -268,3 +268,39 @@ describe('PolymorpheusOutlet', () => {
         });
     });
 });
+
+describe('PolymorpheusTemplate', () => {
+    @Component({
+        template: `
+            <ng-container
+                *polymorpheusOutlet="polymorpheus; context: context"
+            ></ng-container>
+            <ng-template #polymorpheus="polymorpheus" [polymorpheus]="type" let-value>
+                {{ value.name }}
+            </ng-template>
+        `,
+    })
+    class TestComponent {
+        context: {$implicit: {name: string}; sum: number} = {
+            $implicit: {name: 'Alex'},
+            sum: 237,
+        };
+
+        type!: {$implicit: {name: number}};
+    }
+
+    configureTestSuite(() => {
+        TestBed.configureTestingModule({
+            imports: [PolymorpheusModule],
+            declarations: [TestComponent],
+        });
+    });
+
+    it('Template typing works', () => {
+        const fixture = TestBed.createComponent(TestComponent);
+
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.innerText.trim()).toBe('Alex');
+    });
+});
