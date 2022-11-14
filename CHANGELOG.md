@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.10](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.9...v4.0.10) (2022-11-14)
+
+### Bug Fixes
+
+-   **template:** fix untyped template ([8c99c96](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/8c99c96b44a93a79de9a00e540f1f06e98bb44dc))
+
 ### [4.0.9](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.8...v4.0.9) (2022-11-13)
 
 ### Bug Fixes
