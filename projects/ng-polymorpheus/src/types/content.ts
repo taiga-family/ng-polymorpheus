@@ -8,7 +8,7 @@ import {PolymorpheusHandler} from './handler';
  */
 export type PolymorpheusContent<C = any> =
     | TemplateRef<Partial<C>>
-    | PolymorpheusTemplate<Partial<C> | string> // string is untyped, e.g. 'any'
+    | PolymorpheusTemplate<Partial<C> | ''> // string is untyped, e.g. 'any'
     | PolymorpheusComponent<any, C>
     | PolymorpheusHandler<C>
     | string
