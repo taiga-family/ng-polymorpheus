@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.11](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.10...v4.0.11) (2023-04-10)
+
+### Features
+
+-   **component:** make context `any` by default ([#73](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/73)) ([a7fbd7d](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/a7fbd7d0db8cce0bd653021e96dd3901ff849695))
+
 ### [4.0.10](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.9...v4.0.10) (2022-11-14)
 
 ### Bug Fixes
