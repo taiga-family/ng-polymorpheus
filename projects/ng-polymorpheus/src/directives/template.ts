@@ -9,23 +9,21 @@ import {ChangeDetectorRef, Directive, Inject, Self, TemplateRef} from '@angular/
     inputs: ['polymorpheus'],
 })
 export class PolymorpheusTemplate<C = any> {
-    polymorpheus: C | string = '';
+    polymorpheus: C | '' = '';
 
     constructor(
-        @Inject(TemplateRef)
-        @Self()
-        readonly template: TemplateRef<C>,
+        @Inject(TemplateRef) @Self() readonly template: TemplateRef<C>,
         @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
     ) {}
 
-    check() {
+    check(): void {
         this.changeDetectorRef.markForCheck();
     }
 
     static ngTemplateContextGuard<T>(
         _dir: PolymorpheusTemplate<T>,
         _ctx: any,
-    ): _ctx is T extends string ? any : T {
+    ): _ctx is T extends '' ? any : T {
         return true;
     }
 }
