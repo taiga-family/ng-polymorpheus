@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.11...v4.1.0) (2023-04-11)
+
+### Features
+
+-   **outlet:** add `SafeValue` support ([#76](https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues/76)) ([f9608be](https://github.com/TinkoffCreditSystems/ng-polymorpheus/commit/f9608be656675f6958b8e38d5e49010c136b51cd))
+
 ### [4.0.11](https://github.com/TinkoffCreditSystems/ng-polymorpheus/compare/v4.0.10...v4.0.11) (2023-04-10)
 
 ### Features
