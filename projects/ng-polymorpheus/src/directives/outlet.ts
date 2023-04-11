@@ -59,8 +59,10 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
 
         if (isComponent(this.content)) {
             this.process(this.content);
+        } else if (
             // tslint:disable-next-line:triple-equals
-        } else if (context instanceof PolymorpheusContext && context.$implicit != null) {
+            (context instanceof PolymorpheusContext && context.$implicit) != null
+        ) {
             this.v = this.vcr.createEmbeddedView(this.template, context);
         }
     }
