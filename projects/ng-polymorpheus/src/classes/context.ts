@@ -1,15 +1,3 @@
-/**
- * @deprecated: use {@link PolymorpheusContext} instead
- * Primitive types used as content by {@link PolymorpheusOutletDirective}
- */
-export class PrimitiveContext {
-    constructor(public $implicit: unknown) {}
-
-    get polymorpheusOutlet(): unknown {
-        return this.$implicit;
-    }
-}
-
 export class PolymorpheusContext<T> {
     constructor(readonly $implicit: T) {}
 
@@ -17,3 +5,9 @@ export class PolymorpheusContext<T> {
         return this.$implicit;
     }
 }
+
+/**
+ * @deprecated: use {@link PolymorpheusContext} instead
+ * Primitive types used as content by {@link PolymorpheusOutletDirective}
+ */
+export class PrimitiveContext<T> extends PolymorpheusContext<T> {}

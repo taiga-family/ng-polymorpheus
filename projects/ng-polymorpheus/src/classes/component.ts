@@ -7,17 +7,14 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * @param component — an Angular component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
  *
- * TODO: Remove `Type` generic as it is irrelevant, remove `null` from injector type
+ * TODO: Remove second generic as it is irrelevant, remove `null` from injector type
  */
-export class PolymorpheusComponent<T, C = any> {
-    constructor(
-        readonly component: Type<T>,
-        private readonly injector?: Injector | null,
-    ) {}
+export class PolymorpheusComponent<T, _C = any> {
+    constructor(readonly component: Type<T>, private readonly i?: Injector | null) {}
 
-    createInjector(injector: Injector, useValue?: C): Injector {
+    createInjector<C>(injector: Injector, useValue?: C): Injector {
         return Injector.create({
-            parent: this.injector || injector,
+            parent: this.i || injector,
             providers: [
                 {
                     provide: POLYMORPHEUS_CONTEXT,

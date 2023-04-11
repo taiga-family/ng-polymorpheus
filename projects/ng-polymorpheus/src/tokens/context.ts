@@ -5,5 +5,5 @@ import {InjectionToken} from '@angular/core';
  * instantiating them through {@link PolymorpheusOutletDirective}
  */
 export const POLYMORPHEUS_CONTEXT = new InjectionToken<Record<any, any>>(
-    'Context from *polymorpheusOutlet',
+    'POLYMORPHEUS_CONTEXT',
 );

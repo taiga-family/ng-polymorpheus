@@ -6,7 +6,6 @@ import {
     DoCheck,
     EmbeddedViewRef,
     Injector,
-    Input,
     OnChanges,
     SimpleChanges,
     TemplateRef,
@@ -15,26 +14,24 @@ import {
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusContext} from '../classes/context';
 import {PolymorpheusContent} from '../types/content';
+import {PolymorpheusPrimitive} from '../types/primitive';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
     selector: '[polymorpheusOutlet]',
+    inputs: ['content: polymorpheusOutlet', 'context: polymorpheusOutletContext'],
 })
 export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
-    private viewRef?: EmbeddedViewRef<unknown>;
+    private v?: EmbeddedViewRef<unknown>;
+    private c?: ComponentRef<unknown>;
 
-    private componentRef?: ComponentRef<unknown>;
-
-    @Input('polymorpheusOutlet')
     content: PolymorpheusContent<C> = '';
-
-    @Input('polymorpheusOutletContext')
     context?: C;
 
     constructor(
-        private readonly viewContainerRef: ViewContainerRef,
-        private readonly injector: Injector,
-        private readonly templateRef: TemplateRef<PolymorpheusContext<string>>,
+        private readonly vcr: ViewContainerRef,
+        private readonly i: Injector,
+        private readonly t: TemplateRef<PolymorpheusContext<PolymorpheusPrimitive>>,
     ) {}
 
     private get template(): TemplateRef<unknown> {
@@ -42,57 +39,31 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
             return this.content.template;
         }
 
-        return this.content instanceof TemplateRef ? this.content : this.templateRef;
+        return this.content instanceof TemplateRef ? this.content : this.t;
     }
 
-    ngOnChanges({content}: SimpleChanges) {
+    ngOnChanges({content}: SimpleChanges): void {
         const context = this.getContext();
 
-        if (this.viewRef) {
-            this.viewRef.context = context;
+        if (this.v) {
+            this.v.context = context;
         }
 
-        if (this.componentRef) {
-            this.componentRef.injector.get(ChangeDetectorRef).markForCheck();
-        }
+        this.c?.injector.get(ChangeDetectorRef).markForCheck();
 
         if (!content) {
             return;
         }
 
-        this.viewContainerRef.clear();
+        this.vcr.clear();
 
         if (isComponent(this.content)) {
-            const proxy =
-                this.context &&
-                new Proxy((this.context as unknown) as object, {
-                    get: (_, key) => this.context?.[key as keyof C],
-                });
-            const injector = this.content.createInjector(
-                this.injector,
-                (proxy as unknown) as C,
-            );
-            const componentFactory = injector
-                .get(ComponentFactoryResolver)
-                .resolveComponentFactory(this.content.component);
-
-            this.componentRef = this.viewContainerRef.createComponent(
-                componentFactory,
-                0,
-                injector,
-            );
-
-            return;
-        }
-
-        const $implicit = context instanceof PolymorpheusContext && context.$implicit;
-
-        // tslint:disable-next-line:triple-equals
-        if ($implicit != null) {
-            this.viewRef = this.viewContainerRef.createEmbeddedView(
-                this.template,
-                context,
-            );
+            this.process(this.content);
+        } else if (
+            // tslint:disable-next-line:triple-equals
+            (context instanceof PolymorpheusContext && context.$implicit) != null
+        ) {
+            this.v = this.vcr.createEmbeddedView(this.template, context);
         }
     }
 
@@ -118,6 +89,24 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
             typeof this.content === 'function'
                 ? this.content(this.context!)
                 : this.content,
+        );
+    }
+
+    private process(content: PolymorpheusComponent<unknown>): void {
+        const injector = content.createInjector(
+            this.i,
+            this.context &&
+                ((new Proxy((this.context as unknown) as object, {
+                    get: (_, key) => this.context?.[key as keyof C],
+                }) as unknown) as C),
+        );
+
+        this.c = this.vcr.createComponent(
+            injector
+                .get(ComponentFactoryResolver)
+                .resolveComponentFactory(content.component),
+            0,
+            injector,
         );
     }
 }
