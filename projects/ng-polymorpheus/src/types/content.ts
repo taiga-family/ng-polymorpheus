@@ -2,6 +2,7 @@ import {TemplateRef} from '@angular/core';
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
 import {PolymorpheusHandler} from './handler';
+import {PolymorpheusPrimitive} from './primitive';
 
 /**
  * All content types supported by {@link PolymorpheusOutletDirective}
@@ -9,9 +10,6 @@ import {PolymorpheusHandler} from './handler';
 export type PolymorpheusContent<C = any> =
     | TemplateRef<Partial<C>>
     | PolymorpheusTemplate<Partial<C> | ''> // string is untyped, e.g. 'any'
-    | PolymorpheusComponent<any, C>
+    | PolymorpheusComponent<unknown>
     | PolymorpheusHandler<C>
-    | string
-    | number
-    | null
-    | undefined;
+    | PolymorpheusPrimitive;
