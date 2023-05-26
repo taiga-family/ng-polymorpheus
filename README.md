@@ -1,9 +1,9 @@
 # Polymorpheus
 
 [![npm version](https://img.shields.io/npm/v/@tinkoff/ng-polymorpheus.svg)](https://npmjs.com/package/@tinkoff/ng-polymorpheus)
-[![Build Status](https://travis-ci.org/TinkoffCreditSystems/ng-polymorpheus.svg?branch=master)](https://travis-ci.org/TinkoffCreditSystems/ng-polymorpheus)
 [![Coverage Status](https://coveralls.io/repos/github/TinkoffCreditSystems/ng-polymorpheus/badge.svg?branch=master)](https://coveralls.io/github/TinkoffCreditSystems/ng-polymorpheus?branch=master)
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
+[![telegram chat](https://img.shields.io/badge/support-Contact%20us-blue)](https://t.me/taiga_ui)
 
 **Polymorpheus** is a tiny library for polymorphic templates in Angular.
 
@@ -116,7 +116,7 @@ pre-commit checks, linting, versioning + changelog, code coverage and all that j
             </div>
         </td>
         <td align="center">
-            <a href="http://marsibarsi.me"
+            <a href="https://twitter.com/marsibarsi"
                 ><img
                     src="https://github.com/marsibarsi.png?size=100"
                     width="100"
@@ -150,3 +150,6 @@ pre-commit checks, linting, versioning + changelog, code coverage and all that j
         </td>
     </tr>
 </table>
+
+**ng-polymorpheus** is a part of [Taiga UI](https://github.com/Tinkoff/taiga-ui) libraries family which is backed and used by a
+large enterprise. This means you can rely on timely support and continuous development.
