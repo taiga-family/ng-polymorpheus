@@ -73,13 +73,6 @@ readonly context!: { $implicit: number };
 </ng-template>
 ```
 
-## Open-source
-
-Do you also want to open-source something, but hate the collateral work?
-Check out this [Angular Open-source Library Starter](https://github.com/taiga-family/angular-open-source-starter)
-we’ve created for our projects. It got you covered on continuous integration,
-pre-commit checks, linting, versioning + changelog, code coverage and all that jazz.
-
 ## Core team
 
 <table>
