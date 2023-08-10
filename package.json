@@ -39,9 +39,9 @@
         "email": "alexander@inkin.ru"
     },
     "contributors": ["Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"],
-    "repository": "https://github.com/TinkoffCreditSystems/ng-polymorpheus",
-    "bugs": "https://github.com/TinkoffCreditSystems/ng-polymorpheus/issues",
-    "homepage": "https://github.com/TinkoffCreditSystems/ng-polymorpheus#README",
+    "repository": "https://github.com/taiga-family/ng-polymorpheus",
+    "bugs": "https://github.com/taiga-family/ng-polymorpheus/issues",
+    "homepage": "https://github.com/taiga-family/ng-polymorpheus#README",
     "schematics": "./schematics/collection.json",
     "dependencies": {
         "@angular/animations": "12.0.0",
