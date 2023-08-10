@@ -1,9 +1,9 @@
 # Polymorpheus
 
 [![npm version](https://img.shields.io/npm/v/@tinkoff/ng-polymorpheus.svg)](https://npmjs.com/package/@tinkoff/ng-polymorpheus)
-[![Build Status](https://travis-ci.org/TinkoffCreditSystems/ng-polymorpheus.svg?branch=master)](https://travis-ci.org/TinkoffCreditSystems/ng-polymorpheus)
-[![Coverage Status](https://coveralls.io/repos/github/TinkoffCreditSystems/ng-polymorpheus/badge.svg?branch=master)](https://coveralls.io/github/TinkoffCreditSystems/ng-polymorpheus?branch=master)
-[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
+[![Build Status](https://github.com/taiga-family/ng-polymorpheus/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/taiga-family/ng-polymorpheus/actions/workflows/ci.yml)
+[![Coverage Status](https://codecov.io/gh/taiga-family/ng-polymorpheus/branch/main/graphs/badge.svg)](https://app.codecov.io/gh/taiga-family/ng-polymorpheus/tree/main/projects)
+[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/taiga-family/angular-open-source-starter)
 
 > **Polymorpheus** is a tiny library for polymorphic templates in Angular.
 >
@@ -35,13 +35,6 @@ context by itself. Say a menu list where you can configure how each item should 
 like by passing a template. And context would be item itself and, for example,
 whether it is focused or not.
 
-Please see [extensive demo](https://codesandbox.io/s/github/TinkoffCreditSystems/ng-polymorpheus/tree/master/projects/demo).
+Please see [extensive demo](https://codesandbox.io/s/github/taiga-family/ng-polymorpheus/tree/master/projects/demo).
 
 You can also [read about this concept in detail](https://blog.angularindepth.com/agnostic-components-in-angular-2427923b742d).
-
-## Open-source
-
-Do you also want to open-source something, but hate the collateral work?
-Check out this [Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
-we’ve created for our projects. It got you covered on continuous integration,
-pre-commit checks, linting, versioning + changelog, code coverage and all that jazz.

@@ -1,8 +1,8 @@
 # Polymorpheus
 
 [![npm version](https://img.shields.io/npm/v/@tinkoff/ng-polymorpheus.svg)](https://npmjs.com/package/@tinkoff/ng-polymorpheus)
-[![Coverage Status](https://coveralls.io/repos/github/TinkoffCreditSystems/ng-polymorpheus/badge.svg?branch=master)](https://coveralls.io/github/TinkoffCreditSystems/ng-polymorpheus?branch=master)
-[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
+[![Coverage Status](https://codecov.io/gh/taiga-family/ng-polymorpheus/branch/main/graphs/badge.svg)](https://app.codecov.io/gh/taiga-family/ng-polymorpheus/tree/main/projects)
+[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/taiga-family/angular-open-source-starter)
 [![telegram chat](https://img.shields.io/badge/support-Contact%20us-blue)](https://t.me/taiga_ui)
 
 **Polymorpheus** is a tiny library for polymorphic templates in Angular.
@@ -72,13 +72,6 @@ readonly context!: { $implicit: number };
     {{ item.toFixed(2) }} <-- type 'number'
 </ng-template>
 ```
-
-## Open-source
-
-Do you also want to open-source something, but hate the collateral work?
-Check out this [Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
-we’ve created for our projects. It got you covered on continuous integration,
-pre-commit checks, linting, versioning + changelog, code coverage and all that jazz.
 
 ## Core team
 
@@ -151,5 +144,5 @@ pre-commit checks, linting, versioning + changelog, code coverage and all that j
     </tr>
 </table>
 
-**ng-polymorpheus** is a part of [Taiga UI](https://github.com/Tinkoff/taiga-ui) libraries family which is backed and used by a
+**ng-polymorpheus** is a part of [Taiga UI](https://github.com/taiga-family/taiga-ui) libraries family which is backed and used by a
 large enterprise. This means you can rely on timely support and continuous development.
