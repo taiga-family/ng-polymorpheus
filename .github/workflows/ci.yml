@@ -2,7 +2,7 @@ name: CI of all packages
 on:
     pull_request:
     push:
-        branches: [main]
+        branches: [master]
 
 jobs:
     build:
