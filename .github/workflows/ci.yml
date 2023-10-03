@@ -1,32 +1,21 @@
 name: CI of all packages
-
-on: push
+on:
+    pull_request:
+    push:
+        branches: [main]
 
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - name: Use Node.js
-              uses: actions/setup-node@v1
+            - uses: actions/checkout@v3
+            - uses: taiga-family/ci/actions/setup/node@1.20.0
               with:
-                  node-version: '12.x'
-            - name: Cache Node.js modules
-              uses: actions/cache@v2
-              with:
-                  path: ~/.npm
-                  key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.OS }}-node-
-                      ${{ runner.OS }}-
-            - name: Install dependencies
-              run: npm ci
-            - name: CI checks
-              run: |
+                  node-version: 12.x
+            - run: |
                   npm run build
                   npm run lint
                   npm run test
-            - name: Upload coverage reports to Codecov
-              uses: codecov/codecov-action@v3
+            - uses: codecov/codecov-action@v3
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
