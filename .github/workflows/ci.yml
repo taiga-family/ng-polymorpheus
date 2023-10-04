@@ -2,7 +2,7 @@ name: CI of all packages
 on:
     pull_request:
     push:
-        branches: [master]
+        branches: [main]
 
 jobs:
     build:
@@ -10,9 +10,10 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: taiga-family/ci/actions/setup/node@1.20.0
-              with:
-                  node-version: 12.x
             - run: npm run build
+            - run: npm run prettier -- --check
             - run: npm run lint
             - run: npm run test
+              env:
+                  NODE_OPTIONS: --openssl-legacy-provider
             - uses: codecov/codecov-action@v3

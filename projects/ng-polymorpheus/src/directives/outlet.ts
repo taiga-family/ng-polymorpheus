@@ -96,9 +96,9 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         const injector = content.createInjector(
             this.i,
             this.context &&
-                ((new Proxy((this.context as unknown) as object, {
+                (new Proxy(this.context as unknown as object, {
                     get: (_, key) => this.context?.[key as keyof C],
-                }) as unknown) as C),
+                }) as unknown as C),
         );
 
         this.c = this.vcr.createComponent(

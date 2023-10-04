@@ -5,11 +5,7 @@ import {ComboBoxModule} from '../comboBox/comboBox.module';
 import {StarWarsComponent} from './starWars.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PolymorpheusModule,
-        ComboBoxModule,
-    ],
+    imports: [CommonModule, PolymorpheusModule, ComboBoxModule],
     declarations: [StarWarsComponent],
     exports: [StarWarsComponent],
 })

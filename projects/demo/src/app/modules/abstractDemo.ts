@@ -1,8 +1,8 @@
 export abstract class AbstractDemo {
     abstract readonly example: {
-        readonly HTML: string | { default: string };
-        readonly Style: string | { default: string };
-        readonly TypeScript: string | { default: string };
+        readonly HTML: string | {default: string};
+        readonly Style: string | {default: string};
+        readonly TypeScript: string | {default: string};
     };
 
     readonly tabs = ['HTML', 'Style', 'TypeScript'];
