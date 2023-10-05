@@ -1,4 +1,4 @@
-name: CI of all packages
+name: CI
 on:
     pull_request:
     push:
@@ -17,3 +17,7 @@ jobs:
               env:
                   NODE_OPTIONS: --openssl-legacy-provider
             - uses: codecov/codecov-action@v3
+
+concurrency:
+    group: ci-${{ github.head_ref }}
+    cancel-in-progress: true
