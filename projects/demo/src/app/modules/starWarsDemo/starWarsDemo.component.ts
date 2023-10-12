@@ -1,8 +1,8 @@
-import * as typescript from '!!raw-loader!../starWars/starWars.component.ts';
-import * as css from '!!raw-loader!../starWars/starWars.style.less';
-import * as html from '!!raw-loader!../starWars/starWars.template.html';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AbstractDemo} from '../abstractDemo';
+import * as typescript from '../starWars/starWars.component.ts?raw';
+import * as css from '../starWars/starWars.style.less?raw';
+import * as html from '../starWars/starWars.template.html?raw';
 
 @Component({
     selector: 'app-star-wars-demo',

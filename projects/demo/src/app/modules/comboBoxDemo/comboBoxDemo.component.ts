@@ -1,6 +1,6 @@
-import * as typescript from '!!raw-loader!../comboBox/comboBox.component.ts';
-import * as css from '!!raw-loader!../comboBox/comboBox.style.less';
-import * as html from '!!raw-loader!../comboBox/comboBox.template.html';
+import * as typescript from '../comboBox/comboBox.component.ts?raw';
+import * as css from '../comboBox/comboBox.style.less?raw';
+import * as html from '../comboBox/comboBox.template.html?raw';
 
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AbstractDemo} from '../abstractDemo';

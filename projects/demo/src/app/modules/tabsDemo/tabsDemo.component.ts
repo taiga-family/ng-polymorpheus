@@ -1,10 +1,10 @@
-import * as typescript from '!!raw-loader!../tabs/tabs.component.ts';
-import * as css from '!!raw-loader!../tabs/tabs.style.less';
-import * as html from '!!raw-loader!../tabs/tabs.template.html';
+import * as typescript from '../tabs/tabs.component.ts?raw';
+import * as css from '../tabs/tabs.style.less?raw';
+import * as html from '../tabs/tabs.template.html?raw';
 
-import * as typescript2 from '!!raw-loader!../tab/tab.component.ts';
-import * as css2 from '!!raw-loader!../tab/tab.style.less';
-import * as html2 from '!!raw-loader!../tab/tab.template.html';
+import * as typescript2 from '../tab/tab.component.ts?raw';
+import * as css2 from '../tab/tab.style.less?raw';
+import * as html2 from '../tab/tab.template.html?raw';
 
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PolymorpheusComponent, PolymorpheusContent} from '@tinkoff/ng-polymorpheus';

@@ -1,0 +1,37 @@
+{
+    "npmScope": "ng-polymorpheus",
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "nx-cloud",
+            "options": {
+                "parallel": 1,
+                "cacheableOperations": ["build", "test", "lint"]
+            }
+        }
+    },
+    "affected": {
+        "defaultBase": "origin/main"
+    },
+    "workspaceLayout": {
+        "libsDir": "projects",
+        "appsDir": "projects"
+    },
+    "defaultProject": "demo",
+    "$schema": "./node_modules/nx/schemas/nx-schema.json",
+    "namedInputs": {
+        "default": ["{projectRoot}/**/*", "sharedGlobals"],
+        "sharedGlobals": [
+            "{workspaceRoot}/nx.json",
+            "{workspaceRoot}/tsconfig.*.json",
+            "{workspaceRoot}/tsconfig.json"
+        ]
+    },
+    "targetDefaults": {
+        "build": {
+            "inputs": ["default"]
+        },
+        "test": {
+            "inputs": ["default"]
+        }
+    }
+}
