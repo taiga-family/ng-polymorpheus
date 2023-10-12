@@ -1,6 +1,7 @@
 {
     "name": "@tinkoff/ng-polymorpheus",
     "version": "4.1.0",
+    "private": true,
     "scripts": {
         "postinstall": "ngcc --async",
         "start": "nx serve demo",
