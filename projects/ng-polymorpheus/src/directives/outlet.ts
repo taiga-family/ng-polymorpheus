@@ -76,7 +76,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     static ngTemplateContextGuard<T>(
         _dir: PolymorpheusOutletDirective<T>,
         _ctx: any,
-    ): _ctx is PolymorpheusContext<string> {
+    ): _ctx is PolymorpheusContext<T extends PolymorpheusPrimitive ? T : never> {
         return true;
     }
 
