@@ -1,6 +1,6 @@
-import * as typescript from '!!raw-loader!../menu/menu.component.ts';
-import * as css from '!!raw-loader!../menu/menu.style.less';
-import * as html from '!!raw-loader!../menu/menu.template.html';
+import * as typescript from '../menu/menu.component.ts?raw';
+import * as css from '../menu/menu.style.less?raw';
+import * as html from '../menu/menu.template.html?raw';
 
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AbstractDemo} from '../abstractDemo';

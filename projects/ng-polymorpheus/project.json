@@ -1,0 +1,41 @@
+{
+    "name": "ng-polymorpheus",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "projects/ng-polymorpheus",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "tsConfig": "projects/ng-polymorpheus/tsconfig.lib.json",
+                "project": "projects/ng-polymorpheus/ng-package.json"
+            }
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "projects/ng-polymorpheus/src/test.ts",
+                "tsConfig": "projects/ng-polymorpheus/tsconfig.spec.json",
+                "karmaConfig": "projects/ng-polymorpheus/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "lint": {
+            "executor": "@angular-devkit/build-angular:tslint",
+            "options": {
+                "tsConfig": [
+                    "projects/ng-polymorpheus/tsconfig.lib.json",
+                    "projects/ng-polymorpheus/tsconfig.spec.json"
+                ],
+                "exclude": ["**/node_modules/**"]
+            }
+        },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npm publish ./dist/ng-polymorpheus --access=public --ignore-scripts || echo \"already published\""
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+name: ⚠️ Release
+on:
+    workflow_dispatch:
+        inputs:
+            forcePush:
+                type: boolean
+                required: false
+                description: --force-publish package
+            mode:
+                type: choice
+                description: force package to be versioned (depend --force-publish)
+                required: false
+                default: minor
+                options:
+                    - patch
+                    - minor
+                    - major
+
+jobs:
+    run-release:
+        name: Run release
+        runs-on: ubuntu-latest
+        env:
+            GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+        steps:
+            - uses: taiga-family/ci/actions/setup/checkout@v1.33.1
+              with:
+                  token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+            - uses: taiga-family/ci/actions/setup/node@v1.33.1
+            - uses: taiga-family/ci/actions/setup/config/git@v1.33.1
+              with:
+                  token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+            - uses: taiga-family/ci/actions/setup/config/npm@v1.33.1
+              with:
+                  token: ${{ secrets.TINKOFF_SCOPE_NPM_TOKEN }}
+
+            - name: Lerna update version of packages
+              if: always()
+              run: |
+                  if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
+                    npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
+                  else
+                      npx lerna version --no-private
+                  fi
+
+            - run: npx nx build ng-polymorpheus
+
+            - run: npx nx publish ng-polymorpheus
+              if: always()
+
+            - id: info
+              run: |
+                  echo "version=@tinkoff/ng-polymorpheus@$(node -p "require('./projects/ng-polymorpheus/package.json').version")" >> $GITHUB_OUTPUT
+
+            - name: Announce to Telegram
+              uses: taiga-family/ci/actions/messenger/telegram/announce@v1.33.1
+              with:
+                  chatId: ${{ secrets.TAIGA_TELEGRAM_CHAT_ID }}
+                  topicId: ${{ secrets.TAIGA_TELEGRAM_CHAT_THREAD_ID }}
+                  token: ${{ secrets.TAIGA_TELEGRAM_BOT_TOKEN }}
+                  version: ${{ steps.info.outputs.version }}
+
+concurrency:
+    group: release-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true

@@ -8,11 +8,13 @@ jobs:
     ci:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: taiga-family/ci/actions/setup/node@v1.32.2
-            - run: npm run build
+            - uses: taiga-family/ci/actions/setup/checkout@v1.33.1
+            - uses: taiga-family/ci/actions/setup/node@v1.33.1
             - run: npm run prettier -- --check
             - run: npm run lint
+            - run: npm run build
+              env:
+                  NODE_OPTIONS: --openssl-legacy-provider
             - run: npm run test
               env:
                   NODE_OPTIONS: --openssl-legacy-provider
