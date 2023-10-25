@@ -54,7 +54,7 @@
         "@ng-web-apis/common": "1.13.0",
         "@ng-web-apis/universal": "1.13.0",
         "@tinkoff/ng-dompurify": "3.0.0",
-        "core-js": "2.6.12",
+        "core-js": "3.33.1",
         "dompurify": "3.0.6",
         "express": "4.18.2",
         "ngx-highlightjs": "6.1.3",
