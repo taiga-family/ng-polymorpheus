@@ -1,15 +1,21 @@
-<span class="text"> {{text}} </span>
-<div *ngIf="content" [class.template_active]="templateActive">
+<span class="text">{{ text }}</span>
+<div
+    *ngIf="content"
+    [class.template_active]="templateActive"
+>
     <ng-container *polymorpheusOutlet="content as primitive">
         <div
             *ngIf="isNumber(primitive); else icon"
             class="number"
             [class.number_active]="active"
         >
-            {{primitive}}
+            {{ primitive }}
         </div>
         <ng-template #icon>
-            <div [class.icon_active]="active" [innerHTML]="primitive"></div>
+            <div
+                [class.icon_active]="active"
+                [innerHTML]="primitive"
+            ></div>
         </ng-template>
     </ng-container>
 </div>

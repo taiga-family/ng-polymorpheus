@@ -10,7 +10,10 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * TODO: Remove second generic as it is irrelevant, remove `null` from injector type
  */
 export class PolymorpheusComponent<T, _C = any> {
-    constructor(readonly component: Type<T>, private readonly i?: Injector | null) {}
+    constructor(
+        readonly component: Type<T>,
+        private readonly i?: Injector | null,
+    ) {}
 
     createInjector<C>(injector: Injector, useValue?: C): Injector {
         return Injector.create({

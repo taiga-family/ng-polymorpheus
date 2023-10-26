@@ -1,21 +1,29 @@
 <app-combo-box
     placeholder="Enter value"
-    [stringify]="stringify"
-    [items]="items"
-    [emptyContent]="emptyContent"
     [content]="content"
+    [emptyContent]="emptyContent"
+    [items]="items"
+    [stringify]="stringify"
 ></app-combo-box>
 
 <ng-template #emptyContent>
     <div class="wrapper">
-        <img class="yoda" [src]="yoda" alt="Yoda" />
+        <img
+            alt="Yoda"
+            class="yoda"
+            [src]="yoda"
+        />
         <p>
             <em>Strong is not the force in you...</em>
         </p>
     </div>
 </ng-template>
 
-<ng-template #content let-item let-active="active">
+<ng-template
+    #content
+    let-active="active"
+    let-item
+>
     <div
         class="item"
         [class.item_active]="active"
@@ -26,22 +34,25 @@
             <img
                 *ngIf="item.avatar; else text"
                 class="avatar"
-                [class.avatar_rotated]="active"
                 [alt]="item.name"
+                [class.avatar_rotated]="active"
                 [src]="item.avatar"
             />
             <ng-template #text>
-                <div class="text" [class.text_rotated]="active">
-                    {{getInitials(item.name)}}
+                <div
+                    class="text"
+                    [class.text_rotated]="active"
+                >
+                    {{ getInitials(item.name) }}
                 </div>
             </ng-template>
             <img
-                class="avatar"
                 alt="Race"
+                class="avatar"
                 [class.avatar_rotated]="!active"
                 [src]="getRace(item.jedi)"
             />
         </div>
-        <div>{{item.name}}</div>
+        <div>{{ item.name }}</div>
     </div>
 </ng-template>

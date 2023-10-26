@@ -1,19 +1,27 @@
-<span class="big">
-    Now we will combine those with interactive icon passed to input as template:
-</span>
+<span class="big">Now we will combine those with interactive icon passed to input as template:</span>
 <p>
-    <app-combo-box placeholder="Enter value" [items]="items"></app-combo-box>
+    <app-combo-box
+        placeholder="Enter value"
+        [items]="items"
+    ></app-combo-box>
 </p>
 <p>
-    <app-tabs [tabs]="tabs" [(activeTab)]="activeTab"></app-tabs>
+    <app-tabs
+        [tabs]="tabs"
+        [(activeTab)]="activeTab"
+    ></app-tabs>
 </p>
 <pre><code [highlight]="code"></code></pre>
 <blockquote>
-    <strong>Important note:</strong> while <code><strong>ng-template</strong></code> works
-    just fine in most cases — it follows change detection of the view where it was
-    <strong>defined</strong> not where it was <strong>instantiated</strong>. Therefore, if
-    you pass it up along (or parallel) the view tree — changes initiated inside template
-    might not propagate as expected. You can use
+    <strong>Important note:</strong>
+    while
+    <code><strong>ng-template</strong></code>
+    works just fine in most cases — it follows change detection of the view where it was
+    <strong>defined</strong>
+    not where it was
+    <strong>instantiated</strong>
+    . Therefore, if you pass it up along (or parallel) the view tree — changes initiated inside template might not
+    propagate as expected. You can use
     <code><strong>polymorpheus</strong></code>
     directive to get around this issue:
     <pre><code highlight="<ng-template #ref=&quot;polymorpheus&quot; polymorpheus>...</ng-template>"></code></pre>
