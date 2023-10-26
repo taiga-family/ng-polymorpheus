@@ -50,7 +50,7 @@
             }
         },
         "serve": {
-            "executor": "@angular-devkit/build-angular:dev-server",
+            "executor": "@angular-builders/custom-webpack:dev-server",
             "options": {
                 "browserTarget": "demo:build"
             },

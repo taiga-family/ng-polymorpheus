@@ -29,11 +29,6 @@ import {TabsDemoModule} from './modules/tabsDemo/tabsDemo.module';
             provide: HIGHLIGHT_OPTIONS,
             useValue: {
                 coreLibraryLoader: () => import('highlight.js/lib/core'),
-                languages: {
-                    typescript: () => import('highlight.js/lib/languages/typescript'),
-                    less: () => import('highlight.js/lib/languages/less'),
-                    xml: () => import('highlight.js/lib/languages/xml'),
-                },
             },
         },
         {

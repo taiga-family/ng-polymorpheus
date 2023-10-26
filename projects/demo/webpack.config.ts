@@ -1,5 +1,5 @@
 import {GLOBAL_DEFS_FOR_TERSER_WITH_AOT} from '@angular/compiler-cli';
-import * as TerserPlugin from 'terser-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import {Configuration, RuleSetRule} from 'webpack';
 import {merge} from 'webpack-merge';
 
