@@ -95,7 +95,7 @@
         "@types/estree": "1.0.0",
         "ng-bullet": "1.0.3",
         "ng-packagr": "12.2.7",
-        "prettier": "2.8.8",
+        "prettier": "3.0.3",
         "standard-version": "9.5.0",
         "stylelint": "10.1.0",
         "ts-node": "9.1.1",
