@@ -1,14 +1,4 @@
 {
-    "npmScope": "ng-polymorpheus",
-    "tasksRunnerOptions": {
-        "default": {
-            "runner": "nx-cloud",
-            "options": {
-                "parallel": 1,
-                "cacheableOperations": ["build", "test", "lint"]
-            }
-        }
-    },
     "affected": {
         "defaultBase": "origin/main"
     },
@@ -20,14 +10,26 @@
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
-        "sharedGlobals": ["{workspaceRoot}/nx.json", "{workspaceRoot}/tsconfig.*.json", "{workspaceRoot}/tsconfig.json"]
+        "sharedGlobals": [
+            "{workspaceRoot}/nx.json",
+            "{workspaceRoot}/tsconfig.*.json",
+            "{workspaceRoot}/tsconfig.json"
+        ],
+        "production": ["default"]
     },
     "targetDefaults": {
         "build": {
-            "inputs": ["default"]
+            "inputs": ["default"],
+            "cache": true
         },
         "test": {
-            "inputs": ["default"]
+            "inputs": ["default"],
+            "cache": true
+        },
+        "lint": {
+            "cache": true
         }
-    }
+    },
+    "parallel": 1,
+    "nxCloudAccessToken": "YTM0YzgyN2UtMjU1Ny00ZTIwLWFhYmUtMjYyYzZhOTIzOTJifHJlYWQtd3JpdGU="
 }

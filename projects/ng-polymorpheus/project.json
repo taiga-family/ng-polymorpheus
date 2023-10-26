@@ -12,13 +12,10 @@
             }
         },
         "test": {
-            "executor": "@angular-devkit/build-angular:karma",
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/ng-polymorpheus"],
             "options": {
-                "main": "projects/ng-polymorpheus/src/test.ts",
-                "tsConfig": "projects/ng-polymorpheus/tsconfig.spec.json",
-                "karmaConfig": "projects/ng-polymorpheus/karma.conf.js",
-                "codeCoverage": true,
-                "browsers": "ChromeHeadless"
+                "jestConfig": "projects/ng-polymorpheus/jest.config.ts"
             }
         },
         "lint": {

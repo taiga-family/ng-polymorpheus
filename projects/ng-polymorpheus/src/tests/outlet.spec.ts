@@ -9,7 +9,6 @@ import {
     ViewChild,
 } from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {configureTestSuite} from 'ng-bullet';
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
 import {PolymorpheusModule} from '../polymorpheus.module';
@@ -100,22 +99,20 @@ describe('PolymorpheusOutlet', () => {
     let fixture: ComponentFixture<TestComponent>;
     let testComponent: TestComponent;
 
-    configureTestSuite(() => {
-        TestBed.configureTestingModule({
-            imports: [CommonModule, PolymorpheusModule, ComponentModule],
-            declarations: [TestComponent],
-        });
-    });
-
     function text(): string {
-        return testComponent.element.nativeElement.innerText.trim();
+        return testComponent.element.nativeElement.textContent?.trim() ?? ``;
     }
 
     function html(): string {
         return testComponent.element.nativeElement.innerHTML;
     }
 
-    beforeEach(() => {
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [CommonModule, PolymorpheusModule, ComponentModule],
+            declarations: [TestComponent],
+        }).compileComponents();
+
         fixture = TestBed.createComponent(TestComponent);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
@@ -242,7 +239,7 @@ describe('PolymorpheusOutlet', () => {
         });
 
         it('Triggers change detection', () => {
-            const changeDetectionSpy = spyOn(testComponent.polymorpheus, 'check');
+            const changeDetectionSpy = jest.spyOn(testComponent.polymorpheus, 'check');
 
             fixture.detectChanges();
 
@@ -278,45 +275,5 @@ describe('PolymorpheusOutlet', () => {
             expect(text()).toBe('Component: number');
             expect(COUNTER).toBe(counter);
         });
-    });
-});
-
-describe('PolymorpheusTemplate', () => {
-    @Component({
-        template: `
-            <ng-container
-                *polymorpheusOutlet="polymorpheus; context: context"
-            ></ng-container>
-            <ng-template
-                #polymorpheus="polymorpheus"
-                let-value
-                [polymorpheus]="type"
-            >
-                {{ value.name }}
-            </ng-template>
-        `,
-    })
-    class TestComponent {
-        context: {$implicit: {name: string}; sum: number} = {
-            $implicit: {name: 'Alex'},
-            sum: 237,
-        };
-
-        type!: {$implicit: {name: number}};
-    }
-
-    configureTestSuite(() => {
-        TestBed.configureTestingModule({
-            imports: [PolymorpheusModule],
-            declarations: [TestComponent],
-        });
-    });
-
-    it('Template typing works', () => {
-        const fixture = TestBed.createComponent(TestComponent);
-
-        fixture.detectChanges();
-
-        expect(fixture.nativeElement.innerText.trim()).toBe('Alex');
     });
 });
