@@ -1,7 +1,0 @@
-.angular
-dist
-**/coverage/**
-**/node_modules/**
-**/schematics/*/files/**/*
-package-lock.json
-*.svg

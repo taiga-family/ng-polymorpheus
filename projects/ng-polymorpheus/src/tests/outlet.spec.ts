@@ -21,7 +21,10 @@ let COUNTER = 0;
 describe('PolymorpheusOutlet', () => {
     @Component({
         template: `
-            <div *ngIf="polymorphic; else basic" #element>
+            <div
+                *ngIf="polymorphic; else basic"
+                #element
+            >
                 <ng-container
                     *polymorpheusOutlet="content as primitive; context: context"
                 >
@@ -40,10 +43,17 @@ describe('PolymorpheusOutlet', () => {
                     </ng-container>
                 </div>
             </ng-template>
-            <ng-template #plain let-value>
+            <ng-template
+                #plain
+                let-value
+            >
                 <strong>{{ value }}</strong>
             </ng-template>
-            <ng-template #polymorpheus="polymorpheus" polymorpheus let-value>
+            <ng-template
+                #polymorpheus="polymorpheus"
+                let-value
+                polymorpheus
+            >
                 <strong>{{ value }}</strong>
             </ng-template>
         `,
@@ -70,7 +80,9 @@ describe('PolymorpheusOutlet', () => {
     }
 
     @Component({
-        template: ` Component: {{ context.$implicit }} `,
+        template: `
+            Component: {{ context.$implicit }}
+        `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class ComponentContent {
@@ -275,7 +287,11 @@ describe('PolymorpheusTemplate', () => {
             <ng-container
                 *polymorpheusOutlet="polymorpheus; context: context"
             ></ng-container>
-            <ng-template #polymorpheus="polymorpheus" [polymorpheus]="type" let-value>
+            <ng-template
+                #polymorpheus="polymorpheus"
+                let-value
+                [polymorpheus]="type"
+            >
                 {{ value.name }}
             </ng-template>
         `,

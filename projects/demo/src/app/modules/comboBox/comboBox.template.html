@@ -2,9 +2,9 @@
     [content]="icon"
     [placeholder]="placeholder"
     [value]="stringValue"
-    (valueChange)="onValueChange($event)"
     (focusout)="onFocusOut()"
     (keydown.arrowDown)="onArrowDown()"
+    (valueChange)="onValueChange($event)"
 ></app-input>
 <app-menu
     *ngIf="opened"
@@ -17,17 +17,17 @@
 ></app-menu>
 <ng-template #icon>
     <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
         height="24"
         viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
         class="icon"
         [class.icon_opened]="opened"
         (click)="onClick()"
     >
         <polyline
-            points="7,10 12,15 17,10"
             fill="none"
+            points="7,10 12,15 17,10"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"

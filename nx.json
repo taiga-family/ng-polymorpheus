@@ -20,11 +20,7 @@
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
-        "sharedGlobals": [
-            "{workspaceRoot}/nx.json",
-            "{workspaceRoot}/tsconfig.*.json",
-            "{workspaceRoot}/tsconfig.json"
-        ]
+        "sharedGlobals": ["{workspaceRoot}/nx.json", "{workspaceRoot}/tsconfig.*.json", "{workspaceRoot}/tsconfig.json"]
     },
     "targetDefaults": {
         "build": {

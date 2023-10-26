@@ -20,10 +20,7 @@
                 "tsConfig": "tsconfig.json",
                 "aot": false,
                 "assets": ["projects/demo/src/favicon.ico"],
-                "styles": [
-                    "node_modules/highlight.js/styles/idea.css",
-                    "projects/demo/src/styles.css"
-                ],
+                "styles": ["node_modules/highlight.js/styles/idea.css", "projects/demo/src/styles.css"],
                 "scripts": [],
                 "vendorChunk": true,
                 "extractLicenses": false,

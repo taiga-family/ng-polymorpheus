@@ -1,5 +1,8 @@
-<div *ngIf="!items.length; else menu" class="empty">
-    <ng-container *polymorpheusOutlet="emptyContent as text">{{text}}</ng-container>
+<div
+    *ngIf="!items.length; else menu"
+    class="empty"
+>
+    <ng-container *polymorpheusOutlet="emptyContent as text">{{ text }}</ng-container>
 </div>
 <ng-template #menu>
     <div
@@ -13,7 +16,7 @@
             *polymorpheusOutlet="content as primitive; context: getContext(item)"
             class="string"
         >
-            {{primitive}}
+            {{ primitive }}
         </div>
     </div>
 </ng-template>

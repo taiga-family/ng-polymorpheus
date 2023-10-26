@@ -1,41 +1,58 @@
-<span class="big"> Tabs that are used in this demo are a lot like the menu: </span>
+<span class="big">Tabs that are used in this demo are a lot like the menu:</span>
 <p>
-    <app-tabs [tabs]="tabs" [(activeTab)]="activeTab"></app-tabs>
+    <app-tabs
+        [tabs]="tabs"
+        [(activeTab)]="activeTab"
+    ></app-tabs>
 </p>
 <pre><code [highlight]="code"></code></pre>
 <p class="big">
-    Let's show the strength of <code><strong>*polymorpheusOutlet</strong></code> by
-    creating a <code><strong>tab</strong></code> component.
+    Let's show the strength of
+    <code><strong>*polymorpheusOutlet</strong></code>
+    by creating a
+    <code><strong>tab</strong></code>
+    component.
 </p>
 <blockquote>Making it a separate component will allow us to reuse it.</blockquote>
 <p>
     <app-tabs
-        [tabs]="customTabs || getTabs(avatarTemplate)"
         [content]="content"
+        [tabs]="customTabs || getTabs(avatarTemplate)"
     ></app-tabs>
 </p>
 <ng-template #avatarTemplate>
-    <img class="avatar" [src]="avatar" alt="Avatar" />
+    <img
+        alt="Avatar"
+        class="avatar"
+        [src]="avatar"
+    />
 </ng-template>
 <p class="big">
-    Here we have two levels of <code><strong>PolymorpheusContent</strong></code> — one
-    inside <code><strong>tabs</strong></code> and another one as a tab object property.
-    This case is a nice explanation of <strong>polymorphic templates</strong> concept.
-    These tabs are configured to adapt to different content — template is shown as is
-    while primitives are treated differently. Numbers are shown in a 'badge' component
-    while string is used as source for SVG icon.
+    Here we have two levels of
+    <code><strong>PolymorpheusContent</strong></code>
+    — one inside
+    <code><strong>tabs</strong></code>
+    and another one as a tab object property. This case is a nice explanation of
+    <strong>polymorphic templates</strong>
+    concept. These tabs are configured to adapt to different content — template is shown as is while primitives are
+    treated differently. Numbers are shown in a 'badge' component while string is used as source for SVG icon.
 </p>
 <p class="big">
     Take a look at the source code for
-    <code><strong>tab</strong></code> component:
+    <code><strong>tab</strong></code>
+    component:
 </p>
 <p>
-    <app-tabs [tabs]="tabs" [(activeTab)]="activeTabTab"></app-tabs>
+    <app-tabs
+        [tabs]="tabs"
+        [(activeTab)]="activeTabTab"
+    ></app-tabs>
 </p>
 <pre><code [highlight]="tabCode"></code></pre>
 <blockquote>
-    To use component with <strong>Polymorpheus</strong> we need to wrap it with a simple
-    class:
+    To use component with
+    <strong>Polymorpheus</strong>
+    we need to wrap it with a simple class:
     <pre><code highlight="const content = new PolymorpheusComponent(TabComponent);"></code></pre>
     If you will use it within lazy modules, you can pass
     <code><strong>Injector</strong></code>
