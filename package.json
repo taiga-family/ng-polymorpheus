@@ -90,7 +90,7 @@
         "@nx/node": "17.0.2",
         "@nx/workspace": "17.0.2",
         "@taiga-ui/browserslist-config": "0.3.0",
-        "@taiga-ui/prettier-config": "0.4.0",
+        "@taiga-ui/prettier-config": "0.4.1",
         "@tinkoff/linters": "0.6.0",
         "@types/dompurify": "2.4.0",
         "@types/estree": "1.0.0",
