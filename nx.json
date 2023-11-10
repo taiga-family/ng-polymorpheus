@@ -29,7 +29,5 @@
         "lint": {
             "cache": true
         }
-    },
-    "parallel": 1,
-    "nxCloudAccessToken": "YTM0YzgyN2UtMjU1Ny00ZTIwLWFhYmUtMjYyYzZhOTIzOTJifHJlYWQtd3JpdGU="
+    }
 }
