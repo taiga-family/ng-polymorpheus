@@ -23,14 +23,14 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.44.2
+      - uses: taiga-family/ci/actions/setup/checkout@v1.44.3
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/node@v1.44.2
-      - uses: taiga-family/ci/actions/setup/config/git@v1.44.2
+      - uses: taiga-family/ci/actions/setup/node@v1.44.3
+      - uses: taiga-family/ci/actions/setup/config/git@v1.44.3
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/config/npm@v1.44.2
+      - uses: taiga-family/ci/actions/setup/config/npm@v1.44.3
         with:
           token: ${{ secrets.TINKOFF_SCOPE_NPM_TOKEN }}
 
@@ -53,7 +53,7 @@ jobs:
           echo "version=@tinkoff/ng-polymorpheus@$(node -p "require('./projects/ng-polymorpheus/package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Announce to Telegram
-        uses: taiga-family/ci/actions/messenger/telegram/announce@v1.44.2
+        uses: taiga-family/ci/actions/messenger/telegram/announce@v1.44.3
         with:
           chatId: ${{ secrets.TAIGA_TELEGRAM_CHAT_ID }}
           topicId: ${{ secrets.TAIGA_TELEGRAM_CHAT_THREAD_ID }}
