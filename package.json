@@ -96,7 +96,7 @@
         "@types/estree": "1.0.5",
         "@types/express": "4.17.21",
         "@types/jest": "29.5.9",
-        "@types/node": "20.9.3",
+        "@types/node": "20.9.4",
         "highlight.js": "11.9.0",
         "husky": "8.0.3",
         "jest": "29.7.0",
