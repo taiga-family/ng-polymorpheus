@@ -4,7 +4,6 @@ import {
     ComponentRef,
     Directive,
     DoCheck,
-    EmbeddedViewRef,
     Injector,
     OnChanges,
     SimpleChanges,
@@ -22,7 +21,6 @@ import {PolymorpheusTemplate} from './template';
     inputs: ['content: polymorpheusOutlet', 'context: polymorpheusOutletContext'],
 })
 export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
-    private v?: EmbeddedViewRef<unknown>;
     private c?: ComponentRef<unknown>;
 
     content: PolymorpheusContent<C> = '';
@@ -45,10 +43,6 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     ngOnChanges({content}: SimpleChanges): void {
         const context = this.getContext();
 
-        if (this.v) {
-            this.v.context = context;
-        }
-
         this.c?.injector.get(ChangeDetectorRef).markForCheck();
 
         if (!content) {
@@ -63,7 +57,16 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
             // tslint:disable-next-line:triple-equals
             (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
-            this.v = this.vcr.createEmbeddedView(this.template, context);
+            this.vcr.createEmbeddedView(
+                this.template,
+                context &&
+                    (new Proxy(context as object, {
+                        get: (_, key) =>
+                            this.getContext()?.[
+                                key as keyof (C | PolymorpheusContext<any>)
+                            ],
+                    }) as unknown as C),
+            );
         }
     }
 
@@ -80,7 +83,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         return true;
     }
 
-    private getContext(): unknown {
+    private getContext(): C | undefined | PolymorpheusContext<any> {
         if (isTemplate(this.content) || isComponent(this.content)) {
             return this.context;
         }
