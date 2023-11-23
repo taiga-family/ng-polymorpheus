@@ -4,7 +4,6 @@ import {
     ComponentRef,
     Directive,
     DoCheck,
-    EmbeddedViewRef,
     Injector,
     OnChanges,
     SimpleChanges,
@@ -22,7 +21,6 @@ import {PolymorpheusTemplate} from './template';
     inputs: ['content: polymorpheusOutlet', 'context: polymorpheusOutletContext'],
 })
 export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
-    private v?: EmbeddedViewRef<unknown>;
     private c?: ComponentRef<unknown>;
 
     content: PolymorpheusContent<C> = '';
@@ -45,10 +43,6 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     ngOnChanges({content}: SimpleChanges): void {
         const context = this.getContext();
 
-        if (this.v) {
-            this.v.context = context;
-        }
-
         this.c?.injector.get(ChangeDetectorRef).markForCheck();
 
         if (!content) {
@@ -57,13 +51,20 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
 
         this.vcr.clear();
 
+        const proxy =
+            context &&
+            (new Proxy(context as object, {
+                get: (_, key) =>
+                    this.getContext()?.[key as keyof (C | PolymorpheusContext<any>)],
+            }) as unknown as C);
+
         if (isComponent(this.content)) {
-            this.process(this.content);
+            this.process(this.content, proxy);
         } else if (
             // tslint:disable-next-line:triple-equals
             (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
-            this.v = this.vcr.createEmbeddedView(this.template, context);
+            this.vcr.createEmbeddedView(this.template, proxy);
         }
     }
 
@@ -80,7 +81,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         return true;
     }
 
-    private getContext(): unknown {
+    private getContext(): C | undefined | PolymorpheusContext<any> {
         if (isTemplate(this.content) || isComponent(this.content)) {
             return this.context;
         }
@@ -92,14 +93,8 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         );
     }
 
-    private process(content: PolymorpheusComponent<unknown>): void {
-        const injector = content.createInjector(
-            this.i,
-            this.context &&
-                (new Proxy(this.context as unknown as object, {
-                    get: (_, key) => this.context?.[key as keyof C],
-                }) as unknown as C),
-        );
+    private process(content: PolymorpheusComponent<unknown>, proxy?: C): void {
+        const injector = content.createInjector(this.i, proxy);
 
         this.c = this.vcr.createComponent(
             injector
