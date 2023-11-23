@@ -101,7 +101,7 @@
         "husky": "8.0.3",
         "jest": "29.7.0",
         "jest-preset-angular": "12.2.6",
-        "lerna": "7.4.2",
+        "lerna": "8.0.0",
         "lint-staged": "15.1.0",
         "ng-packagr": "12.2.7",
         "nx": "17.1.3",
