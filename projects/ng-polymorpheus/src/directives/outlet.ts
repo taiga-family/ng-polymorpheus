@@ -51,22 +51,20 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
 
         this.vcr.clear();
 
+        const proxy =
+            context &&
+            (new Proxy(context as object, {
+                get: (_, key) =>
+                    this.getContext()?.[key as keyof (C | PolymorpheusContext<any>)],
+            }) as unknown as C);
+
         if (isComponent(this.content)) {
-            this.process(this.content);
+            this.process(this.content, proxy);
         } else if (
             // tslint:disable-next-line:triple-equals
             (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
-            this.vcr.createEmbeddedView(
-                this.template,
-                context &&
-                    (new Proxy(context as object, {
-                        get: (_, key) =>
-                            this.getContext()?.[
-                                key as keyof (C | PolymorpheusContext<any>)
-                            ],
-                    }) as unknown as C),
-            );
+            this.vcr.createEmbeddedView(this.template, proxy);
         }
     }
 
@@ -95,14 +93,8 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         );
     }
 
-    private process(content: PolymorpheusComponent<unknown>): void {
-        const injector = content.createInjector(
-            this.i,
-            this.context &&
-                (new Proxy(this.context as unknown as object, {
-                    get: (_, key) => this.context?.[key as keyof C],
-                }) as unknown as C),
-        );
+    private process(content: PolymorpheusComponent<unknown>, proxy?: C): void {
+        const injector = content.createInjector(this.i, proxy);
 
         this.c = this.vcr.createComponent(
             injector
