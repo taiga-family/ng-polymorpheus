@@ -34,7 +34,7 @@
         "build": "nx build demo",
         "prettier": "prettier !package-lock.json .  --ignore-path .gitignore",
         "test": "nx test ng-polymorpheus",
-        "lint": "eslint . --fix",
+        "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck"
     },
     "husky": {

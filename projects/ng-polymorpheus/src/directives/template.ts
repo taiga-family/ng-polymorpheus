@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Directive, Injector, Self, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Directive, Self, TemplateRef} from '@angular/core';
 
 /**
  * ng-template wrapper directive also stores {@link ChangeDetectorRef} to properly handle change detection.
@@ -6,13 +6,11 @@ import {ChangeDetectorRef, Directive, Injector, Self, TemplateRef} from '@angula
 @Directive({
     standalone: true,
     selector: 'ng-template[polymorpheus]',
-    inputs: ['polymorpheus', 'injector'],
+    inputs: ['polymorpheus'],
     exportAs: 'polymorpheus',
 })
 export class PolymorpheusTemplate<C = any> {
     polymorpheus: C | '' = '';
-
-    injector?: Injector;
 
     constructor(
         @Self() readonly template: TemplateRef<C>,

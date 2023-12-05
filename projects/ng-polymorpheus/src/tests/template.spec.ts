@@ -1,10 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {
-    PolymorpheusOutlet,
-    PolymorpheusTemplate,
-} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet, PolymorpheusTemplate} from '@tinkoff/ng-polymorpheus';
 
 describe('PolymorpheusTemplate', () => {
     @Component({
