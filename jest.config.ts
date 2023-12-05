@@ -39,7 +39,6 @@ const config: Config = {
     cacheDirectory: '<rootDir>/node_modules/.cache/jest',
     reporters: ['default'],
     collectCoverage: true,
-    verbose: true,
 };
 
 export default config;
