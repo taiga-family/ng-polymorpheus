@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {ComboBoxComponent} from '../comboBox/comboBox.component';
@@ -11,7 +11,7 @@ import {StarWarsDemoComponent} from './starWarsDemo.component';
     imports: [
         CommonModule,
         HighlightModule,
-        PolymorpheusOutletDirective,
+        PolymorpheusOutlet,
         ComboBoxComponent,
         TabsComponent,
     ],

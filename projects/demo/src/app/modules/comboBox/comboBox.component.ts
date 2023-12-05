@@ -6,7 +6,7 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {InputComponent} from '../input/input.component';
 import {ContextWithActive} from '../interfaces';
@@ -15,7 +15,7 @@ import {MenuComponent} from '../menu/menu.component';
 @Component({
     standalone: true,
     selector: 'app-combo-box',
-    imports: [CommonModule, InputComponent, MenuComponent, PolymorpheusOutletDirective],
+    imports: [CommonModule, InputComponent, MenuComponent, PolymorpheusOutlet],
     templateUrl: './comboBox.template.html',
     styleUrls: ['./comboBox.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

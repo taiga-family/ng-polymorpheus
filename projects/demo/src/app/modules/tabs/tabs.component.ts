@@ -6,14 +6,14 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {ContextWithActive} from '../interfaces';
 
 @Component({
     standalone: true,
     selector: 'app-tabs',
-    imports: [CommonModule, PolymorpheusOutletDirective],
+    imports: [CommonModule, PolymorpheusOutlet],
     templateUrl: './tabs.template.html',
     styleUrls: ['./tabs.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

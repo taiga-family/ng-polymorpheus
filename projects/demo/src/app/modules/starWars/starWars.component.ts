@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {ComboBoxComponent} from '../comboBox/comboBox.component';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
@@ -14,7 +14,7 @@ interface StarWarsChar {
 @Component({
     standalone: true,
     selector: 'app-star-wars',
-    imports: [CommonModule, PolymorpheusOutletDirective, ComboBoxComponent],
+    imports: [CommonModule, PolymorpheusOutlet, ComboBoxComponent],
     templateUrl: './starWars.template.html',
     styleUrls: ['./starWars.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

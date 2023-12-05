@@ -9,7 +9,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
@@ -112,7 +112,7 @@ describe('PolymorpheusOutlet', () => {
         await TestBed.configureTestingModule({
             imports: [
                 CommonModule,
-                PolymorpheusOutletDirective,
+                PolymorpheusOutlet,
                 PolymorpheusTemplate,
                 ComponentModule,
             ],

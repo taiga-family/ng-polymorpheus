@@ -3,7 +3,7 @@ import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {
     POLYMORPHEUS_CONTEXT,
     PolymorpheusContent,
-    PolymorpheusOutletDirective,
+    PolymorpheusOutlet,
     PolymorpheusTemplate,
 } from '@tinkoff/ng-polymorpheus';
 
@@ -12,7 +12,7 @@ import {ContextWithActive, CustomTab} from '../interfaces';
 @Component({
     standalone: true,
     selector: 'app-tab',
-    imports: [CommonModule, PolymorpheusOutletDirective],
+    imports: [CommonModule, PolymorpheusOutlet],
     templateUrl: './tab.template.html',
     styleUrls: ['./tab.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

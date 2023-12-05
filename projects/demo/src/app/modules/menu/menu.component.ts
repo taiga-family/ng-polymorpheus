@@ -7,14 +7,14 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {ContextWithActive} from '../interfaces';
 
 @Component({
     standalone: true,
     selector: 'app-menu',
-    imports: [CommonModule, PolymorpheusOutletDirective],
+    imports: [CommonModule, PolymorpheusOutlet],
     templateUrl: './menu.template.html',
     styleUrls: ['./menu.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

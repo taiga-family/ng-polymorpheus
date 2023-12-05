@@ -21,7 +21,7 @@ import {PolymorpheusTemplate} from './template';
     selector: '[polymorpheusOutlet]',
     standalone: true,
 })
-export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
+export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
     private c?: ComponentRef<unknown>;
 
     @Input('polymorpheusOutlet')
@@ -45,7 +45,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     }
 
     static ngTemplateContextGuard<T>(
-        _dir: PolymorpheusOutletDirective<T>,
+        _dir: PolymorpheusOutlet<T>,
         _ctx: any,
     ): _ctx is PolymorpheusContext<T extends PolymorpheusPrimitive ? T : never> {
         return true;

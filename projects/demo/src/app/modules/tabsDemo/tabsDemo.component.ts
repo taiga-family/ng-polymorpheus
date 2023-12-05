@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {
     PolymorpheusComponent,
     PolymorpheusContent,
-    PolymorpheusOutletDirective,
+    PolymorpheusOutlet,
 } from '@tinkoff/ng-polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
@@ -24,7 +24,7 @@ import * as html from '../tabs/tabs.template.html?raw';
     selector: 'app-tabs-demo',
     imports: [
         HighlightModule,
-        PolymorpheusOutletDirective,
+        PolymorpheusOutlet,
         MenuComponent,
         TabsComponent,
         TabComponent,
