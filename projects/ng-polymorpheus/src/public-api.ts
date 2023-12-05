@@ -2,7 +2,6 @@
  * Public API Surface of ng-polymorpheus
  */
 export * from './classes/component';
-export * from './classes/template';
 export * from './directives/outlet';
 export * from './directives/outlet';
 export * from './directives/template';

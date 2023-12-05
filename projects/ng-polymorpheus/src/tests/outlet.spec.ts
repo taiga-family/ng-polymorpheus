@@ -63,12 +63,10 @@ describe('PolymorpheusOutlet', () => {
         element!: ElementRef<HTMLElement>;
 
         @ViewChild('plain')
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        template!: TemplateRef<{}>;
+        template!: TemplateRef<Record<never, never>>;
 
         @ViewChild('polymorpheus')
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        polymorpheus!: PolymorpheusTemplate<{}>;
+        polymorpheus!: PolymorpheusTemplate<Record<never, never>>;
 
         polymorphic = false;
 

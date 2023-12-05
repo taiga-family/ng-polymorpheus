@@ -13,7 +13,6 @@ import {
 
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusContext} from '../classes/context';
-import {PolymorpheusTemplateContent} from '../classes/template';
 import {PolymorpheusContent} from '../types/content';
 import {PolymorpheusPrimitive} from '../types/primitive';
 import {PolymorpheusTemplate} from './template';
@@ -76,12 +75,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
             // tslint:disable-next-line:triple-equals
             (context instanceof PolymorpheusContext && context.$implicit) !== null
         ) {
-            const injector =
-                this.content instanceof PolymorpheusTemplateContent
-                    ? this.content.createInjector(this.i)
-                    : this.i;
-
-            this.vcr.createEmbeddedView(this.template, proxy, {injector});
+            this.vcr.createEmbeddedView(this.template, proxy, {injector: this.i});
         }
     }
 
@@ -125,9 +119,5 @@ function isComponent<C>(
 function isTemplate<C>(
     content: PolymorpheusContent<C>,
 ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
-    return (
-        isDirective(content) ||
-        content instanceof TemplateRef ||
-        content instanceof PolymorpheusTemplateContent
-    );
+    return isDirective(content) || content instanceof TemplateRef;
 }
