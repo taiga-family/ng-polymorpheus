@@ -1,7 +1,7 @@
 {
     "extends": "../../tsconfig",
     "compilerOptions": {
-        "outDir": "./dist/out-tsc-server",
+        "outDir": "./dist/out-tsc-server"
     },
-    "files": ["src/main.browser.ts", "src/typings.d.ts"],
+    "files": ["src/main.browser.ts", "src/typings.d.ts"]
 }

@@ -1,9 +1,9 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
 
 import {ComboBoxComponent} from '../comboBox/comboBox.component';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
-import {CommonModule} from "@angular/common";
 
 interface StarWarsChar {
     readonly name: string;
