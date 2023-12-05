@@ -1,10 +1,10 @@
 import {
     ChangeDetectorRef,
-    ComponentFactoryResolver,
     ComponentRef,
     Directive,
     DoCheck,
     Injector,
+    Input,
     OnChanges,
     SimpleChanges,
     TemplateRef,
@@ -15,15 +15,19 @@ import {PolymorpheusContext} from '../classes/context';
 import {PolymorpheusContent} from '../types/content';
 import {PolymorpheusPrimitive} from '../types/primitive';
 import {PolymorpheusTemplate} from './template';
+import {PolymorpheusTemplateContent} from '../classes/template';
 
 @Directive({
     selector: '[polymorpheusOutlet]',
-    inputs: ['content: polymorpheusOutlet', 'context: polymorpheusOutletContext'],
+    standalone: true,
 })
 export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     private c?: ComponentRef<unknown>;
 
+    @Input(`polymorpheusOutlet`)
     content: PolymorpheusContent<C> = '';
+
+    @Input(`polymorpheusOutletContext`)
     context?: C;
 
     constructor(
@@ -64,7 +68,12 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
             // tslint:disable-next-line:triple-equals
             (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
-            this.vcr.createEmbeddedView(this.template, proxy);
+            const injector =
+                this.content instanceof PolymorpheusTemplateContent
+                    ? this.content.createInjector(this.i)
+                    : this.i;
+
+            this.vcr.createEmbeddedView(this.template, proxy, {injector});
         }
     }
 
@@ -96,13 +105,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     private process(content: PolymorpheusComponent<unknown>, proxy?: C): void {
         const injector = content.createInjector(this.i, proxy);
 
-        this.c = this.vcr.createComponent(
-            injector
-                .get(ComponentFactoryResolver)
-                .resolveComponentFactory(content.component),
-            0,
-            injector,
-        );
+        this.c = this.vcr.createComponent(content.component, {index: 0, injector});
     }
 }
 
@@ -114,12 +117,16 @@ function isDirective<C>(
 
 function isComponent<C>(
     content: PolymorpheusContent<C>,
-): content is PolymorpheusComponent<any, C> {
+): content is PolymorpheusComponent<any> {
     return content instanceof PolymorpheusComponent;
 }
 
 function isTemplate<C>(
     content: PolymorpheusContent<C>,
 ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
-    return isDirective(content) || content instanceof TemplateRef;
+    return (
+        isDirective(content) ||
+        content instanceof TemplateRef ||
+        content instanceof PolymorpheusTemplateContent
+    );
 }

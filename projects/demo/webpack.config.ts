@@ -1,4 +1,3 @@
-import {GLOBAL_DEFS_FOR_TERSER_WITH_AOT} from '@angular/compiler-cli';
 import TerserPlugin from 'terser-webpack-plugin';
 import {Configuration, RuleSetRule} from 'webpack';
 import {merge} from 'webpack-merge';
@@ -63,7 +62,6 @@ const TERSER_PLUGIN = new TerserPlugin({
             keep_fnames: false,
             keep_classnames: false,
             pure_funcs: [`forwardRef`],
-            global_defs: GLOBAL_DEFS_FOR_TERSER_WITH_AOT,
         },
         format: {
             comments: false,

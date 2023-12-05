@@ -6,7 +6,7 @@
     "prefix": "app",
     "targets": {
         "build": {
-            "executor": "@angular-builders/custom-webpack:browser",
+            "executor": "@nx/angular:webpack-browser",
             "options": {
                 "customWebpackConfig": {
                     "path": "projects/demo/webpack.config.ts"
@@ -16,9 +16,8 @@
                 "outputPath": "dist/demo/browser",
                 "index": "projects/demo/src/index.html",
                 "main": "projects/demo/src/main.browser.ts",
-                "polyfills": "projects/demo/src/polyfills.ts",
-                "tsConfig": "tsconfig.json",
-                "aot": false,
+                "polyfills": ["zone.js"],
+                "tsConfig": "projects/demo/tsconfig.browser.json",
                 "assets": ["projects/demo/src/favicon.ico"],
                 "styles": ["node_modules/highlight.js/styles/idea.css", "projects/demo/src/styles.css"],
                 "scripts": [],
@@ -35,7 +34,6 @@
                     "outputHashing": "all",
                     "sourceMap": false,
                     "namedChunks": false,
-                    "aot": true,
                     "extractLicenses": true,
                     "vendorChunk": false,
                     "buildOptimizer": true,
@@ -50,13 +48,13 @@
             }
         },
         "serve": {
-            "executor": "@angular-builders/custom-webpack:dev-server",
+            "executor": "@nx/angular:webpack-dev-server",
             "options": {
-                "browserTarget": "demo:build"
+                "buildTarget": "demo:build"
             },
             "configurations": {
                 "production": {
-                    "browserTarget": "demo:build:production"
+                    "buildTarget": "demo:build:production"
                 }
             }
         },
@@ -93,7 +91,7 @@
         "prerender": {
             "executor": "@nguniversal/builders:prerender",
             "options": {
-                "browserTarget": "demo:build:production",
+                "buildTarget": "demo:build:production",
                 "serverTarget": "demo:server:production",
                 "routes": ["/"]
             },

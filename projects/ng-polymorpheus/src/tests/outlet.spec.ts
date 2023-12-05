@@ -11,9 +11,9 @@ import {
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
-import {PolymorpheusModule} from '../polymorpheus.module';
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 import {PolymorpheusContent} from '../types/content';
+import {PolymorpheusOutletDirective} from "@tinkoff/ng-polymorpheus";
 
 let COUNTER = 0;
 
@@ -109,9 +109,10 @@ describe('PolymorpheusOutlet', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [CommonModule, PolymorpheusModule, ComponentModule],
-            declarations: [TestComponent],
-        }).compileComponents();
+    imports: [CommonModule, PolymorpheusOutletDirective, PolymorpheusTemplate, ComponentModule],
+    declarations: [TestComponent],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
 
         fixture = TestBed.createComponent(TestComponent);
         testComponent = fixture.componentInstance;

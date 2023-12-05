@@ -4,22 +4,22 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {AppComponent} from './app.component';
-import {ComboBoxDemoModule} from './modules/comboBoxDemo/comboBoxDemo.module';
-import {InputDemoModule} from './modules/inputDemo/inputDemo.module';
-import {MenuDemoModule} from './modules/menuDemo/menuDemo.module';
-import {StarWarsModule} from './modules/starWars/starWars.module';
 import {StarWarsDemoModule} from './modules/starWarsDemo/starWarsDemo.module';
-import {TabsDemoModule} from './modules/tabsDemo/tabsDemo.module';
+import {StarWarsComponent} from "./modules/starWars/starWars.component";
+import {ComboBoxDemoComponent} from "./modules/comboBoxDemo/comboBoxDemo.component";
+import {InputDemoComponent} from "./modules/inputDemo/inputDemo.component";
+import {MenuDemoComponent} from "./modules/menuDemo/menuDemo.component";
+import {TabsDemoComponent} from "./modules/tabsDemo/tabsDemo.component";
 
 @NgModule({
     bootstrap: [AppComponent],
     imports: [
         BrowserModule.withServerTransition({appId: 'demo'}),
-        InputDemoModule,
-        MenuDemoModule,
-        ComboBoxDemoModule,
-        TabsDemoModule,
-        StarWarsModule,
+        InputDemoComponent,
+        MenuDemoComponent,
+        ComboBoxDemoComponent,
+        TabsDemoComponent,
+        StarWarsComponent,
         StarWarsDemoModule,
         HighlightModule,
     ],
@@ -29,6 +29,11 @@ import {TabsDemoModule} from './modules/tabsDemo/tabsDemo.module';
             provide: HIGHLIGHT_OPTIONS,
             useValue: {
                 coreLibraryLoader: () => import('highlight.js/lib/core'),
+                languages: {
+                    xml: () => import('highlight.js/lib/languages/xml'),
+                    typescript: () => import('highlight.js/lib/languages/typescript'),
+                    less: () => import('highlight.js/lib/languages/less'),
+                }
             },
         },
         {

@@ -2,15 +2,18 @@ import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {
     PolymorpheusContent,
     PolymorpheusTemplate,
-    POLYMORPHEUS_CONTEXT,
+    POLYMORPHEUS_CONTEXT, PolymorpheusOutletDirective,
 } from '@tinkoff/ng-polymorpheus';
 import {ContextWithActive, CustomTab} from '../interfaces';
+import {CommonModule} from "@angular/common";
 
 @Component({
     selector: 'app-tab',
     templateUrl: './tab.template.html',
     styleUrls: ['./tab.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [CommonModule, PolymorpheusOutletDirective]
 })
 export class TabComponent {
     constructor(

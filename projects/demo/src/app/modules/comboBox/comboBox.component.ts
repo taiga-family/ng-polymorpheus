@@ -5,14 +5,19 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
 import {ContextWithActive} from '../interfaces';
+import {CommonModule} from "@angular/common";
+import {InputComponent} from "../input/input.component";
+import {MenuComponent} from "../menu/menu.component";
 
 @Component({
     selector: 'app-combo-box',
     templateUrl: './comboBox.template.html',
     styleUrls: ['./comboBox.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [CommonModule, InputComponent, MenuComponent, PolymorpheusOutletDirective]
 })
 export class ComboBoxComponent<T> {
     stringValue = '';

@@ -5,7 +5,7 @@
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
-        "module": "es2020",
+        "module": "ES2022",
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "moduleResolution": "node",
@@ -17,9 +17,9 @@
         "noUnusedParameters": true,
         "esModuleInterop": true,
         "noUnusedLocals": true,
-        "target": "es2015",
+        "target": "ES2022",
         "typeRoots": ["node_modules/@types"],
-        "lib": ["es2018", "dom"],
+        "lib": ["ES2022", "dom"],
         "paths": {
             "@tinkoff/ng-polymorpheus": ["./projects/ng-polymorpheus/src/public-api"]
         }

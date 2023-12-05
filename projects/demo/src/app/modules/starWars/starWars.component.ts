@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
+import {PolymorpheusOutletDirective} from "@tinkoff/ng-polymorpheus";
+import {ComboBoxComponent} from "../comboBox/comboBox.component";
 
 interface StarWarsChar {
     readonly name: string;
@@ -12,6 +14,8 @@ interface StarWarsChar {
     templateUrl: './starWars.template.html',
     styleUrls: ['./starWars.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [PolymorpheusOutletDirective, ComboBoxComponent]
 })
 export class StarWarsComponent {
     readonly yoda = yoda;

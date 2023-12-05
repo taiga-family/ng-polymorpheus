@@ -7,17 +7,22 @@ import * as css2 from '../tab/tab.style.less?raw';
 import * as html2 from '../tab/tab.template.html?raw';
 
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusComponent, PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusComponent, PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
 import {AbstractDemo} from '../abstractDemo';
 import {avatar, gear} from '../constants';
 import {CustomTab} from '../interfaces';
 import {TabComponent} from '../tab/tab.component';
+import {HighlightModule} from "ngx-highlightjs";
+import {MenuComponent} from "../menu/menu.component";
+import {TabsComponent} from "../tabs/tabs.component";
 
 @Component({
     selector: 'app-tabs-demo',
     templateUrl: './tabsDemo.template.html',
     styleUrls: ['./tabsDemo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [HighlightModule, PolymorpheusOutletDirective, MenuComponent, TabsComponent, TabComponent],
 })
 export class TabsDemoComponent extends AbstractDemo {
     readonly avatar = avatar;

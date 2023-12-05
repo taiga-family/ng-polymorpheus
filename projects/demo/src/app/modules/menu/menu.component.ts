@@ -6,14 +6,20 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {
+    PolymorpheusContent,
+    PolymorpheusOutletDirective,
+} from '@tinkoff/ng-polymorpheus';
 import {ContextWithActive} from '../interfaces';
+import {CommonModule} from "@angular/common";
 
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.template.html',
     styleUrls: ['./menu.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [CommonModule, PolymorpheusOutletDirective]
 })
 export class MenuComponent<T> {
     private activeItem: T | null = null;

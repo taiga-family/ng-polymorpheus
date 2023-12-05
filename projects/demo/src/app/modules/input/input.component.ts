@@ -5,13 +5,16 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+import {FormsModule} from "@angular/forms";
 
 @Component({
     selector: 'app-input',
     templateUrl: './input.template.html',
     styleUrls: ['./input.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [FormsModule, PolymorpheusOutletDirective]
 })
 export class InputComponent {
     @Input()

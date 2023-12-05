@@ -1,7 +1,10 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {PolymorpheusModule} from '@tinkoff/ng-polymorpheus';
+import {
+    PolymorpheusOutletDirective,
+    PolymorpheusTemplate,
+} from '@tinkoff/ng-polymorpheus';
 
 describe('PolymorpheusTemplate', () => {
     @Component({
@@ -29,8 +32,9 @@ describe('PolymorpheusTemplate', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [CommonModule, PolymorpheusModule],
+            imports: [CommonModule, PolymorpheusOutletDirective, PolymorpheusTemplate],
             declarations: [TestComponent],
+            teardown: {destroyAfterEach: false},
         }).compileComponents();
     });
 

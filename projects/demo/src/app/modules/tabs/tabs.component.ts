@@ -5,14 +5,17 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
 import {ContextWithActive} from '../interfaces';
+import {CommonModule} from "@angular/common";
 
 @Component({
     selector: 'app-tabs',
     templateUrl: './tabs.template.html',
     styleUrls: ['./tabs.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [CommonModule, PolymorpheusOutletDirective]
 })
 export class TabsComponent<T> {
     @Input()
