@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "baseUrl": ".",
+        "strict": false
+    },
+    "include": ["projects", "scripts", "setup-jest.ts"],
+    "exclude": ["**/node_modules", "**/.*/", "*.js"]
+}

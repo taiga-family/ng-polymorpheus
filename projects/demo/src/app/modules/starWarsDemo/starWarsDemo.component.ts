@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+
 import {AbstractDemo} from '../abstractDemo';
 import * as typescript from '../starWars/starWars.component.ts?raw';
 import * as css from '../starWars/starWars.style.less?raw';

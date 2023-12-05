@@ -2,7 +2,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import {Configuration, RuleSetRule} from 'webpack';
 import {merge} from 'webpack-merge';
 
-const CI_MODE = process.env[`TUI_CI`] === `true`;
+const CI_MODE = process.env['TUI_CI'] === 'true';
 
 /**
  * We can't just import TS-file to get its content
@@ -23,7 +23,7 @@ const RAW_TS_QUERY = /raw/;
  * Default Angular configurations have rules to compile (uglify) ts/less-files.
  * We don't need any transformations for RAW loading of these files.
  */
-const DO_NOT_MUTATE_RAW_FILE_CONTENTS = [`*.ts`, `*.less`, `*.html`];
+const DO_NOT_MUTATE_RAW_FILE_CONTENTS = ['*.ts', '*.less', '*.html'];
 
 /**
  * [Fixed bug in Node.js 18]
@@ -43,11 +43,12 @@ const DO_NOT_MUTATE_RAW_FILE_CONTENTS = [`*.ts`, `*.less`, `*.html`];
  *
  * instead of:
  */
-const crypto = require(`crypto`);
+const crypto = require('crypto');
+
 const fallbackCreateHash = crypto.createHash;
 
 crypto.createHash = (algorithm: string) =>
-    fallbackCreateHash(algorithm === `md4` ? `sha256` : algorithm);
+    fallbackCreateHash(algorithm === 'md4' ? 'sha256' : algorithm);
 
 const TERSER_PLUGIN = new TerserPlugin({
     parallel: true,
@@ -61,7 +62,7 @@ const TERSER_PLUGIN = new TerserPlugin({
             passes: 3,
             keep_fnames: false,
             keep_classnames: false,
-            pure_funcs: [`forwardRef`],
+            pure_funcs: ['forwardRef'],
         },
         format: {
             comments: false,
@@ -85,13 +86,13 @@ const config: Configuration = {
             {
                 test: /\.(ts|html|css|less|md|svg)$/i,
                 resourceQuery: RAW_TS_QUERY,
-                type: `asset/source`,
+                type: 'asset/source',
             },
         ],
     },
     ...(CI_MODE
         ? {
-              mode: `production`,
+              mode: 'production',
               plugins: [TERSER_PLUGIN],
               optimization: {minimize: true, minimizer: [TERSER_PLUGIN]},
           }
@@ -102,7 +103,7 @@ const config: Configuration = {
 export default (ngConfigs: Configuration): Configuration => {
     const ngRules = ([...(ngConfigs.module?.rules || [])] as RuleSetRule[]).map(rule => {
         if (
-            typeof rule === `object` &&
+            typeof rule === 'object' &&
             !!rule &&
             DO_NOT_MUTATE_RAW_FILE_CONTENTS.some(
                 pattern => rule?.test instanceof RegExp && rule?.test?.test(pattern),

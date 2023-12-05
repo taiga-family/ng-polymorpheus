@@ -7,7 +7,7 @@ import 'jest-preset-angular/setup-jest';
  * resulting in duplicate imports
  * and conflicts resulting in the above error
  */
-if (!(`Zone` in global)) {
-    require(`zone.js`);
-    require(`zone.js/testing`);
+if (!('Zone' in global)) {
+    require('zone.js');
+    require('zone.js/testing');
 }

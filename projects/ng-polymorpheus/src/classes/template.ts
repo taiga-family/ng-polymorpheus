@@ -1,4 +1,5 @@
 import {Injector, TemplateRef} from '@angular/core';
+
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 
 /**

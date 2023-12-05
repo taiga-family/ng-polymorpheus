@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -6,31 +7,31 @@ import {
     Output,
 } from '@angular/core';
 import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+
 import {ContextWithActive} from '../interfaces';
-import {CommonModule} from "@angular/common";
 
 @Component({
+    standalone: true,
     selector: 'app-tabs',
+    imports: [CommonModule, PolymorpheusOutletDirective],
     templateUrl: './tabs.template.html',
     styleUrls: ['./tabs.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [CommonModule, PolymorpheusOutletDirective]
 })
 export class TabsComponent<T> {
     @Input()
-    tabs: ReadonlyArray<T> = [];
-
-    @Input()
-    content: PolymorpheusContent<ContextWithActive<T>> = ({
-        $implicit,
-    }: ContextWithActive<T>) => String($implicit);
+    tabs: readonly T[] = [];
 
     @Input()
     activeTab: T | null = null;
 
     @Output()
-    activeTabChange = new EventEmitter<T>();
+    readonly activeTabChange = new EventEmitter<T>();
+
+    @Input()
+    content: PolymorpheusContent<ContextWithActive<T>> = ({
+        $implicit,
+    }: ContextWithActive<T>) => String($implicit);
 
     isActive(tab: T): boolean {
         return tab === this.activeTab;
@@ -43,7 +44,7 @@ export class TabsComponent<T> {
         };
     }
 
-    onClick(tab: T) {
+    onClick(tab: T): void {
         this.activeTab = tab;
         this.activeTabChange.emit(tab);
     }

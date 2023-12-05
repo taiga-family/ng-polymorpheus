@@ -98,13 +98,6 @@
             "configurations": {
                 "production": {}
             }
-        },
-        "lint": {
-            "executor": "@angular-devkit/build-angular:tslint",
-            "options": {
-                "tsConfig": ["tsconfig.json"],
-                "exclude": ["**/node_modules/**"]
-            }
         }
     }
 }

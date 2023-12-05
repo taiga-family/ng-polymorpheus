@@ -1,20 +1,20 @@
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {HighlightModule} from 'ngx-highlightjs';
+
+import {AbstractDemo} from '../abstractDemo';
+import {InputComponent} from '../input/input.component';
 import * as typescript from '../input/input.component.ts?raw';
 import * as css from '../input/input.style.less?raw';
 import * as html from '../input/input.template.html?raw';
-
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {AbstractDemo} from '../abstractDemo';
-import {HighlightModule} from "ngx-highlightjs";
-import {InputComponent} from "../input/input.component";
-import {TabsComponent} from "../tabs/tabs.component";
+import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
+    standalone: true,
     selector: 'app-input-demo',
+    imports: [HighlightModule, InputComponent, TabsComponent],
     templateUrl: './inputDemo.template.html',
     styleUrls: ['./inputDemo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [HighlightModule, InputComponent, TabsComponent],
 })
 export class InputDemoComponent extends AbstractDemo {
     readonly searchIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

@@ -10,12 +10,13 @@ import {
     TemplateRef,
     ViewContainerRef,
 } from '@angular/core';
+
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusContext} from '../classes/context';
+import {PolymorpheusTemplateContent} from '../classes/template';
 import {PolymorpheusContent} from '../types/content';
 import {PolymorpheusPrimitive} from '../types/primitive';
 import {PolymorpheusTemplate} from './template';
-import {PolymorpheusTemplateContent} from '../classes/template';
 
 @Directive({
     selector: '[polymorpheusOutlet]',
@@ -24,10 +25,10 @@ import {PolymorpheusTemplateContent} from '../classes/template';
 export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
     private c?: ComponentRef<unknown>;
 
-    @Input(`polymorpheusOutlet`)
+    @Input('polymorpheusOutlet')
     content: PolymorpheusContent<C> = '';
 
-    @Input(`polymorpheusOutletContext`)
+    @Input('polymorpheusOutletContext')
     context?: C;
 
     constructor(
@@ -42,6 +43,13 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         }
 
         return this.content instanceof TemplateRef ? this.content : this.t;
+    }
+
+    static ngTemplateContextGuard<T>(
+        _dir: PolymorpheusOutletDirective<T>,
+        _ctx: any,
+    ): _ctx is PolymorpheusContext<T extends PolymorpheusPrimitive ? T : never> {
+        return true;
     }
 
     ngOnChanges({content}: SimpleChanges): void {
@@ -66,7 +74,7 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
             this.process(this.content, proxy);
         } else if (
             // tslint:disable-next-line:triple-equals
-            (context instanceof PolymorpheusContext && context.$implicit) != null
+            (context instanceof PolymorpheusContext && context.$implicit) !== null
         ) {
             const injector =
                 this.content instanceof PolymorpheusTemplateContent
@@ -77,27 +85,20 @@ export class PolymorpheusOutletDirective<C> implements OnChanges, DoCheck {
         }
     }
 
-    ngDoCheck() {
+    ngDoCheck(): void {
         if (isDirective(this.content)) {
             this.content.check();
         }
     }
 
-    static ngTemplateContextGuard<T>(
-        _dir: PolymorpheusOutletDirective<T>,
-        _ctx: any,
-    ): _ctx is PolymorpheusContext<T extends PolymorpheusPrimitive ? T : never> {
-        return true;
-    }
-
-    private getContext(): C | undefined | PolymorpheusContext<any> {
+    private getContext(): C | PolymorpheusContext<any> | undefined {
         if (isTemplate(this.content) || isComponent(this.content)) {
             return this.context;
         }
 
         return new PolymorpheusContext(
-            typeof this.content === 'function'
-                ? this.content(this.context!)
+            this.context && typeof this.content === 'function'
+                ? this.content(this.context)
                 : this.content,
         );
     }

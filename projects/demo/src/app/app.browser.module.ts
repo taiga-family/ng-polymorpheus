@@ -2,17 +2,17 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {NgModule, Sanitizer} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
-import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
+import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
+
 import {AppComponent} from './app.component';
+import {ComboBoxDemoComponent} from './modules/comboBoxDemo/comboBoxDemo.component';
+import {InputDemoComponent} from './modules/inputDemo/inputDemo.component';
+import {MenuDemoComponent} from './modules/menuDemo/menuDemo.component';
+import {StarWarsComponent} from './modules/starWars/starWars.component';
 import {StarWarsDemoModule} from './modules/starWarsDemo/starWarsDemo.module';
-import {StarWarsComponent} from "./modules/starWars/starWars.component";
-import {ComboBoxDemoComponent} from "./modules/comboBoxDemo/comboBoxDemo.component";
-import {InputDemoComponent} from "./modules/inputDemo/inputDemo.component";
-import {MenuDemoComponent} from "./modules/menuDemo/menuDemo.component";
-import {TabsDemoComponent} from "./modules/tabsDemo/tabsDemo.component";
+import {TabsDemoComponent} from './modules/tabsDemo/tabsDemo.component';
 
 @NgModule({
-    bootstrap: [AppComponent],
     imports: [
         BrowserModule.withServerTransition({appId: 'demo'}),
         InputDemoComponent,
@@ -28,12 +28,13 @@ import {TabsDemoComponent} from "./modules/tabsDemo/tabsDemo.component";
         {
             provide: HIGHLIGHT_OPTIONS,
             useValue: {
-                coreLibraryLoader: () => import('highlight.js/lib/core'),
+                coreLibraryLoader: async () => import('highlight.js/lib/core'),
                 languages: {
-                    xml: () => import('highlight.js/lib/languages/xml'),
-                    typescript: () => import('highlight.js/lib/languages/typescript'),
-                    less: () => import('highlight.js/lib/languages/less'),
-                }
+                    xml: async () => import('highlight.js/lib/languages/xml'),
+                    typescript: async () =>
+                        import('highlight.js/lib/languages/typescript'),
+                    less: async () => import('highlight.js/lib/languages/less'),
+                },
             },
         },
         {
@@ -45,5 +46,6 @@ import {TabsDemoComponent} from "./modules/tabsDemo/tabsDemo.component";
             useClass: NgDompurifySanitizer,
         },
     ],
+    bootstrap: [AppComponent],
 })
 export class AppBrowserModule {}

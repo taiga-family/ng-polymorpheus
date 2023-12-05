@@ -3,11 +3,11 @@
  */
 export * from './classes/component';
 export * from './classes/template';
-export * from './directives/template';
 export * from './directives/outlet';
+export * from './directives/outlet';
+export * from './directives/template';
+export * from './directives/template';
 export * from './tokens/context';
 export * from './types/content';
 export * from './types/handler';
 export * from './types/primitive';
-export * from './directives/outlet';
-export * from './directives/template';

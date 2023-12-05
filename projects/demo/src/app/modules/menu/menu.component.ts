@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -6,37 +7,39 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {
-    PolymorpheusContent,
-    PolymorpheusOutletDirective,
-} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusContent, PolymorpheusOutletDirective} from '@tinkoff/ng-polymorpheus';
+
 import {ContextWithActive} from '../interfaces';
-import {CommonModule} from "@angular/common";
 
 @Component({
+    standalone: true,
     selector: 'app-menu',
+    imports: [CommonModule, PolymorpheusOutletDirective],
     templateUrl: './menu.template.html',
     styleUrls: ['./menu.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [CommonModule, PolymorpheusOutletDirective]
 })
 export class MenuComponent<T> {
     private activeItem: T | null = null;
 
     @Input()
-    items: ReadonlyArray<T> = [];
-
-    @Input()
-    content: PolymorpheusContent<ContextWithActive<T>> = ({
-        $implicit,
-    }: ContextWithActive<T>) => String($implicit);
+    items: readonly T[] = [];
 
     @Input()
     emptyContent: PolymorpheusContent<never> = 'Nothing is found';
 
     @Output()
     readonly itemClicked = new EventEmitter<T>();
+
+    @Input()
+    content: PolymorpheusContent<ContextWithActive<T>> = ({
+        $implicit,
+    }: ContextWithActive<T>) => String($implicit);
+
+    @HostListener('mouseleave')
+    onMouseLeave(): void {
+        this.activeItem = null;
+    }
 
     isActive(item: T): boolean {
         return item === this.activeItem;
@@ -49,12 +52,7 @@ export class MenuComponent<T> {
         };
     }
 
-    onMouseEnter(item: T) {
+    onMouseEnter(item: T): void {
         this.activeItem = item;
-    }
-
-    @HostListener('mouseleave')
-    onMouseLeave() {
-        this.activeItem = null;
     }
 }

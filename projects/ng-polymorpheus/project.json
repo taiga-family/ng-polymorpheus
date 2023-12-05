@@ -18,16 +18,6 @@
                 "jestConfig": "projects/ng-polymorpheus/jest.config.ts"
             }
         },
-        "lint": {
-            "executor": "@angular-devkit/build-angular:tslint",
-            "options": {
-                "tsConfig": [
-                    "projects/ng-polymorpheus/tsconfig.lib.json",
-                    "projects/ng-polymorpheus/tsconfig.spec.json"
-                ],
-                "exclude": ["**/node_modules/**"]
-            }
-        },
         "publish": {
             "executor": "nx:run-commands",
             "options": {
