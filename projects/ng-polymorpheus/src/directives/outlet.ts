@@ -72,8 +72,8 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         if (isComponent(this.content)) {
             this.process(this.content, proxy);
         } else if (
-            // tslint:disable-next-line:triple-equals
-            (context instanceof PolymorpheusContext && context.$implicit) !== null
+            // eslint-disable-next-line eqeqeq
+            (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
             this.vcr.createEmbeddedView(this.template, proxy, {injector: this.i});
         }
@@ -100,7 +100,7 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
     private process(content: PolymorpheusComponent<unknown>, proxy?: C): void {
         const injector = content.createInjector(this.i, proxy);
 
-        this.c = this.vcr.createComponent(content.component, {index: 0, injector});
+        this.c = this.vcr.createComponent(content.component, {injector});
     }
 }
 
