@@ -7,9 +7,11 @@ import {ngExpressEngine} from '@nguniversal/express-engine';
 import express, {Express} from 'express';
 import {existsSync} from 'fs';
 import {join} from 'path';
+
 import {AppServerModule} from './src/main.server';
 
 global.requestAnimationFrame = global.setImmediate as any;
+
 global.cancelAnimationFrame = () => {};
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -56,14 +58,14 @@ export function app(): Express {
     return server;
 }
 
-function run() {
+function run(): void {
     const port = process.env.PORT || 4000;
 
     // Start up the Node server
     const server = app();
 
     server.listen(port, () => {
-        // tslint:disable-next-line:no-console
+        // eslint-disable-next-line no-console
         console.log(`Node Express server listening on http://localhost:${port}`);
     });
 }
@@ -73,7 +75,7 @@ function run() {
 // The below code is to ensure that the server is run only when not requiring the bundle.
 declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
-const moduleFilename = (mainModule && mainModule.filename) || '';
+const moduleFilename = mainModule?.filename || '';
 
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
     run();

@@ -5,10 +5,13 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {FormsModule} from '@angular/forms';
+import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 @Component({
+    standalone: true,
     selector: 'app-input',
+    imports: [FormsModule, PolymorpheusOutlet],
     templateUrl: './input.template.html',
     styleUrls: ['./input.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,14 +27,14 @@ export class InputComponent {
     value = '';
 
     @Output()
-    valueChange = new EventEmitter<string>();
+    readonly valueChange = new EventEmitter<string>();
 
-    onMouseDown(event: MouseEvent, input: HTMLInputElement) {
+    onMouseDown(event: MouseEvent, input: HTMLInputElement): void {
         event.preventDefault();
         input.focus();
     }
 
-    onValueChange(value: string) {
+    onValueChange(value: string): void {
         this.value = value;
         this.valueChange.emit(value);
     }

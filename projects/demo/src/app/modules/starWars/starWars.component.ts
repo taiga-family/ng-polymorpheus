@@ -1,4 +1,8 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+
+import {ComboBoxComponent} from '../comboBox/comboBox.component';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
 
 interface StarWarsChar {
@@ -8,7 +12,9 @@ interface StarWarsChar {
 }
 
 @Component({
+    standalone: true,
     selector: 'app-star-wars',
+    imports: [CommonModule, PolymorpheusOutlet, ComboBoxComponent],
     templateUrl: './starWars.template.html',
     styleUrls: ['./starWars.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,9 +22,7 @@ interface StarWarsChar {
 export class StarWarsComponent {
     readonly yoda = yoda;
 
-    readonly stringify = ({name}: StarWarsChar) => name;
-
-    readonly items: ReadonlyArray<StarWarsChar> = [
+    readonly items: readonly StarWarsChar[] = [
         {
             name: 'Luke Skywalker',
             avatar: luke,
@@ -45,6 +49,8 @@ export class StarWarsComponent {
             jedi: true,
         },
     ];
+
+    readonly stringify: (char: StarWarsChar) => string = ({name}) => name;
 
     getInitials(name: string): string {
         return name

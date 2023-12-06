@@ -9,9 +9,10 @@ import {
     ViewChild,
 } from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
-import {PolymorpheusModule} from '../polymorpheus.module';
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 import {PolymorpheusContent} from '../types/content';
 
@@ -62,18 +63,18 @@ describe('PolymorpheusOutlet', () => {
         element!: ElementRef<HTMLElement>;
 
         @ViewChild('plain')
-        template!: TemplateRef<{}>;
+        template!: TemplateRef<Record<never, never>>;
 
         @ViewChild('polymorpheus')
-        polymorpheus!: PolymorpheusTemplate<{}>;
+        polymorpheus!: PolymorpheusTemplate<Record<never, never>>;
 
         polymorphic = false;
 
-        content: PolymorpheusContent<any> = '';
+        content: PolymorpheusContent = '';
 
         context: any = undefined;
 
-        isNumber(primitive: string | number): boolean {
+        isNumber(primitive: number | string): boolean {
             return typeof primitive === 'number';
         }
     }
@@ -100,7 +101,7 @@ describe('PolymorpheusOutlet', () => {
     let testComponent: TestComponent;
 
     function text(): string {
-        return testComponent.element.nativeElement.textContent?.trim() ?? ``;
+        return testComponent.element.nativeElement.textContent?.trim() ?? '';
     }
 
     function html(): string {
@@ -109,8 +110,14 @@ describe('PolymorpheusOutlet', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [CommonModule, PolymorpheusModule, ComponentModule],
+            imports: [
+                CommonModule,
+                PolymorpheusOutlet,
+                PolymorpheusTemplate,
+                ComponentModule,
+            ],
             declarations: [TestComponent],
+            teardown: {destroyAfterEach: false},
         }).compileComponents();
 
         fixture = TestBed.createComponent(TestComponent);
@@ -127,6 +134,11 @@ describe('PolymorpheusOutlet', () => {
         expect(PolymorpheusTemplate.ngTemplateContextGuard({polymorpheus: {}})).toBe(
             true,
         );
+    });
+
+    it('Directive static type check exists', () => {
+        // @ts-ignore
+        expect(PolymorpheusOutlet.ngTemplateContextGuard({polymorpheus: {}})).toBe(true);
     });
 
     describe('Primitive', () => {
@@ -221,7 +233,7 @@ describe('PolymorpheusOutlet', () => {
         testComponent.content = testComponent.template;
         fixture.detectChanges();
 
-        expect(html().includes('<strong>string</strong>')).toBe(true);
+        expect(html()).toContain('<strong>string</strong>');
     });
 
     describe('PolymorpheusTemplate', () => {
@@ -235,7 +247,7 @@ describe('PolymorpheusOutlet', () => {
         it('Works', () => {
             fixture.detectChanges();
 
-            expect(html().includes('<strong>string</strong>')).toBe(true);
+            expect(html()).toContain('<strong>string</strong>');
         });
 
         it('Triggers change detection', () => {

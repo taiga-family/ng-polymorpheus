@@ -1,20 +1,34 @@
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {
+    PolymorpheusComponent,
+    PolymorpheusContent,
+    PolymorpheusOutlet,
+} from '@tinkoff/ng-polymorpheus';
+import {HighlightModule} from 'ngx-highlightjs';
+
+import {AbstractDemo} from '../abstractDemo';
+import {avatar, gear} from '../constants';
+import {CustomTab} from '../interfaces';
+import {MenuComponent} from '../menu/menu.component';
+import {TabComponent} from '../tab/tab.component';
+import * as typescript2 from '../tab/tab.component.ts?raw';
+import * as css2 from '../tab/tab.style.less?raw';
+import * as html2 from '../tab/tab.template.html?raw';
+import {TabsComponent} from '../tabs/tabs.component';
 import * as typescript from '../tabs/tabs.component.ts?raw';
 import * as css from '../tabs/tabs.style.less?raw';
 import * as html from '../tabs/tabs.template.html?raw';
 
-import * as typescript2 from '../tab/tab.component.ts?raw';
-import * as css2 from '../tab/tab.style.less?raw';
-import * as html2 from '../tab/tab.template.html?raw';
-
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusComponent, PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {AbstractDemo} from '../abstractDemo';
-import {avatar, gear} from '../constants';
-import {CustomTab} from '../interfaces';
-import {TabComponent} from '../tab/tab.component';
-
 @Component({
+    standalone: true,
     selector: 'app-tabs-demo',
+    imports: [
+        HighlightModule,
+        PolymorpheusOutlet,
+        MenuComponent,
+        TabsComponent,
+        TabComponent,
+    ],
     templateUrl: './tabsDemo.template.html',
     styleUrls: ['./tabsDemo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,7 +54,7 @@ export class TabsDemoComponent extends AbstractDemo {
 
     activeTabTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
 
-    customTabs: ReadonlyArray<CustomTab> | null = null;
+    customTabs: readonly CustomTab[] | null = null;
 
     get tabCode(): string {
         const code: any = this.anotherExample[this.activeTabTab];
@@ -48,7 +62,7 @@ export class TabsDemoComponent extends AbstractDemo {
         return typeof code === 'string' ? code : code.default;
     }
 
-    getTabs(content: PolymorpheusContent<never>): ReadonlyArray<CustomTab> {
+    getTabs(content: PolymorpheusContent<never>): readonly CustomTab[] {
         const customTabs = [
             {
                 text: 'Alex Inkin',

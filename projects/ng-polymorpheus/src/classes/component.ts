@@ -1,4 +1,5 @@
 import {Injector, Type} from '@angular/core';
+
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 
 /**
@@ -6,13 +7,11 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  *
  * @param component — an Angular component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
- *
- * TODO: Remove second generic as it is irrelevant, remove `null` from injector type
  */
-export class PolymorpheusComponent<T, _C = any> {
+export class PolymorpheusComponent<T> {
     constructor(
         readonly component: Type<T>,
-        private readonly i?: Injector | null,
+        private readonly i?: Injector,
     ) {}
 
     createInjector<C>(injector: Injector, useValue?: C): Injector {
