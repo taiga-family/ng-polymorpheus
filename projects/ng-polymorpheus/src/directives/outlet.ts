@@ -18,8 +18,8 @@ import {PolymorpheusPrimitive} from '../types/primitive';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
-    selector: '[polymorpheusOutlet]',
     standalone: true,
+    selector: '[polymorpheusOutlet]',
 })
 export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
     private c?: ComponentRef<unknown>;
