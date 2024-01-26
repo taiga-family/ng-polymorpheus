@@ -8,8 +8,8 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.50.8
-      - uses: taiga-family/ci/actions/setup/node@v1.50.8
+      - uses: taiga-family/ci/actions/setup/checkout@v1.50.9
+      - uses: taiga-family/ci/actions/setup/node@v1.50.9
       - run: npm run prettier -- --check
       - run: npm run lint
       - run: npm run build
