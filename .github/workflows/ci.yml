@@ -18,7 +18,7 @@ jobs:
       - run: npm run test
         env:
           NODE_OPTIONS: --openssl-legacy-provider
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
 
 concurrency:
   group: ci-${{ github.head_ref }}
