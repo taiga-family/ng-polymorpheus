@@ -126,8 +126,8 @@
         "webpack": "5.90.1"
     },
     "engines": {
-        "node": ">= 10",
-        "npm": ">= 3"
+        "node": "21.6.1",
+        "npm": "10.4.0"
     },
     "schematics": "./schematics/collection.json",
     "standard-version": {
