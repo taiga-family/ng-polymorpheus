@@ -94,7 +94,7 @@
         "@nx/workspace": "17.3.0",
         "@swc/helpers": "0.5.6",
         "@taiga-ui/browserslist-config": "0.4.0",
-        "@taiga-ui/eslint-plugin-experience": "0.50.3",
+        "@taiga-ui/eslint-plugin-experience": "0.51.0",
         "@taiga-ui/prettier-config": "0.8.1",
         "@tinkoff/eslint-config": "2.0.0",
         "@tinkoff/linters": "1.52.1",
