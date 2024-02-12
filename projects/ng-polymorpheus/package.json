@@ -24,8 +24,8 @@
         "tslib": "2.6.2"
     },
     "peerDependencies": {
-        "@angular/core": "17.1.2",
-        "@angular/platform-browser": "17.1.2"
+        "@angular/core": ">=15.0.0",
+        "@angular/platform-browser": ">=15.0.0"
     },
     "authors": [
         "Roman Sedov <r.sedov@tinkoff.ru>",
