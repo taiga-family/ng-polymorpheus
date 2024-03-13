@@ -96,7 +96,7 @@
         "@taiga-ui/browserslist-config": "0.4.0",
         "@taiga-ui/eslint-plugin-experience": "0.51.0",
         "@taiga-ui/prettier-config": "0.8.1",
-        "@tinkoff/eslint-config": "2.0.0",
+        "@tinkoff/eslint-config": "2.0.3",
         "@tinkoff/linters": "1.52.1",
         "@types/dompurify": "3.0.5",
         "@types/estree": "1.0.5",
