@@ -5,12 +5,12 @@ import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 
 import {AppComponent} from './app.component';
-import {ComboBoxDemoComponent} from './modules/comboBoxDemo/comboBoxDemo.component';
-import {InputDemoComponent} from './modules/inputDemo/inputDemo.component';
-import {MenuDemoComponent} from './modules/menuDemo/menuDemo.component';
-import {StarWarsComponent} from './modules/starWars/starWars.component';
-import {StarWarsDemoModule} from './modules/starWarsDemo/starWarsDemo.module';
-import {TabsDemoComponent} from './modules/tabsDemo/tabsDemo.component';
+import {ComboBoxDemoComponent} from './modules/combo-box-demo/combo-box-demo.component';
+import {InputDemoComponent} from './modules/input-demo/input-demo.component';
+import {MenuDemoComponent} from './modules/menu-demo/menu-demo.component';
+import {StarWarsComponent} from './modules/star-wars/star-wars.component';
+import {StarWarsDemoModule} from './modules/star-wars-demo/star-wars-demo.module';
+import {TabsDemoComponent} from './modules/tabs-demo/tabs-demo.component';
 
 @NgModule({
     imports: [

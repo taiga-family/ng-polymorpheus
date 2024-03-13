@@ -1,4 +1,4 @@
-import {Config} from 'jest';
+import type {Config} from 'jest';
 import {resolve} from 'path';
 import {pathsToModuleNameMapper} from 'ts-jest';
 
@@ -32,8 +32,8 @@ const config: Config = {
     coveragePathIgnorePatterns: ['node_modules', 'schematics', '.spec.ts'],
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
         prefix: `<rootDir>/${compilerOptions.baseUrl}/`
-            .replace(/\.\//g, '/')
-            .replace(/\/\/+/g, '/'),
+            .replaceAll('./', '/')
+            .replaceAll(/\/\/+/g, '/'),
     }),
     modulePathIgnorePatterns: ['dist/'],
     cacheDirectory: '<rootDir>/node_modules/.cache/jest',

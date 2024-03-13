@@ -1,5 +1,5 @@
 import TerserPlugin from 'terser-webpack-plugin';
-import {Configuration, RuleSetRule} from 'webpack';
+import type {Configuration, RuleSetRule} from 'webpack';
 import {merge} from 'webpack-merge';
 
 const CI_MODE = process.env['TUI_CI'] === 'true';

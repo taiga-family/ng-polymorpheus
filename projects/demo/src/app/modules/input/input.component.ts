@@ -6,7 +6,8 @@ import {
     Output,
 } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 @Component({
     standalone: true,
@@ -18,23 +19,23 @@ import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus'
 })
 export class InputComponent {
     @Input()
-    content: PolymorpheusContent<never> = null;
+    public content: PolymorpheusContent<never> = null;
 
     @Input()
-    placeholder = '';
+    public placeholder = '';
 
     @Input()
-    value = '';
+    public value = '';
 
     @Output()
-    readonly valueChange = new EventEmitter<string>();
+    public readonly valueChange = new EventEmitter<string>();
 
-    onMouseDown(event: MouseEvent, input: HTMLInputElement): void {
+    protected onMouseDown(event: MouseEvent, input: HTMLInputElement): void {
         event.preventDefault();
         input.focus();
     }
 
-    onValueChange(value: string): void {
+    protected onValueChange(value: string): void {
         this.value = value;
         this.valueChange.emit(value);
     }

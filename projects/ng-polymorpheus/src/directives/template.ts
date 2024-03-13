@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Directive, Self, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Directive, inject, TemplateRef} from '@angular/core';
 
 /**
  * ng-template wrapper directive also stores {@link ChangeDetectorRef} to properly handle change detection.
@@ -10,21 +10,18 @@ import {ChangeDetectorRef, Directive, Self, TemplateRef} from '@angular/core';
     exportAs: 'polymorpheus',
 })
 export class PolymorpheusTemplate<C = any> {
-    polymorpheus: C | '' = '';
+    private readonly cdr = inject(ChangeDetectorRef);
+    public readonly template: TemplateRef<C> = inject(TemplateRef<C>, {self: true});
+    public polymorpheus: C | '' = '';
 
-    constructor(
-        @Self() readonly template: TemplateRef<C>,
-        private readonly cdr: ChangeDetectorRef,
-    ) {}
-
-    static ngTemplateContextGuard<T>(
+    public static ngTemplateContextGuard<T>(
         _dir: PolymorpheusTemplate<T>,
         _ctx: any,
     ): _ctx is T extends '' ? any : T {
         return true;
     }
 
-    check(): void {
+    public check(): void {
         this.cdr.markForCheck();
     }
 }

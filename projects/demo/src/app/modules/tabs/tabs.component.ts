@@ -6,9 +6,10 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
-import {ContextWithActive} from '../interfaces';
+import type {ContextWithActive} from '../interfaces';
 
 @Component({
     standalone: true,
@@ -20,31 +21,31 @@ import {ContextWithActive} from '../interfaces';
 })
 export class TabsComponent<T> {
     @Input()
-    tabs: readonly T[] = [];
+    public tabs: readonly T[] = [];
 
     @Input()
-    activeTab: T | null = null;
+    public activeTab: T | null = null;
 
     @Output()
-    readonly activeTabChange = new EventEmitter<T>();
+    public readonly activeTabChange = new EventEmitter<T>();
 
     @Input()
-    content: PolymorpheusContent<ContextWithActive<T>> = ({
+    public content: PolymorpheusContent<ContextWithActive<T>> = ({
         $implicit,
     }: ContextWithActive<T>) => String($implicit);
 
-    isActive(tab: T): boolean {
+    protected isActive(tab: T): boolean {
         return tab === this.activeTab;
     }
 
-    getContext($implicit: T): ContextWithActive<T> {
+    protected getContext($implicit: T): ContextWithActive<T> {
         return {
             $implicit,
             active: this.isActive($implicit),
         };
     }
 
-    onClick(tab: T): void {
+    protected onClick(tab: T): void {
         this.activeTab = tab;
         this.activeTabChange.emit(tab);
     }

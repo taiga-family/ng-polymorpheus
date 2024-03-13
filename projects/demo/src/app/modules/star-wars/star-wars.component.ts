@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
-import {ComboBoxComponent} from '../comboBox/comboBox.component';
+import {ComboBoxComponent} from '../combo-box/combo-box.component';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
 
 interface StarWarsChar {
@@ -15,14 +15,14 @@ interface StarWarsChar {
     standalone: true,
     selector: 'app-star-wars',
     imports: [CommonModule, PolymorpheusOutlet, ComboBoxComponent],
-    templateUrl: './starWars.template.html',
-    styleUrls: ['./starWars.style.less'],
+    templateUrl: './star-wars.template.html',
+    styleUrls: ['./star-wars.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StarWarsComponent {
-    readonly yoda = yoda;
+    protected readonly yoda = yoda;
 
-    readonly items: readonly StarWarsChar[] = [
+    protected readonly items: readonly StarWarsChar[] = [
         {
             name: 'Luke Skywalker',
             avatar: luke,
@@ -50,16 +50,16 @@ export class StarWarsComponent {
         },
     ];
 
-    readonly stringify: (char: StarWarsChar) => string = ({name}) => name;
+    protected readonly stringify: (char: StarWarsChar) => string = ({name}) => name;
 
-    getInitials(name: string): string {
+    protected getInitials(name: string): string {
         return name
             .split(' ')
             .map(word => word[0])
             .join('');
     }
 
-    getRace(isJedi: boolean): string {
+    protected getRace(isJedi: boolean): string {
         return isJedi ? jedi : sith;
     }
 }

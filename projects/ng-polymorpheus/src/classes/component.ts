@@ -1,4 +1,5 @@
-import {Injector, Type} from '@angular/core';
+import type {Type} from '@angular/core';
+import {Injector} from '@angular/core';
 
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 
@@ -10,11 +11,11 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  */
 export class PolymorpheusComponent<T> {
     constructor(
-        readonly component: Type<T>,
+        public readonly component: Type<T>,
         private readonly i?: Injector,
     ) {}
 
-    createInjector<C>(injector: Injector, useValue?: C): Injector {
+    public createInjector<C>(injector: Injector, useValue?: C): Injector {
         return Injector.create({
             parent: this.i || injector,
             providers: [

@@ -1,13 +1,13 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 import {
     POLYMORPHEUS_CONTEXT,
-    PolymorpheusContent,
     PolymorpheusOutlet,
     PolymorpheusTemplate,
 } from '@tinkoff/ng-polymorpheus';
 
-import {ContextWithActive, CustomTab} from '../interfaces';
+import type {ContextWithActive, CustomTab} from '../interfaces';
 
 @Component({
     standalone: true,
@@ -18,31 +18,29 @@ import {ContextWithActive, CustomTab} from '../interfaces';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabComponent {
-    constructor(
-        @Inject(POLYMORPHEUS_CONTEXT)
-        private readonly context: ContextWithActive<CustomTab>,
-    ) {}
+    private readonly context: ContextWithActive<CustomTab> =
+        inject<any>(POLYMORPHEUS_CONTEXT);
 
-    get text(): string {
+    protected get text(): string {
         return this.context.$implicit.text;
     }
 
-    get content(): PolymorpheusContent<never> | undefined {
+    protected get content(): PolymorpheusContent<never> | undefined {
         return this.context.$implicit.content;
     }
 
-    get active(): boolean {
+    protected get active(): boolean {
         return this.context.active;
     }
 
-    get templateActive(): boolean {
+    protected get templateActive(): boolean {
         return (
             this.context.active &&
             this.context.$implicit.content instanceof PolymorpheusTemplate
         );
     }
 
-    isNumber(primitive: number | string): primitive is number {
+    protected isNumber(primitive: number | string): primitive is number {
         return typeof primitive === 'number';
     }
 }

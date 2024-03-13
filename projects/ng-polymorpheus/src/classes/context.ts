@@ -1,7 +1,7 @@
 export class PolymorpheusContext<T> {
-    constructor(readonly $implicit: T) {}
+    constructor(public readonly $implicit: T) {}
 
-    get polymorpheusOutlet(): T {
+    public get polymorpheusOutlet(): T {
         return this.$implicit;
     }
 }

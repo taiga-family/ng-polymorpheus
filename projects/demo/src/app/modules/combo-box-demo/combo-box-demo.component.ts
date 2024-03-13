@@ -1,23 +1,29 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HighlightModule} from 'ngx-highlightjs';
 
-import {AbstractDemo} from '../abstractDemo';
-import {ComboBoxComponent} from '../comboBox/comboBox.component';
-import * as typescript from '../comboBox/comboBox.component.ts?raw';
-import * as css from '../comboBox/comboBox.style.less?raw';
-import * as html from '../comboBox/comboBox.template.html?raw';
+import {AbstractDemo} from '../abstract-demo';
+import {ComboBoxComponent} from '../combo-box/combo-box.component';
+import * as typescript from '../combo-box/combo-box.component.ts?raw';
+import * as css from '../combo-box/combo-box.style.less?raw';
+import * as html from '../combo-box/combo-box.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
     standalone: true,
     selector: 'app-combo-box-demo',
     imports: [ComboBoxComponent, TabsComponent, HighlightModule],
-    templateUrl: './comboBoxDemo.template.html',
-    styleUrls: ['./comboBoxDemo.style.less'],
+    templateUrl: './combo-box-demo.template.html',
+    styleUrls: ['./combo-box-demo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComboBoxDemoComponent extends AbstractDemo {
-    readonly items = [
+    public readonly example = {
+        HTML: html,
+        Style: css,
+        TypeScript: typescript,
+    };
+
+    protected readonly items = [
         'Graham Chapman',
         'John Cleese',
         'Terry Gilliam',
@@ -25,10 +31,4 @@ export class ComboBoxDemoComponent extends AbstractDemo {
         'Terry Jones',
         'Michael Palin',
     ];
-
-    readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
 }

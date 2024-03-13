@@ -3,9 +3,9 @@ import {NgModule} from '@angular/core';
 import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
-import {ComboBoxComponent} from '../comboBox/comboBox.component';
+import {ComboBoxComponent} from '../combo-box/combo-box.component';
 import {TabsComponent} from '../tabs/tabs.component';
-import {StarWarsDemoComponent} from './starWarsDemo.component';
+import {StarWarsDemoComponent} from './star-wars-demo.component';
 
 @NgModule({
     imports: [

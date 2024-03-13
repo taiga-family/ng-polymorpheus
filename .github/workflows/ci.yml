@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+env:
+  NX_SKIP_CACHE: true
+  NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -12,12 +16,9 @@ jobs:
       - uses: taiga-family/ci/actions/setup/node@v1.51.15
       - run: npm run prettier -- --check
       - run: npm run lint
-      - run: npm run build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
-      - run: npm run test
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
+      - run: npx nx build ng-polymorpheus
+      - run: npx nx build demo
+      - run: npx nx test ng-polymorpheus
       - uses: codecov/codecov-action@v3
 
 concurrency:

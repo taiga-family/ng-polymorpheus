@@ -19,12 +19,12 @@ describe('PolymorpheusTemplate', () => {
         `,
     })
     class TestComponent {
-        context: {$implicit: {name: string}; sum: number} = {
+        protected context: {$implicit: {name: string}; sum: number} = {
             $implicit: {name: 'Alex'},
             sum: 237,
         };
 
-        type!: {$implicit: {name: number}};
+        protected type!: {$implicit: {name: number}};
     }
 
     beforeEach(async () => {
