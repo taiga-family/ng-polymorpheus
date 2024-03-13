@@ -8,5 +8,5 @@ import {logo} from './modules/constants';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-    readonly logo = logo;
+    protected readonly logo = logo;
 }

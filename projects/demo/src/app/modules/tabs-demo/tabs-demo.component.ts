@@ -1,14 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {
-    PolymorpheusComponent,
-    PolymorpheusContent,
-    PolymorpheusOutlet,
-} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusComponent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
-import {AbstractDemo} from '../abstractDemo';
+import {AbstractDemo} from '../abstract-demo';
 import {avatar, gear} from '../constants';
-import {CustomTab} from '../interfaces';
+import type {CustomTab} from '../interfaces';
 import {MenuComponent} from '../menu/menu.component';
 import {TabComponent} from '../tab/tab.component';
 import * as typescript2 from '../tab/tab.component.ts?raw';
@@ -29,40 +26,44 @@ import * as html from '../tabs/tabs.template.html?raw';
         TabsComponent,
         TabComponent,
     ],
-    templateUrl: './tabsDemo.template.html',
-    styleUrls: ['./tabsDemo.style.less'],
+    templateUrl: './tabs-demo.template.html',
+    styleUrls: ['./tabs-demo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsDemoComponent extends AbstractDemo {
-    readonly avatar = avatar;
-
-    readonly items = ['Search for Holy Grail', 'Run away!', 'Taunt a second time'];
-
-    readonly example = {
+    public readonly example = {
         HTML: html,
         Style: css,
         TypeScript: typescript,
     };
 
-    readonly anotherExample = {
+    protected readonly avatar = avatar;
+
+    protected readonly items = [
+        'Search for Holy Grail',
+        'Run away!',
+        'Taunt a second time',
+    ];
+
+    protected readonly anotherExample = {
         HTML: html2,
         Style: css2,
         TypeScript: typescript2,
     };
 
-    readonly content = new PolymorpheusComponent(TabComponent);
+    protected readonly content = new PolymorpheusComponent(TabComponent);
 
-    activeTabTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
+    protected activeTabTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
 
-    customTabs: readonly CustomTab[] | null = null;
+    protected customTabs: readonly CustomTab[] | null = null;
 
-    get tabCode(): string {
+    protected get tabCode(): string {
         const code: any = this.anotherExample[this.activeTabTab];
 
         return typeof code === 'string' ? code : code.default;
     }
 
-    getTabs(content: PolymorpheusContent<never>): readonly CustomTab[] {
+    protected getTabs(content: PolymorpheusContent<never>): readonly CustomTab[] {
         const customTabs = [
             {
                 text: 'Alex Inkin',

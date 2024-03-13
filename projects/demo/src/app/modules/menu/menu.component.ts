@@ -7,9 +7,10 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
-import {ContextWithActive} from '../interfaces';
+import type {ContextWithActive} from '../interfaces';
 
 @Component({
     standalone: true,
@@ -23,36 +24,36 @@ export class MenuComponent<T> {
     private activeItem: T | null = null;
 
     @Input()
-    items: readonly T[] = [];
+    public items: readonly T[] = [];
 
     @Input()
-    emptyContent: PolymorpheusContent<never> = 'Nothing is found';
+    public emptyContent: PolymorpheusContent<never> = 'Nothing is found';
 
     @Output()
-    readonly itemClicked = new EventEmitter<T>();
+    public readonly itemClicked = new EventEmitter<T>();
 
     @Input()
-    content: PolymorpheusContent<ContextWithActive<T>> = ({
+    public content: PolymorpheusContent<ContextWithActive<T>> = ({
         $implicit,
     }: ContextWithActive<T>) => String($implicit);
 
     @HostListener('mouseleave')
-    onMouseLeave(): void {
+    protected onMouseLeave(): void {
         this.activeItem = null;
     }
 
-    isActive(item: T): boolean {
+    protected isActive(item: T): boolean {
         return item === this.activeItem;
     }
 
-    getContext($implicit: T): ContextWithActive<T> {
+    protected getContext($implicit: T): ContextWithActive<T> {
         return {
             $implicit,
             active: this.isActive($implicit),
         };
     }
 
-    onMouseEnter(item: T): void {
+    protected onMouseEnter(item: T): void {
         this.activeItem = item;
     }
 }

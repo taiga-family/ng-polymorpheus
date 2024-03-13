@@ -1,20 +1,21 @@
 import {CommonModule} from '@angular/common';
+import type {TemplateRef} from '@angular/core';
 import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
-    Inject,
+    inject,
     NgModule,
-    TemplateRef,
     ViewChild,
 } from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import type {ComponentFixture} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
-import {PolymorpheusContent} from '../types/content';
+import type {PolymorpheusContent} from '../types/content';
 
 let COUNTER = 0;
 
@@ -60,21 +61,21 @@ describe('PolymorpheusOutlet', () => {
     })
     class TestComponent {
         @ViewChild('element', {read: ElementRef})
-        element!: ElementRef<HTMLElement>;
+        public element!: ElementRef<HTMLElement>;
 
         @ViewChild('plain')
-        template!: TemplateRef<Record<never, never>>;
+        public template!: TemplateRef<Record<never, never>>;
 
         @ViewChild('polymorpheus')
-        polymorpheus!: PolymorpheusTemplate<Record<never, never>>;
+        public polymorpheus!: PolymorpheusTemplate<Record<never, never>>;
 
-        polymorphic = false;
+        public polymorphic = false;
 
-        content: PolymorpheusContent = '';
+        public content: PolymorpheusContent = '';
 
-        context: any = undefined;
+        public context: any = undefined;
 
-        isNumber(primitive: number | string): boolean {
+        public isNumber(primitive: number | string): boolean {
             return typeof primitive === 'number';
         }
     }
@@ -86,7 +87,9 @@ describe('PolymorpheusOutlet', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class ComponentContent {
-        constructor(@Inject(POLYMORPHEUS_CONTEXT) readonly context: any) {
+        public readonly context = inject(POLYMORPHEUS_CONTEXT);
+
+        constructor() {
             COUNTER++;
         }
     }
@@ -251,6 +254,7 @@ describe('PolymorpheusOutlet', () => {
         });
 
         it('Triggers change detection', () => {
+            // @ts-ignore
             const changeDetectionSpy = jest.spyOn(testComponent.polymorpheus, 'check');
 
             fixture.detectChanges();

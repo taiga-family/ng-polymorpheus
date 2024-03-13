@@ -1,20 +1,18 @@
+import type {ComponentRef, DoCheck, OnChanges, SimpleChanges} from '@angular/core';
 import {
     ChangeDetectorRef,
-    ComponentRef,
     Directive,
-    DoCheck,
-    Injector,
+    inject,
+    INJECTOR,
     Input,
-    OnChanges,
-    SimpleChanges,
     TemplateRef,
     ViewContainerRef,
 } from '@angular/core';
 
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusContext} from '../classes/context';
-import {PolymorpheusContent} from '../types/content';
-import {PolymorpheusPrimitive} from '../types/primitive';
+import type {PolymorpheusContent} from '../types/content';
+import type {PolymorpheusPrimitive} from '../types/primitive';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
@@ -22,36 +20,27 @@ import {PolymorpheusTemplate} from './template';
     selector: '[polymorpheusOutlet]',
 })
 export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
+    private readonly vcr = inject(ViewContainerRef);
+    private readonly i = inject(INJECTOR);
+    private readonly t: TemplateRef<PolymorpheusContext<PolymorpheusPrimitive>> =
+        inject(TemplateRef);
+
     private c?: ComponentRef<unknown>;
 
     @Input('polymorpheusOutlet')
-    content: PolymorpheusContent<C> = '';
+    public content: PolymorpheusContent<C> = '';
 
     @Input('polymorpheusOutletContext')
-    context?: C;
+    public context?: C;
 
-    constructor(
-        private readonly vcr: ViewContainerRef,
-        private readonly i: Injector,
-        private readonly t: TemplateRef<PolymorpheusContext<PolymorpheusPrimitive>>,
-    ) {}
-
-    private get template(): TemplateRef<unknown> {
-        if (isDirective(this.content)) {
-            return this.content.template;
-        }
-
-        return this.content instanceof TemplateRef ? this.content : this.t;
-    }
-
-    static ngTemplateContextGuard<T>(
+    public static ngTemplateContextGuard<T>(
         _dir: PolymorpheusOutlet<T>,
         _ctx: any,
     ): _ctx is PolymorpheusContext<T extends PolymorpheusPrimitive ? T : never> {
         return true;
     }
 
-    ngOnChanges({content}: SimpleChanges): void {
+    public ngOnChanges({content}: SimpleChanges): void {
         const context = this.getContext();
 
         this.c?.injector.get(ChangeDetectorRef).markForCheck();
@@ -79,10 +68,18 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         }
     }
 
-    ngDoCheck(): void {
+    public ngDoCheck(): void {
         if (isDirective(this.content)) {
             this.content.check();
         }
+    }
+
+    private get template(): TemplateRef<unknown> {
+        if (isDirective(this.content)) {
+            return this.content.template;
+        }
+
+        return this.content instanceof TemplateRef ? this.content : this.t;
     }
 
     private getContext(): C | PolymorpheusContext<any> | undefined {

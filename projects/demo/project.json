@@ -12,7 +12,6 @@
                     "path": "projects/demo/webpack.config.ts"
                 },
                 "baseHref": "/",
-                "deployUrl": "/",
                 "outputPath": "dist/demo/browser",
                 "index": "projects/demo/src/index.html",
                 "main": "projects/demo/src/main.browser.ts",

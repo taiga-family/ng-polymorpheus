@@ -6,53 +6,54 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import {PolymorpheusContent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
 
 import {InputComponent} from '../input/input.component';
-import {ContextWithActive} from '../interfaces';
+import type {ContextWithActive} from '../interfaces';
 import {MenuComponent} from '../menu/menu.component';
 
 @Component({
     standalone: true,
     selector: 'app-combo-box',
     imports: [CommonModule, InputComponent, MenuComponent, PolymorpheusOutlet],
-    templateUrl: './comboBox.template.html',
-    styleUrls: ['./comboBox.style.less'],
+    templateUrl: './combo-box.template.html',
+    styleUrls: ['./combo-box.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComboBoxComponent<T> {
     @Input()
-    placeholder = '';
+    public placeholder = '';
 
     @Input()
-    items: readonly T[] = [];
+    public items: readonly T[] = [];
 
     @Input()
-    emptyContent: PolymorpheusContent<never> = 'Nothing is found';
+    public emptyContent: PolymorpheusContent<never> = 'Nothing is found';
 
     @Input()
-    value: T | null = null;
+    public value: T | null = null;
 
     @Output()
-    readonly valueChange = new EventEmitter<T | null>();
+    public readonly valueChange = new EventEmitter<T | null>();
 
-    stringValue = '';
+    protected stringValue = '';
 
-    opened = false;
+    protected opened = false;
 
     @Input()
-    content: PolymorpheusContent<ContextWithActive<T>> = ({
+    public content: PolymorpheusContent<ContextWithActive<T>> = ({
         $implicit,
     }: ContextWithActive<T>) => String($implicit);
 
     @Input()
-    stringify: (item: T) => string = (item: T) => String(item);
+    public stringify: (item: T) => string = (item: T) => String(item);
 
-    get valueSelected(): boolean {
+    protected get valueSelected(): boolean {
         return !!this.value && this.items.includes(this.value);
     }
 
-    get filteredItems(): readonly T[] {
+    protected get filteredItems(): readonly T[] {
         return this.valueSelected
             ? this.items
             : this.items.filter(item =>
@@ -62,26 +63,26 @@ export class ComboBoxComponent<T> {
               );
     }
 
-    onClick(): void {
+    protected onClick(): void {
         this.opened = !this.opened;
     }
 
-    onArrowDown(): void {
+    protected onArrowDown(): void {
         this.opened = true;
     }
 
-    onFocusOut(): void {
+    protected onFocusOut(): void {
         this.opened = false;
     }
 
-    onItemClicked(item: T): void {
+    protected onItemClicked(item: T): void {
         this.value = item;
         this.valueChange.emit(item);
         this.stringValue = this.stringify(item);
         this.opened = false;
     }
 
-    onValueChange(stringValue: string): void {
+    protected onValueChange(stringValue: string): void {
         this.stringValue = stringValue;
         this.opened = true;
         this.value =

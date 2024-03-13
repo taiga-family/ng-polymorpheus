@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {HighlightModule} from 'ngx-highlightjs';
 
-import {AbstractDemo} from '../abstractDemo';
+import {AbstractDemo} from '../abstract-demo';
 import {MenuComponent} from '../menu/menu.component';
 import * as typescript from '../menu/menu.component.ts?raw';
 import * as css from '../menu/menu.style.less?raw';
@@ -12,16 +12,20 @@ import {TabsComponent} from '../tabs/tabs.component';
     standalone: true,
     selector: 'app-menu-demo',
     imports: [HighlightModule, MenuComponent, TabsComponent],
-    templateUrl: './menuDemo.template.html',
-    styleUrls: ['./menuDemo.style.less'],
+    templateUrl: './menu-demo.template.html',
+    styleUrls: ['./menu-demo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuDemoComponent extends AbstractDemo {
-    readonly items = ['Search for Holy Grail', 'Run away!', 'Taunt a second time'];
-
-    readonly example = {
+    public readonly example = {
         HTML: html,
         Style: css,
         TypeScript: typescript,
     };
+
+    protected readonly items = [
+        'Search for Holy Grail',
+        'Run away!',
+        'Taunt a second time',
+    ];
 }
