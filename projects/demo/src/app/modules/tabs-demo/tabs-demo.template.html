@@ -3,7 +3,7 @@
     <app-tabs
         [tabs]="tabs"
         [(activeTab)]="activeTab"
-    ></app-tabs>
+    />
 </p>
 <pre><code [highlight]="code"></code></pre>
 <p class="big">
@@ -18,7 +18,7 @@
     <app-tabs
         [content]="content"
         [tabs]="customTabs || getTabs(avatarTemplate)"
-    ></app-tabs>
+    />
 </p>
 <ng-template #avatarTemplate>
     <img
@@ -46,7 +46,7 @@
     <app-tabs
         [tabs]="tabs"
         [(activeTab)]="activeTabTab"
-    ></app-tabs>
+    />
 </p>
 <pre><code [highlight]="tabCode"></code></pre>
 <blockquote>

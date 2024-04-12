@@ -5,7 +5,7 @@
     (focusout)="onFocusOut()"
     (keydown.arrowDown)="onArrowDown()"
     (valueChange)="onValueChange($event)"
-></app-input>
+/>
 <app-menu
     *ngIf="opened"
     class="menu"
@@ -14,7 +14,7 @@
     [items]="filteredItems"
     (itemClicked)="onItemClicked($event)"
     (mousedown)="$event.preventDefault()"
-></app-menu>
+/>
 <ng-template #icon>
     <svg
         height="24"
