@@ -19,7 +19,7 @@ jobs:
       - run: npx nx build ng-polymorpheus
       - run: npx nx build demo
       - run: npx nx test ng-polymorpheus
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
 
 concurrency:
   group: ci-${{ github.head_ref }}
