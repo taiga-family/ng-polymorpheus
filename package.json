@@ -95,7 +95,7 @@
         "@nx/jest": "18.2.4",
         "@nx/node": "18.2.4",
         "@nx/workspace": "18.2.4",
-        "@swc/helpers": "0.5.9",
+        "@swc/helpers": "0.5.10",
         "@taiga-ui/browserslist-config": "0.6.0",
         "@taiga-ui/eslint-plugin-experience": "0.69.0",
         "@taiga-ui/prettier-config": "0.11.5",
