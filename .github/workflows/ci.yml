@@ -12,8 +12,8 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.55.9
-      - uses: taiga-family/ci/actions/setup/node@v1.55.9
+      - uses: taiga-family/ci/actions/setup/checkout@v1.55.10
+      - uses: taiga-family/ci/actions/setup/node@v1.55.10
       - run: npm run prettier -- --check
       - run: npm run lint
       - run: npx nx build ng-polymorpheus
