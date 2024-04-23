@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.3
-      - uses: taiga-family/ci/actions/setup/variables@v1.55.13
-      - uses: taiga-family/ci/actions/auto/label-when-approved@v1.55.13
+      - uses: taiga-family/ci/actions/setup/variables@v1.55.14
+      - uses: taiga-family/ci/actions/auto/label-when-approved@v1.55.14
         with:
           approvals: 1
           token: ${{ secrets.GITHUB_TOKEN }}
