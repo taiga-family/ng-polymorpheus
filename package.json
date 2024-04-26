@@ -105,7 +105,7 @@
         "@types/express": "4.17.21",
         "@types/jest": "29.5.12",
         "@types/node": "20.12.7",
-        "dompurify": "3.1.0",
+        "dompurify": "3.1.1",
         "express": "4.19.2",
         "highlight.js": "11.9.0",
         "husky": "9.0.11",
