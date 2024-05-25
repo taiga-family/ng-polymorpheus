@@ -115,7 +115,7 @@
         "lerna": "8.1.3",
         "lint-staged": "15.2.5",
         "ng-packagr": "16.2.3",
-        "ngx-highlightjs": "10.0.0",
+        "ngx-highlightjs": "11.0.0",
         "nx": "19.1.0",
         "rxjs": "7.8.1",
         "ts-jest": "29.1.3",
