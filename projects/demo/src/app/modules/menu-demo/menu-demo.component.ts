@@ -17,15 +17,15 @@ import {TabsComponent} from '../tabs/tabs.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuDemoComponent extends AbstractDemo {
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
-
     protected readonly items = [
         'Search for Holy Grail',
         'Run away!',
         'Taunt a second time',
     ];
+
+    public readonly example = {
+        HTML: html,
+        Style: css,
+        TypeScript: typescript,
+    };
 }

@@ -21,7 +21,7 @@
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "npm publish ./dist/ng-polymorpheus --access=public --ignore-scripts || echo \"already published\""
+                "command": "export TAG=\"$(node -p \"require('./package.json')?.version?.includes('alpha') ? 'alpha' : 'latest'\")\" && npm publish --tag $TAG ./dist/ng-polymorpheus --access=public --verbose --ignore-scripts || echo 'already published'"
             }
         }
     }

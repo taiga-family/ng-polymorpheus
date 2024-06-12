@@ -31,12 +31,6 @@ import * as html from '../tabs/tabs.template.html?raw';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsDemoComponent extends AbstractDemo {
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
-
     protected readonly avatar = avatar;
 
     protected readonly items = [
@@ -56,6 +50,12 @@ export class TabsDemoComponent extends AbstractDemo {
     protected activeTabTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
 
     protected customTabs: readonly CustomTab[] | null = null;
+
+    public readonly example = {
+        HTML: html,
+        Style: css,
+        TypeScript: typescript,
+    };
 
     protected get tabCode(): string {
         const code: any = this.anotherExample[this.activeTabTab];

@@ -1,5 +1,10 @@
 name: ⚠️ Release
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - projects/ng-event-plugins/**
   workflow_dispatch:
     inputs:
       forcePush:
@@ -15,52 +20,21 @@ on:
           - patch
           - minor
           - major
+          - prepatch
 
 jobs:
-  run-release:
-    name: Run release
+  release:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.60.1
+      - uses: taiga-family/ci/actions/setup/checkout@v1.62.0
+      - uses: taiga-family/ci/actions/run/release-it@v1.62.0
         with:
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/node@v1.60.1
-      - uses: taiga-family/ci/actions/setup/config/git@v1.60.1
-        with:
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/config/npm@v1.60.1
-        with:
-          token: ${{ secrets.TINKOFF_SCOPE_NPM_TOKEN }}
-
-      - name: Lerna update version of packages
-        if: always()
-        run: |
-          if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
-            npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
-          else
-              npx lerna version --no-private
-          fi
-
-      - run: npx nx build ng-polymorpheus
-
-      - run: npx nx publish ng-polymorpheus
-        if: always()
-
-      - id: info
-        run: |
-          echo "version=@tinkoff/ng-polymorpheus@$(node -p "require('./projects/ng-polymorpheus/package.json').version")" >> $GITHUB_OUTPUT
-
-      - name: Announce to Telegram
-        uses: taiga-family/ci/actions/messenger/telegram/announce@v1.60.1
-        with:
-          chatId: ${{ secrets.TAIGA_TELEGRAM_CHAT_ID }}
-          topicId: ${{ secrets.TAIGA_TELEGRAM_CHAT_THREAD_ID }}
-          token: ${{ secrets.TAIGA_TELEGRAM_BOT_TOKEN }}
-          version: ${{ steps.info.outputs.version }}
-          textLink: '@tinkoff/ng-polymorpheus'
-
+          ref: ${{ github.ref }}
+          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          npmToken: ${{ secrets.TAIGA_UI_SCOPE_NPM_TOKEN }}
+          forcePush: ${{ github.event.inputs.forcePush }}
+          mode: ${{ github.event.inputs.mode }}
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

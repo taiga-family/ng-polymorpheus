@@ -1,7 +1,7 @@
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {NgModule, Sanitizer} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
+import {NgDompurifySanitizer} from '@taiga-ui/dompurify';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 
 import {AppComponent} from './app.component';

@@ -22,6 +22,9 @@ import {MenuComponent} from '../menu/menu.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComboBoxComponent<T> {
+    protected stringValue = '';
+    protected opened = false;
+
     @Input()
     public placeholder = '';
 
@@ -36,10 +39,6 @@ export class ComboBoxComponent<T> {
 
     @Output()
     public readonly valueChange = new EventEmitter<T | null>();
-
-    protected stringValue = '';
-
-    protected opened = false;
 
     @Input()
     public content: PolymorpheusContent<ContextWithActive<T>> = ({

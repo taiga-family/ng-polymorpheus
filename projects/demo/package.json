@@ -1,10 +1,5 @@
 {
     "name": "demo",
-    "private": true,
-    "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "lint": "ng lint"
-    }
+    "version": "4.3.0",
+    "private": true
 }

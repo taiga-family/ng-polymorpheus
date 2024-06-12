@@ -1,6 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
+import {beforeEach, describe, expect, it} from '@jest/globals';
 import {PolymorpheusOutlet, PolymorpheusTemplate} from '@tinkoff/ng-polymorpheus';
 
 describe('PolymorpheusTemplate', () => {

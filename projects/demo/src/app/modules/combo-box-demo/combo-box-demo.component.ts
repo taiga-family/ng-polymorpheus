@@ -17,12 +17,6 @@ import {TabsComponent} from '../tabs/tabs.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComboBoxDemoComponent extends AbstractDemo {
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
-
     protected readonly items = [
         'Graham Chapman',
         'John Cleese',
@@ -31,4 +25,10 @@ export class ComboBoxDemoComponent extends AbstractDemo {
         'Terry Jones',
         'Michael Palin',
     ];
+
+    public readonly example = {
+        HTML: html,
+        Style: css,
+        TypeScript: typescript,
+    };
 }
