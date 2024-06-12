@@ -1,5 +1,9 @@
 
 
+* feat: support pass content (85ad961)
+* chore(deps): update taiga-family/ci action to v1.62.2 (#426) (1eb3cc5)
+* chore: fixup (7505d7b)
+
 # [4.5.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.1.0...v4.5.0) (2024-06-12)
 
 
