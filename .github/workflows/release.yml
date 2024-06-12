@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - projects/ng-event-plugins/**
+      - projects/ng-polymorpheus/**
   workflow_dispatch:
     inputs:
       forcePush:
