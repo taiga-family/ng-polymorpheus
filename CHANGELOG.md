@@ -1,5 +1,7 @@
 
 
+* fix: inheritance compatibility (d86d200)
+
 * fix: type consistent (f22dd70)
 
 * fix: support pass cdr (43fb937)
