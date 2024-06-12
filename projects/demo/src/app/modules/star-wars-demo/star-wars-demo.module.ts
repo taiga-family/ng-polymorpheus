@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {ComboBoxComponent} from '../combo-box/combo-box.component';

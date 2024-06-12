@@ -6,8 +6,8 @@ import {
     Input,
     Output,
 } from '@angular/core';
-import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
+import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 import {InputComponent} from '../input/input.component';
 import type {ContextWithActive} from '../interfaces';

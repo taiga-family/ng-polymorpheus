@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. See
 
 # 4.3.0 (2023-11-24)
 
-**Note:** Version bump only for package @tinkoff/ng-polymorpheus
+**Note:** Version bump only for package @taiga-ui/polymorpheus
 
 # Change Log
 
@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file. See
 
 # 4.2.0 (2023-10-12)
 
-**Note:** Version bump only for package @tinkoff/ng-polymorpheus
+**Note:** Version bump only for package @taiga-ui/polymorpheus
 
 # Changelog
 

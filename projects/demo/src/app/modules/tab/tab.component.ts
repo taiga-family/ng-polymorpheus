@@ -1,11 +1,11 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
 import {
     POLYMORPHEUS_CONTEXT,
     PolymorpheusOutlet,
     PolymorpheusTemplate,
-} from '@tinkoff/ng-polymorpheus';
+} from '@taiga-ui/polymorpheus';
 
 import type {ContextWithActive, CustomTab} from '../interfaces';
 

@@ -6,8 +6,8 @@ import {
     Output,
 } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
+import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 @Component({
     standalone: true,

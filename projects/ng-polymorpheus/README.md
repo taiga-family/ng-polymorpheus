@@ -1,6 +1,6 @@
 # Polymorpheus
 
-[![npm version](https://img.shields.io/npm/v/@tinkoff/ng-polymorpheus.svg)](https://npmjs.com/package/@tinkoff/ng-polymorpheus)
+[![npm version](https://img.shields.io/npm/v/@taiga-ui/polymorpheus.svg)](https://npmjs.com/package/@taiga-ui/polymorpheus)
 [![Build Status](https://github.com/taiga-family/ng-polymorpheus/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/taiga-family/ng-polymorpheus/actions/workflows/ci.yml)
 [![Coverage Status](https://codecov.io/gh/taiga-family/ng-polymorpheus/branch/main/graphs/badge.svg)](https://app.codecov.io/gh/taiga-family/ng-polymorpheus/tree/main/projects)
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/taiga-family/angular-open-source-starter)

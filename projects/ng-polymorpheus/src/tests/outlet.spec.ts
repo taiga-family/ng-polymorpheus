@@ -11,7 +11,7 @@ import {
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it, jest} from '@jest/globals';
-import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';

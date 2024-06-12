@@ -21,7 +21,7 @@
         "typeRoots": ["node_modules/@types"],
         "lib": ["ES2022", "dom"],
         "paths": {
-            "@tinkoff/ng-polymorpheus": ["./projects/ng-polymorpheus/src/public-api"]
+            "@taiga-ui/polymorpheus": ["./projects/ng-polymorpheus/src/public-api"]
         }
     }
 }

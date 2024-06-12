@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 import {ComboBoxComponent} from '../combo-box/combo-box.component';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';

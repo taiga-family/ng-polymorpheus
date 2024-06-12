@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import type {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
-import {PolymorpheusComponent, PolymorpheusOutlet} from '@tinkoff/ng-polymorpheus';
+import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
+import {PolymorpheusComponent, PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {AbstractDemo} from '../abstract-demo';
