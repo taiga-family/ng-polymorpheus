@@ -1,5 +1,7 @@
 
 
+* fix: type consistent (f22dd70)
+
 * fix: support pass cdr (43fb937)
 
 * feat: support pass content (85ad961)
