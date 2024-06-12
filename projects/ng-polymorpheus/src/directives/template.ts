@@ -10,12 +10,16 @@ import {ChangeDetectorRef, Directive, inject, TemplateRef} from '@angular/core';
     exportAs: 'polymorpheus',
 })
 export class PolymorpheusTemplate<C = any> {
-    private readonly cdr = inject(ChangeDetectorRef);
+    private readonly cdr;
     public readonly template: TemplateRef<C>;
     public polymorpheus: C | '' = '';
 
-    constructor(content?: TemplateRef<C> | null) {
-        this.template = content ?? inject(TemplateRef<C>, {self: true});
+    constructor(
+        template: TemplateRef<C> | undefined | null,
+        cdr: ChangeDetectorRef | undefined | null,
+    ) {
+        this.template = template ?? inject(TemplateRef<C>, {self: true});
+        this.cdr = cdr ?? inject(ChangeDetectorRef);
     }
 
     public static ngTemplateContextGuard<T>(
