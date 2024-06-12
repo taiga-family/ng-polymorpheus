@@ -6,7 +6,7 @@ import type {PolymorpheusHandler} from './handler';
 import type {PolymorpheusPrimitive} from './primitive';
 
 /**
- * All content types supported by {@link PolymorpheusOutletDirective}
+ * All content types supported by {@link PolymorpheusOutlet}
  */
 export type PolymorpheusContent<C = any> =
     | PolymorpheusComponent<unknown>

@@ -4,7 +4,7 @@ import {Injector} from '@angular/core';
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 
 /**
- * Wrapper class for a component that will be used as content for {@link PolymorpheusOutletDirective}
+ * Wrapper class for a component that will be used as content for {@link PolymorpheusOutlet}
  *
  * @param component — an Angular component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
