@@ -15,8 +15,8 @@ export class PolymorpheusTemplate<C = any> {
     public polymorpheus: C | '' = '';
 
     constructor(
-        template: TemplateRef<C> | undefined | null,
-        cdr: ChangeDetectorRef | undefined | null,
+        template: TemplateRef<C> | null | undefined,
+        cdr: ChangeDetectorRef | null | undefined,
     ) {
         this.template = template ?? inject(TemplateRef<C>, {self: true});
         this.cdr = cdr ?? inject(ChangeDetectorRef);
