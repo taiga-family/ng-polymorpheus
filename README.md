@@ -48,7 +48,7 @@ If you use component content you can inject context with `POLYMORPHEUS_CONTEXT` 
 
 ```ts
 @Component({
-  template: '{{context.active}}`, // <-- this will automatically update
+  template: `{{context.active}}`, // <-- this will automatically update
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MyComponent {
