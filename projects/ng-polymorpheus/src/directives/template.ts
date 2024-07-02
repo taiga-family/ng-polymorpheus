@@ -13,7 +13,7 @@ export class PolymorpheusTemplate<C = any> {
     public polymorpheus: C | '' = '';
 
     constructor(
-        readonly template: TemplateRef<C> = inject(TemplateRef<C>, {self: true}),
+        public readonly template: TemplateRef<C> = inject(TemplateRef<C>, {self: true}),
         private readonly cdr: ChangeDetectorRef = inject(ChangeDetectorRef),
     ) {}
 
