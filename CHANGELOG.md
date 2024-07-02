@@ -1,5 +1,10 @@
 
 
+* chore: fix lint (95863bd)
+* chore: fix lint (dede025)
+* docs: invalid quote (#431) (cba91f9)
+* chore: add project icon (`.idea/icon.svg`) (#430) (6603f25)
+
 * fix: inheritance compatibility (d86d200)
 
 * fix: type consistent (f22dd70)
