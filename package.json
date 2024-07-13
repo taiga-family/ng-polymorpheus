@@ -104,7 +104,7 @@
         "@swc/helpers": "0.5.12",
         "@taiga-ui/browserslist-config": "0.114.1",
         "@taiga-ui/commitlint-config": "0.114.1",
-        "@taiga-ui/dompurify": "4.1.1",
+        "@taiga-ui/dompurify": "4.1.2",
         "@taiga-ui/eslint-plugin-experience": "0.114.1",
         "@taiga-ui/prettier-config": "0.114.1",
         "@types/estree": "1.0.5",
