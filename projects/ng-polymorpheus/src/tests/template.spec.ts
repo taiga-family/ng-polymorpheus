@@ -36,7 +36,7 @@ describe('PolymorpheusTemplate', () => {
         }).compileComponents();
     });
 
-    it('Template typing works', () => {
+    it('template typing works', () => {
         const fixture = TestBed.createComponent(TestComponent);
 
         fixture.detectChanges();

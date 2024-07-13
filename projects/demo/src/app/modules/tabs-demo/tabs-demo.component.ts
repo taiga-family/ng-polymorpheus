@@ -21,10 +21,10 @@ import * as html from '../tabs/tabs.template.html?raw';
     selector: 'app-tabs-demo',
     imports: [
         HighlightModule,
-        PolymorpheusOutlet,
         MenuComponent,
-        TabsComponent,
+        PolymorpheusOutlet,
         TabComponent,
+        TabsComponent,
     ],
     templateUrl: './tabs-demo.template.html',
     styleUrls: ['./tabs-demo.style.less'],
