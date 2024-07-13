@@ -11,7 +11,7 @@ import {TabsComponent} from '../tabs/tabs.component';
 @Component({
     standalone: true,
     selector: 'app-combo-box-demo',
-    imports: [ComboBoxComponent, TabsComponent, HighlightModule],
+    imports: [ComboBoxComponent, HighlightModule, TabsComponent],
     templateUrl: './combo-box-demo.template.html',
     styleUrls: ['./combo-box-demo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

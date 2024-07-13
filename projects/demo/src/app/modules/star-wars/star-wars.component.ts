@@ -14,7 +14,7 @@ interface StarWarsChar {
 @Component({
     standalone: true,
     selector: 'app-star-wars',
-    imports: [CommonModule, PolymorpheusOutlet, ComboBoxComponent],
+    imports: [ComboBoxComponent, CommonModule, PolymorpheusOutlet],
     templateUrl: './star-wars.template.html',
     styleUrls: ['./star-wars.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -55,7 +55,7 @@ export class StarWarsComponent {
     protected getInitials(name: string): string {
         return name
             .split(' ')
-            .map(word => word[0])
+            .map((word) => word[0])
             .join('');
     }
 

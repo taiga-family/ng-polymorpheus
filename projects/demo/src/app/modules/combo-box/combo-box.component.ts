@@ -55,7 +55,7 @@ export class ComboBoxComponent<T> {
     protected get filteredItems(): readonly T[] {
         return this.valueSelected
             ? this.items
-            : this.items.filter(item =>
+            : this.items.filter((item) =>
                   this.stringify(item)
                       .toLowerCase()
                       .includes(this.stringValue.toLowerCase()),
@@ -85,6 +85,6 @@ export class ComboBoxComponent<T> {
         this.stringValue = stringValue;
         this.opened = true;
         this.value =
-            this.items.find(item => this.stringify(item) === this.stringValue) || null;
+            this.items.find((item) => this.stringify(item) === this.stringValue) || null;
     }
 }

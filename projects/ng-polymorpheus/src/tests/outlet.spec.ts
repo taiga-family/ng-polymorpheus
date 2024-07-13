@@ -129,31 +129,31 @@ describe('PolymorpheusOutlet', () => {
         fixture.detectChanges();
     });
 
-    it('Empty by default', () => {
+    it('empty by default', () => {
         expect(text()).toBe('');
     });
 
-    it('Static type check exists', () => {
+    it('static type check exists', () => {
         // @ts-ignore
         expect(PolymorpheusTemplate.ngTemplateContextGuard({polymorpheus: {}})).toBe(
             true,
         );
     });
 
-    it('Directive static type check exists', () => {
+    it('directive static type check exists', () => {
         // @ts-ignore
         expect(PolymorpheusOutlet.ngTemplateContextGuard({polymorpheus: {}})).toBe(true);
     });
 
     describe('Primitive', () => {
-        it('Works with strings', () => {
+        it('works with strings', () => {
             testComponent.content = 'string';
             fixture.detectChanges();
 
             expect(text()).toBe('string');
         });
 
-        it('Works with numbers', () => {
+        it('works with numbers', () => {
             testComponent.content = 237;
             fixture.detectChanges();
 
@@ -170,11 +170,11 @@ describe('PolymorpheusOutlet', () => {
             fixture.detectChanges();
         });
 
-        it('Works with strings', () => {
+        it('works with strings', () => {
             expect(text()).toBe('string');
         });
 
-        it('Works with numbers', () => {
+        it('works with numbers', () => {
             testComponent.context = {
                 $implicit: 237,
             };
@@ -191,14 +191,14 @@ describe('PolymorpheusOutlet', () => {
         });
 
         describe('Primitive', () => {
-            it('Works with strings', () => {
+            it('works with strings', () => {
                 testComponent.content = 'string';
                 fixture.detectChanges();
 
                 expect(text()).toBe('String: string');
             });
 
-            it('Works with numbers', () => {
+            it('works with numbers', () => {
                 testComponent.content = 237;
                 fixture.detectChanges();
 
@@ -215,11 +215,11 @@ describe('PolymorpheusOutlet', () => {
                 fixture.detectChanges();
             });
 
-            it('Works with strings', () => {
+            it('works with strings', () => {
                 expect(text()).toBe('String: string');
             });
 
-            it('Works with numbers', () => {
+            it('works with numbers', () => {
                 testComponent.context = {
                     $implicit: 237,
                 };
@@ -230,7 +230,7 @@ describe('PolymorpheusOutlet', () => {
         });
     });
 
-    it('TemplateRef', () => {
+    it('templateRef', () => {
         testComponent.context = {
             $implicit: 'string',
         };
@@ -248,13 +248,13 @@ describe('PolymorpheusOutlet', () => {
             testComponent.content = testComponent.polymorpheus;
         });
 
-        it('Works', () => {
+        it('works', () => {
             fixture.detectChanges();
 
             expect(html()).toContain('<strong>string</strong>');
         });
 
-        it('Triggers change detection', () => {
+        it('triggers change detection', () => {
             // @ts-ignore
             const changeDetectionSpy = jest.spyOn(testComponent.polymorpheus, 'check');
 
