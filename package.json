@@ -110,7 +110,7 @@
         "@types/estree": "1.0.5",
         "@types/express": "4.17.21",
         "@types/jest": "29.5.12",
-        "@types/node": "22.0.1",
+        "@types/node": "22.0.2",
         "express": "4.19.2",
         "highlight.js": "11.9.0",
         "husky": "9.1.4",
