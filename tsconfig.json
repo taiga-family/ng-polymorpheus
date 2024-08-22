@@ -1,25 +1,8 @@
 {
-    "compileOnSave": false,
+    "extends": "@taiga-ui/tsconfig",
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "module": "ES2020",
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
-        "moduleResolution": "node",
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "strict": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitReturns": true,
-        "noUnusedParameters": true,
-        "esModuleInterop": true,
-        "noUnusedLocals": true,
-        "target": "ES2017",
-        "typeRoots": ["node_modules/@types"],
-        "lib": ["ES2022", "dom"],
         "paths": {
             "@taiga-ui/polymorpheus": ["./projects/ng-polymorpheus/src"]
         }

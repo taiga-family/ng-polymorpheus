@@ -61,7 +61,7 @@ export function app(): Express {
 }
 
 function run(): void {
-    const port = process.env.PORT || 4000;
+    const port = process.env.PORT ?? 4000;
 
     // Start up the Node server
     const server = app();
@@ -77,7 +77,7 @@ function run(): void {
 // The below code is to ensure that the server is run only when not requiring the bundle.
 declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
-const moduleFilename = mainModule?.filename || '';
+const moduleFilename = mainModule?.filename ?? '';
 
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
     run();

@@ -24,7 +24,7 @@ export class TabsComponent<T> {
     public tabs: readonly T[] = [];
 
     @Input()
-    public activeTab: T | null = null;
+    public activeTab: T | string | null = null;
 
     @Output()
     public readonly activeTabChange = new EventEmitter<T>();
