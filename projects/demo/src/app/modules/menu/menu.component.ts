@@ -3,7 +3,6 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
-    HostListener,
     Input,
     Output,
 } from '@angular/core';
@@ -19,6 +18,9 @@ import type {ContextWithActive} from '../interfaces';
     templateUrl: './menu.template.html',
     styleUrls: ['./menu.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        '(mouseleave)': 'onMouseLeave()',
+    },
 })
 export class MenuComponent<T> {
     private activeItem: T | null = null;
@@ -37,7 +39,6 @@ export class MenuComponent<T> {
         $implicit,
     }: ContextWithActive<T>) => String($implicit);
 
-    @HostListener('mouseleave')
     protected onMouseLeave(): void {
         this.activeItem = null;
     }

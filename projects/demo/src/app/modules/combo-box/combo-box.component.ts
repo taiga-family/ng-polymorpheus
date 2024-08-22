@@ -85,6 +85,6 @@ export class ComboBoxComponent<T> {
         this.stringValue = stringValue;
         this.opened = true;
         this.value =
-            this.items.find((item) => this.stringify(item) === this.stringValue) || null;
+            this.items.find((item) => this.stringify(item) === this.stringValue) ?? null;
     }
 }

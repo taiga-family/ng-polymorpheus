@@ -1,13 +1,9 @@
 export abstract class AbstractDemo {
-    public abstract readonly example: {
-        readonly HTML: string | {default: string};
-        readonly Style: string | {default: string};
-        readonly TypeScript: string | {default: string};
-    };
+    public abstract readonly example: Record<string, any>;
 
     protected readonly tabs = ['HTML', 'Style', 'TypeScript'];
 
-    protected activeTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
+    protected activeTab = 'HTML';
 
     protected get code(): string {
         const code = this.example[this.activeTab];

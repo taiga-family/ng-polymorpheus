@@ -39,15 +39,15 @@ export class TabsDemoComponent extends AbstractDemo {
         'Taunt a second time',
     ];
 
-    protected readonly anotherExample = {
-        HTML: html2,
-        Style: css2,
-        TypeScript: typescript2,
+    protected readonly anotherExample: Record<string, string> = {
+        HTML: html2 as unknown as string,
+        Style: css2 as unknown as string,
+        TypeScript: typescript2 as unknown as string,
     };
 
     protected readonly content = new PolymorpheusComponent(TabComponent);
 
-    protected activeTabTab: 'HTML' | 'Style' | 'TypeScript' = 'HTML';
+    protected activeTabTab = 'HTML';
 
     protected customTabs: readonly CustomTab[] | null = null;
 
