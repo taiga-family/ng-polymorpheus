@@ -1,5 +1,13 @@
 
 
+* feat: add `injectContext` (#540) (e54d594)
+* chore(deps): update taiga-ui config tools to v0.144.15 (#552) (235a0d2)
+* chore(deps): update nx to v19.6.3 (#551) (ea972aa)
+* chore(deps): update taiga-ui config tools to v0.144.14 (#550) (cf4004d)
+* chore(deps): update taiga-ui config tools to v0.144.13 (#549) (222e3d8)
+* chore(deps): update taiga-ui config tools to v0.144.12 (#548) (1de5cc4)
+* chore(deps): update taiga-family/ci action to v1.67.3 (#547) (7d9513b)
+
 * chore(deps): update dependency tslib to v2.7.0 (#546) (087bfe3)
 * chore(deps): update dependency ts-jest to v29.2.5 (#545) (e519961)
 * chore(deps): update taiga-ui to v0.144.10 (#544) (58b2fce)
