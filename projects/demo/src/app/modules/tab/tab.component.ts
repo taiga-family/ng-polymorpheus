@@ -1,8 +1,8 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
 import {
-    POLYMORPHEUS_CONTEXT,
+    injectContext,
     PolymorpheusOutlet,
     PolymorpheusTemplate,
 } from '@taiga-ui/polymorpheus';
@@ -18,8 +18,7 @@ import type {ContextWithActive, CustomTab} from '../interfaces';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabComponent {
-    private readonly context: ContextWithActive<CustomTab> =
-        inject<any>(POLYMORPHEUS_CONTEXT);
+    private readonly context = injectContext<ContextWithActive<CustomTab>>();
 
     protected get text(): string {
         return this.context.$implicit.text;

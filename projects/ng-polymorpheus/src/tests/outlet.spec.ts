@@ -4,18 +4,16 @@ import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
-    inject,
     NgModule,
     ViewChild,
 } from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it, jest} from '@jest/globals';
-import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
+import {injectContext, PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
-import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 import type {PolymorpheusContent} from '../types/content';
 
 let COUNTER = 0;
@@ -88,7 +86,7 @@ describe('PolymorpheusOutlet', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class ComponentContent {
-        public readonly context = inject(POLYMORPHEUS_CONTEXT);
+        public readonly context = injectContext();
 
         constructor() {
             COUNTER++;
