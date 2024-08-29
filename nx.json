@@ -1,7 +1,4 @@
 {
-    "affected": {
-        "defaultBase": "origin/main"
-    },
     "workspaceLayout": {
         "libsDir": "projects",
         "appsDir": "projects"
@@ -29,5 +26,6 @@
         "lint": {
             "cache": true
         }
-    }
+    },
+    "defaultBase": "origin/main"
 }
