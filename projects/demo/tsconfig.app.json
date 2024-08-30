@@ -1,0 +1,10 @@
+{
+    "extends": "../../tsconfig",
+    "compilerOptions": {
+        "outDir": "./dist/out-tsc-server"
+    },
+    "angularCompilerOptions": {
+        "compilationMode": "full"
+    },
+    "files": ["src/main.ts", "src/typings.d.ts"]
+}

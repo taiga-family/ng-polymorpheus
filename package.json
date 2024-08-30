@@ -93,8 +93,6 @@
         "@commitlint/config-conventional": "19.4.1",
         "@ng-web-apis/common": "4.2.1",
         "@ng-web-apis/universal": "4.2.1",
-        "@nguniversal/builders": "16.2.0",
-        "@nguniversal/express-engine": "16.2.0",
         "@nx/angular": "19.6.4",
         "@nx/jest": "19.6.4",
         "@nx/node": "19.6.4",
@@ -128,8 +126,7 @@
         "ts-node": "10.9.2",
         "tslib": "2.7.0",
         "typescript": "5.0.4",
-        "webpack": "5.94.0",
-        "zone.js": "0.13.3"
+        "webpack": "5.94.0"
     },
     "engines": {
         "node": ">= 18",

@@ -14,9 +14,9 @@
                 "baseHref": "/",
                 "outputPath": "dist/demo/browser",
                 "index": "projects/demo/src/index.html",
-                "main": "projects/demo/src/main.browser.ts",
+                "main": "projects/demo/src/main.ts",
                 "polyfills": ["zone.js"],
-                "tsConfig": "projects/demo/tsconfig.browser.json",
+                "tsConfig": "projects/demo/tsconfig.app.json",
                 "assets": ["projects/demo/src/favicon.ico"],
                 "styles": ["node_modules/highlight.js/styles/idea.css", "projects/demo/src/styles.css"],
                 "scripts": [],
@@ -55,47 +55,6 @@
                 "production": {
                     "buildTarget": "demo:build:production"
                 }
-            }
-        },
-        "server": {
-            "executor": "@angular-devkit/build-angular:server",
-            "options": {
-                "outputPath": "dist/demo/server",
-                "main": "projects/demo/server.ts",
-                "tsConfig": "projects/demo/tsconfig.server.json",
-                "sourceMap": true,
-                "optimization": false
-            },
-            "configurations": {
-                "production": {
-                    "outputHashing": "media",
-                    "sourceMap": false,
-                    "optimization": true
-                }
-            }
-        },
-        "serve-ssr": {
-            "executor": "@nguniversal/builders:ssr-dev-server",
-            "options": {
-                "browserTarget": "demo:build",
-                "serverTarget": "demo:server"
-            },
-            "configurations": {
-                "production": {
-                    "browserTarget": "demo:build:production",
-                    "serverTarget": "demo:server:production"
-                }
-            }
-        },
-        "prerender": {
-            "executor": "@nguniversal/builders:prerender",
-            "options": {
-                "buildTarget": "demo:build:production",
-                "serverTarget": "demo:server:production",
-                "routes": ["/"]
-            },
-            "configurations": {
-                "production": {}
             }
         }
     }
