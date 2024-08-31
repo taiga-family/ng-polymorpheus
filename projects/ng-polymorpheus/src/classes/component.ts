@@ -1,5 +1,5 @@
-import type {Type} from '@angular/core';
-import {Injector} from '@angular/core';
+import type {Type, WritableSignal} from '@angular/core';
+import {Injector, signal} from '@angular/core';
 
 import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 
@@ -10,6 +10,8 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
 export class PolymorpheusComponent<T> {
+    public readonly instance: WritableSignal<T | null> = signal(null);
+
     constructor(
         public readonly component: Type<T>,
         private readonly i?: Injector,
