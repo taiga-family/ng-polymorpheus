@@ -1,9 +1,10 @@
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import type {TemplateRef} from '@angular/core';
 import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
+    Input,
     NgModule,
     ViewChild,
 } from '@angular/core';
@@ -82,10 +83,17 @@ describe('PolymorpheusOutlet', () => {
     @Component({
         template: `
             Component: {{ context.$implicit }}
+            <ng-container *ngIf="hello && world">{{ hello + world }}</ng-container>
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class ComponentContent {
+        @Input()
+        public hello = 0;
+
+        @Input()
+        public world = 0;
+
         public readonly context = injectContext();
 
         constructor() {
@@ -94,6 +102,7 @@ describe('PolymorpheusOutlet', () => {
     }
 
     @NgModule({
+        imports: [NgIf],
         declarations: [ComponentContent],
         exports: [ComponentContent],
     })
@@ -271,6 +280,20 @@ describe('PolymorpheusOutlet', () => {
             fixture.detectChanges();
 
             expect(text()).toBe('Component: string');
+        });
+
+        it('creates inputs', () => {
+            testComponent.context = {
+                $implicit: 'Inputs sum =',
+            };
+
+            testComponent.content = new PolymorpheusComponent(ComponentContent)
+                .setInput('hello', 1)
+                .setInput('world', 1);
+
+            fixture.detectChanges();
+
+            expect(text()).toBe('Component: Inputs sum = 2');
         });
 
         it('does not recreate component if context changes to the same shape', () => {

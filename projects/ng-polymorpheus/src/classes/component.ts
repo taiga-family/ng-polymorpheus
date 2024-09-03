@@ -10,10 +10,18 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
 export class PolymorpheusComponent<T> {
+    public readonly inputs: Map<keyof T, T[keyof T]> = new Map();
+
     constructor(
         public readonly component: Type<T>,
         private readonly i?: Injector,
     ) {}
+
+    public setInput(key: keyof T, value: T[keyof T]): this {
+        this.inputs.set(key, value);
+
+        return this;
+    }
 
     public createInjector<C>(injector: Injector, useValue?: C): Injector {
         return Injector.create({

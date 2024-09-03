@@ -98,6 +98,14 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         const injector = content.createInjector(this.i, proxy);
 
         this.c = this.vcr.createComponent(content.component, {injector});
+
+        if (content.inputs.size > 0) {
+            content.inputs.forEach((value: unknown, key: string) =>
+                this.c?.setInput(key, value),
+            );
+
+            content.inputs.clear();
+        }
     }
 }
 
