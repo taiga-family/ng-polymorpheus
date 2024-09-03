@@ -12,7 +12,7 @@ import {TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it, jest} from '@jest/globals';
 import {injectContext, PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
-import {PolymorpheusComponent} from '../classes/component';
+import {Polymorpheus} from '../classes/component';
 import {PolymorpheusTemplate} from '../directives/template';
 import type {PolymorpheusContent} from '../types/content';
 
@@ -267,7 +267,7 @@ describe('PolymorpheusOutlet', () => {
             testComponent.context = {
                 $implicit: 'string',
             };
-            testComponent.content = new PolymorpheusComponent(ComponentContent);
+            testComponent.content = new Polymorpheus(ComponentContent);
             fixture.detectChanges();
 
             expect(text()).toBe('Component: string');
@@ -277,7 +277,7 @@ describe('PolymorpheusOutlet', () => {
             testComponent.context = {
                 $implicit: 'string',
             };
-            testComponent.content = new PolymorpheusComponent(ComponentContent);
+            testComponent.content = new Polymorpheus(ComponentContent);
             fixture.detectChanges();
 
             const counter = COUNTER;

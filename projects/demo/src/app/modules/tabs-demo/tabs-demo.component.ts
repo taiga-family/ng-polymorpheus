@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
-import {PolymorpheusComponent, PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
+import {Polymorpheus, PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {AbstractDemo} from '../abstract-demo';
@@ -45,7 +45,7 @@ export class TabsDemoComponent extends AbstractDemo {
         TypeScript: typescript2 as unknown as string,
     };
 
-    protected readonly content = new PolymorpheusComponent(TabComponent);
+    protected readonly content = new Polymorpheus(TabComponent);
 
     protected activeTabTab = 'HTML';
 

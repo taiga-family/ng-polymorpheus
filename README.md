@@ -47,6 +47,8 @@ If you use component content you can inject context with `POLYMORPHEUS_CONTEXT` 
 **Important!** This object is _live_ so if you change it, your component will not be recreated:
 
 ```ts
+import {injectContext} from '@taiga-ui/polymorpheus';
+
 @Component({
   template: `
     {{ context.active }}
@@ -54,7 +56,7 @@ If you use component content you can inject context with `POLYMORPHEUS_CONTEXT` 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MyComponent {
-  constructor(@Inject(POLYMORPHEUS_CONTEXT) readonly context: {active: boolean}) {}
+  readonly context = injectContext<{active: boolean}>();
 }
 ```
 
@@ -62,8 +64,10 @@ export class MyComponent {
 
 You can use `polymorpehus` directive to add type to template context:
 
-```typescript
-readonly context!: { $implicit: number };
+```ts
+class Sample {
+  readonly context!: {$implicit: number};
+}
 ```
 
 ```html

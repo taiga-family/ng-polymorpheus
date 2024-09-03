@@ -6,10 +6,10 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
 /**
  * Wrapper class for a component that will be used as content for {@link PolymorpheusOutlet}
  *
- * @param component — an Angular component to be dynamically created
+ * @param component — an Angular template of component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
-export class PolymorpheusComponent<T> {
+export class Polymorpheus<T> {
     constructor(
         public readonly component: Type<T>,
         private readonly i?: Injector,
@@ -27,3 +27,8 @@ export class PolymorpheusComponent<T> {
         });
     }
 }
+
+/**
+ * @deprecated: use {@link Polymorpheus}
+ */
+export const PolymorpheusComponent = Polymorpheus;

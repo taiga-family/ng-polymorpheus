@@ -9,7 +9,7 @@ import {
     ViewContainerRef,
 } from '@angular/core';
 
-import {PolymorpheusComponent} from '../classes/component';
+import {Polymorpheus} from '../classes/component';
 import {PolymorpheusContext} from '../classes/context';
 import type {PolymorpheusContent} from '../types/content';
 import type {PolymorpheusPrimitive} from '../types/primitive';
@@ -94,7 +94,7 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         );
     }
 
-    private process(content: PolymorpheusComponent<unknown>, proxy?: C): void {
+    private process(content: Polymorpheus<unknown>, proxy?: C): void {
         const injector = content.createInjector(this.i, proxy);
 
         this.c = this.vcr.createComponent(content.component, {injector});
@@ -107,10 +107,8 @@ function isDirective<C>(
     return content instanceof PolymorpheusTemplate;
 }
 
-function isComponent<C>(
-    content: PolymorpheusContent<C>,
-): content is PolymorpheusComponent<any> {
-    return content instanceof PolymorpheusComponent;
+function isComponent<C>(content: PolymorpheusContent<C>): content is Polymorpheus<any> {
+    return content instanceof Polymorpheus;
 }
 
 function isTemplate<C>(
