@@ -102,7 +102,7 @@
         "@swc/helpers": "0.5.13",
         "@taiga-ui/browserslist-config": "0.157.1",
         "@taiga-ui/commitlint-config": "0.157.1",
-        "@taiga-ui/dompurify": "4.1.5",
+        "@taiga-ui/dompurify": "4.1.6",
         "@taiga-ui/eslint-plugin-experience": "0.157.1",
         "@taiga-ui/prettier-config": "0.157.1",
         "@taiga-ui/tsconfig": "0.157.1",
