@@ -1,25 +1,23 @@
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import type {TemplateRef} from '@angular/core';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    ElementRef,
-    NgModule,
-    ViewChild,
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it, jest} from '@jest/globals';
-import {injectContext, PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
-
-import {PolymorpheusComponent} from '../classes/component';
-import {PolymorpheusTemplate} from '../directives/template';
-import type {PolymorpheusContent} from '../types/content';
+import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
+import {
+    injectContext,
+    PolymorpheusComponent,
+    PolymorpheusOutlet,
+    PolymorpheusTemplate,
+} from '@taiga-ui/polymorpheus';
 
 let COUNTER = 0;
 
 describe('PolymorpheusOutlet', () => {
     @Component({
+        standalone: true,
+        imports: [NgIf, PolymorpheusOutlet, PolymorpheusTemplate],
         template: `
             <div
                 *ngIf="polymorphic; else basic"
@@ -57,6 +55,8 @@ describe('PolymorpheusOutlet', () => {
                 <strong>{{ value }}</strong>
             </ng-template>
         `,
+        // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+        changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestComponent {
         @ViewChild('element', {read: ElementRef})
@@ -80,10 +80,12 @@ describe('PolymorpheusOutlet', () => {
     }
 
     @Component({
+        standalone: true,
         template: `
             Component: {{ context.$implicit }}
         `,
-        changeDetection: ChangeDetectionStrategy.OnPush,
+        // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+        changeDetection: ChangeDetectionStrategy.Default,
     })
     class ComponentContent {
         public readonly context = injectContext();
@@ -92,12 +94,6 @@ describe('PolymorpheusOutlet', () => {
             COUNTER++;
         }
     }
-
-    @NgModule({
-        declarations: [ComponentContent],
-        exports: [ComponentContent],
-    })
-    class ComponentModule {}
 
     let fixture: ComponentFixture<TestComponent>;
     let testComponent: TestComponent;
@@ -113,12 +109,12 @@ describe('PolymorpheusOutlet', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [
+                ComponentContent,
+                TestComponent,
                 CommonModule,
                 PolymorpheusOutlet,
                 PolymorpheusTemplate,
-                ComponentModule,
             ],
-            declarations: [TestComponent],
             teardown: {destroyAfterEach: false},
         }).compileComponents();
 

@@ -1,12 +1,12 @@
 .wrapper {
     flex: 1;
     text-align: center;
-    padding: 16px 0 12px;
+    padding: 1rem 0 0.75rem;
 }
 
 .yoda {
-    width: 128px;
-    height: 128px;
+    inline-size: 8rem;
+    block-size: 8rem;
     border-radius: 100%;
 }
 
@@ -14,23 +14,23 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 36px;
-    margin-right: -24px;
-    padding: 10px 16px;
+    inline-size: 100%;
+    block-size: 2.25rem;
+    margin-right: -1.5rem;
+    padding: 0.625rem 1rem;
     outline: none;
     overflow: hidden;
     transition:
         background 0.3s,
         padding 0.3s;
 
-    &:before {
+    &::before {
         content: '';
         position: absolute;
-        left: -500px;
-        bottom: -500px;
-        width: 1000px;
-        height: 1000px;
+        left: -31.25rem;
+        bottom: -31.25rem;
+        inline-size: 62.5rem;
+        block-size: 62.5rem;
         border-radius: 100%;
         background: inherit;
         transform: scale(0.01);
@@ -41,20 +41,20 @@
     }
 
     &_active {
-        padding-left: 24px;
+        padding-left: 1.5rem;
 
-        &:before {
+        &::before {
             transform: scale(1);
             opacity: 1;
         }
     }
 
-    &_jedi:before {
-        background: rgba(142, 219, 250, 0.38);
+    &_jedi::before {
+        background: rgb(142 219 250 / 38%);
     }
 
-    &_sith:before {
-        background: rgba(250, 71, 46, 0.2);
+    &_sith::before {
+        background: rgb(250 71 46 / 20%);
     }
 
     &_link {
@@ -67,17 +67,17 @@
 }
 
 .avatar-wrapper {
-    width: 32px;
-    height: 32px;
-    margin-right: 12px;
+    inline-size: 2rem;
+    block-size: 2rem;
+    margin-right: 0.75rem;
 }
 
 .avatar,
 .text {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
     position: absolute;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-radius: 100%;
     backface-visibility: hidden;
     transition: transform 0.3s;
 
@@ -89,7 +89,7 @@
 .text {
     background: #e4ebf3;
     text-transform: uppercase;
-    line-height: 32px;
-    font-size: 13px;
+    line-height: 2rem;
+    font-size: 0.8125rem;
     text-align: center;
 }

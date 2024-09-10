@@ -1,11 +1,12 @@
-import {CommonModule} from '@angular/common';
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {beforeEach, describe, expect, it} from '@jest/globals';
 import {PolymorpheusOutlet, PolymorpheusTemplate} from '@taiga-ui/polymorpheus';
 
 describe('PolymorpheusTemplate', () => {
     @Component({
+        standalone: true,
+        imports: [PolymorpheusOutlet, PolymorpheusTemplate],
         template: `
             <ng-container
                 *polymorpheusOutlet="polymorpheus; context: context"
@@ -18,6 +19,7 @@ describe('PolymorpheusTemplate', () => {
                 {{ value.name }}
             </ng-template>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class TestComponent {
         protected context: {$implicit: {name: string}; sum: number} = {
@@ -30,8 +32,7 @@ describe('PolymorpheusTemplate', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [CommonModule, PolymorpheusOutlet, PolymorpheusTemplate],
-            declarations: [TestComponent],
+            imports: [TestComponent],
             teardown: {destroyAfterEach: false},
         }).compileComponents();
     });
