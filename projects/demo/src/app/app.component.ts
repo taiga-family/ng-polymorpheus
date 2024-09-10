@@ -5,7 +5,7 @@ import {logo} from './modules/constants';
 import {InputDemoComponent} from './modules/input-demo/input-demo.component';
 import {MenuDemoComponent} from './modules/menu-demo/menu-demo.component';
 import {StarWarsComponent} from './modules/star-wars/star-wars.component';
-import {StarWarsDemoModule} from './modules/star-wars-demo/star-wars-demo.module';
+import {StarWarsDemoComponent} from './modules/star-wars-demo/star-wars-demo.component';
 import {TabsDemoComponent} from './modules/tabs-demo/tabs-demo.component';
 
 @Component({
@@ -16,7 +16,7 @@ import {TabsDemoComponent} from './modules/tabs-demo/tabs-demo.component';
         InputDemoComponent,
         MenuDemoComponent,
         StarWarsComponent,
-        StarWarsDemoModule,
+        StarWarsDemoComponent,
         TabsDemoComponent,
     ],
     templateUrl: './app.component.html',
