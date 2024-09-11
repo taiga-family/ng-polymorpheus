@@ -12,8 +12,8 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.71.2
-      - uses: taiga-family/ci/actions/setup/node@v1.71.2
+      - uses: taiga-family/ci/actions/setup/checkout@v1.72.0
+      - uses: taiga-family/ci/actions/setup/node@v1.72.0
 
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
@@ -30,7 +30,7 @@ jobs:
       - run: npx nx build demo
       - run: npx nx test ng-polymorpheus
       - uses: codecov/codecov-action@v4
-      - uses: taiga-family/ci/actions/auto/push@v1.71.2
+      - uses: taiga-family/ci/actions/auto/push@v1.72.0
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
