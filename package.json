@@ -102,7 +102,7 @@
         "@nx/node": "19.7.2",
         "@nx/workspace": "19.7.2",
         "@release-it-plugins/workspaces": "4.2.0",
-        "@release-it/conventional-changelog": "8.0.1",
+        "@release-it/conventional-changelog": "8.0.2",
         "@swc/helpers": "0.5.13",
         "@taiga-ui/browserslist-config": "0.169.1",
         "@taiga-ui/commitlint-config": "0.169.1",
