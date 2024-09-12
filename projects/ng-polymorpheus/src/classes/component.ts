@@ -15,15 +15,9 @@ export class PolymorpheusComponent<T> {
         private readonly i?: Injector,
     ) {}
 
-    public createInjector<C>(injector: Injector, useValue?: C): Injector {
-        return Injector.create({
-            parent: this.i || injector,
-            providers: [
-                {
-                    provide: POLYMORPHEUS_CONTEXT,
-                    useValue,
-                },
-            ],
+    public readonly createInjector = <C>(injector: Injector, useValue?: C): Injector =>
+        Injector.create({
+            providers: [{provide: POLYMORPHEUS_CONTEXT, useValue}],
+            parent: this.i ?? injector,
         });
-    }
 }

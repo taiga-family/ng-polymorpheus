@@ -249,7 +249,6 @@ describe('PolymorpheusOutlet', () => {
         });
 
         it('triggers change detection', () => {
-            // @ts-ignore
             const changeDetectionSpy = jest.spyOn(testComponent.polymorpheus, 'check');
 
             fixture.detectChanges();
