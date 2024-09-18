@@ -7,20 +7,14 @@ on:
       - projects/ng-polymorpheus/**
   workflow_dispatch:
     inputs:
-      forcePush:
-        type: boolean
-        required: false
-        description: --force-publish package
       mode:
         type: choice
-        description: force package to be versioned (depend --force-publish)
-        required: false
-        default: minor
+        description: Bump version as requested
+        required: true
         options:
-          - patch
           - minor
+          - patch
           - major
-          - prepatch
 
 jobs:
   release:
@@ -31,10 +25,10 @@ jobs:
       - uses: taiga-family/ci/actions/run/release-it@v1.77.0
         with:
           ref: ${{ github.ref }}
-          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-          npmToken: ${{ secrets.TAIGA_UI_SCOPE_NPM_TOKEN }}
-          forcePush: ${{ github.event.inputs.forcePush }}
           mode: ${{ github.event.inputs.mode }}
+          npmToken: ${{ secrets.TAIGA_UI_SCOPE_NPM_TOKEN }}
+          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

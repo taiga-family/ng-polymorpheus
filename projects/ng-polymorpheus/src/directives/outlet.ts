@@ -61,7 +61,6 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         if (isComponent(this.content)) {
             this.process(this.content, proxy);
         } else if (
-            // eslint-disable-next-line eqeqeq
             (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
             this.vcr.createEmbeddedView(this.template, proxy, {injector: this.i});
