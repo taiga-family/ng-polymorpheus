@@ -1,217 +1,226 @@
+# Changelog
 
+All notable changes to this project will be documented in this file. See
+[standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-* chore(deps): update taiga-ui dev infra to v0.166.0 (#607) (cccdf84)
-* chore(deps): update nx to v19.7.2 (#613) (c2fb386)
-* chore(deps): update nx to v19.7.1 (#612) (346f07f)
-* chore(deps): update dependency express to v4.20.0 (#611) (4a298f5)
-* chore(deps): update nx to v19.7.0 (#610) (751f707)
-* chore(deps): update nx to v19.6.6 (#609) (ad908c3)
-* chore(deps): update dependency @taiga-ui/dompurify to v4.1.6 (#608) (6a17ba4)
-* chore(deps): update taiga-ui dev infra to v0.157.1 (#606) (922ec7a)
-* chore(deps): update taiga-ui dev infra to v0.157.0 (#605) (6761f81)
-* chore(deps): update dependency @types/node to v22.5.4 (#604) (2ba83c2)
-* chore(deps): update taiga-ui dev infra to v0.156.1 (#603) (3ecba2d)
-* chore(deps): update taiga-ui dev infra to v0.156.0 (#602) (85b54ff)
-* chore(deps): update taiga-ui dev infra to v0.155.0 (#601) (5a150cf)
-* chore(deps): update taiga-ui dev infra to v0.154.0 (#600) (1a5f9f6)
-* chore(deps): update taiga-ui dev infra to v0.152.1 (#599) (f494270)
-* chore(deps): update dependency @types/node to v22.5.3 (#598) (9a73553)
-* chore(deps): update taiga-ui dev infra to v0.152.0 (#597) (1952fdd)
-* chore(deps): update nx to v19.6.5 (#596) (9a3f26b)
-* chore(deps): update taiga-ui dev infra to v0.151.0 (#595) (73059a4)
-* chore(deps): update taiga-ui dev infra to v0.149.3 (#592) (c6e35ea)
-* chore(deps): update taiga-ui dev infra to v0.149.2 (#591) (e725ab9)
-* chore(deps): update dependency @swc/helpers to v0.5.13 (#590) (c074b8a)
-* chore(deps): update taiga-ui dev infra to v0.149.1 (#589) (3432beb)
-* chore(deps): update taiga-family/ci action to v1.71.2 (#588) (fac5781)
-* chore(deps): update taiga-ui dev infra to v0.149.0 (#587) (e57e33b)
-* chore(deps): update taiga-ui dev infra to v0.148.0 (#586) (599e115)
-* chore(deps): update taiga-ui dev infra to v0.147.15 (#585) (babaab5)
-* chore(deps): update taiga-ui dev infra to v0.147.14 (#584) (11dfe3e)
-* chore(deps): update taiga-ui dev infra to v0.147.13 (#583) (2da8729)
-* chore(deps): update dependency lint-staged to v15.2.10 (#582) (0cc8ea5)
-* chore(deps): update dependency @types/node to v22.5.2 (#581) (2fb50c8)
-* chore(deps): update taiga-ui dev infra to v0.147.12 (#580) (c4cc605)
-* chore(deps): update taiga-ui dev infra to v0.147.11 (#578) (711f17a)
-* chore(deps): update taiga-ui dev infra to v0.147.10 (#577) (df2a7c1)
-* ci: fix build (8e7c48c)
-* chore(deps): update ng to v16.2.15 (#572) (fd7d3df)
-* chore(deps): update dependency highlight.js to v11.10.0 (#575) (525e415)
-* chore(deps): update taiga-ui family to v0.147.9 (#574) (56ea353)
-* chore(deps): update taiga-ui family to v0.147.8 (#573) (643a0fe)
-* chore(deps): update taiga-ui family to v0.147.5 (#571) (a0f2157)
-* chore(deps): update taiga-ui family to v0.147.4 (#570) (2864d0f)
-* chore(deps): update taiga-ui family to v0.147.3 (#569) (e3232dc)
-* chore(deps): update taiga-family/ci action to v1.71.1 (#568) (7f74975)
-* chore(deps): update taiga-ui family to v0.147.2 (#567) (1309cf0)
-* chore(deps): update taiga-ui family to v0.147.1 (#566) (7c721ed)
-* chore(deps): update taiga-ui family to v0.147.0 (#565) (e0c7bcd)
-* chore(deps): update nx to v19.6.4 (#564) (35d8a22)
-* chore(deps): update dependency @taiga-ui/dompurify to v4.1.5 (#563) (dd6d956)
-* chore(deps): update taiga-family/ci action to v1.71.0 (#562) (60cd8fe)
-* chore(deps): update taiga-family/ci action to v1.70.1 (#561) (48ac962)
-* chore(deps): update taiga-ui family to v0.145.0 (#560) (60fdd4a)
-* chore(deps): update taiga-config to v0.144.19 (#559) (5efa28e)
-* chore(deps): update dependency @commitlint/cli to v19.4.1 (#558) (ee69972)
-* chore(deps): update dependency @commitlint/config-conventional to v19.4.1 (#557) (5bb3997)
-* chore(deps): update taiga-config to v0.144.17 (#556) (7edc23b)
-* chore(deps): update dependency @types/node to v22.5.1 (#555) (429fe6b)
-* chore(deps): update taiga-config to v0.144.16 (#554) (3f2abcc)
-* chore(deps): update dependency @taiga-ui/dompurify to v4.1.4 (#553) (2429780)
+### [4.7.2](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.1...v4.7.2) (2024-09-20)
 
-* feat: add `injectContext` (#540) (e54d594)
-* chore(deps): update taiga-ui config tools to v0.144.15 (#552) (235a0d2)
-* chore(deps): update nx to v19.6.3 (#551) (ea972aa)
-* chore(deps): update taiga-ui config tools to v0.144.14 (#550) (cf4004d)
-* chore(deps): update taiga-ui config tools to v0.144.13 (#549) (222e3d8)
-* chore(deps): update taiga-ui config tools to v0.144.12 (#548) (1de5cc4)
-* chore(deps): update taiga-family/ci action to v1.67.3 (#547) (7d9513b)
+### 🐞 Bug Fixes
 
-* chore(deps): update dependency tslib to v2.7.0 (#546) (087bfe3)
-* chore(deps): update dependency ts-jest to v29.2.5 (#545) (e519961)
-* chore(deps): update taiga-ui to v0.144.10 (#544) (58b2fce)
-* chore(deps): update dependency @taiga-ui/dompurify to v4.1.3 (#543) (18ae48f)
-* chore(deps): update taiga-ui to v0.144.7 (#542) (61427b1)
-* chore(deps): update taiga-ui to v0.144.5 (#541) (302fec4)
-* chore(deps): update taiga-ui to v0.144.2 (#529) (b29e184)
-* chore(deps): update dependency webpack to v5.94.0 (#539) (b49faee)
-* chore(deps): update nx to v19.6.2 (#538) (fb407d7)
-* chore(deps): update taiga-family/ci action to v1.67.2 (#537) (ef66ad5)
-* chore(deps): update dependency @types/node to v22.5.0 (#536) (45d09b2)
-* chore(deps): update dependency @types/node to v22.4.2 (#535) (fbca0c7)
-* chore(deps): update dependency husky to v9.1.5 (#534) (b474f6b)
-* chore(deps): update taiga-family/ci action to v1.67.1 (#533) (cd4b094)
-* chore(deps): update nx to v19.6.1 (#532) (1d4689a)
-* chore(deps): update dependency @types/node to v22.4.1 (#531) (4d75a31)
-* chore(deps): update dependency @types/node to v22.4.0 (#530) (9f30f9c)
-* chore(deps): update taiga-ui to v0.139.1 (#528) (6a811ca)
-* chore(deps): update nx to v19.6.0 (#527) (b6df605)
-* chore(deps): update taiga-family/ci action to v1.67.0 (#526) (873fb0b)
-* chore(deps): update taiga-ui to v0.139.0 (#525) (149ce7d)
-* chore(deps): update taiga-family/ci action to v1.66.6 (#524) (b0425dd)
-* chore(deps): update taiga-ui to v0.138.0 (#523) (0f5c3bc)
-* chore(deps): update dependency @types/node to v22.3.0 (#522) (e11478a)
-* chore(deps): update taiga-family/ci action to v1.66.5 (#521) (36ae63f)
-* chore(deps): update taiga-ui to v0.137.0 (#520) (b5c0606)
-* chore(deps): update dependency lint-staged to v15.2.9 (#519) (9c84ddb)
-* chore(deps): update taiga-ui to v0.136.8 (#518) (d7d65b2)
-* chore(deps): update taiga-ui to v0.136.7 (#517) (3c73e85)
-* chore(deps): update taiga-ui to v0.136.6 (#516) (6d5598e)
-* chore(deps): update taiga-ui to v0.136.5 (#515) (08cbfd4)
-* chore(deps): update taiga-ui to v0.136.4 (#514) (0ba200a)
-* chore(deps): update taiga-ui to v0.136.3 (#513) (dead2fa)
-* chore(deps): update taiga-ui to v0.136.2 (#512) (eb0b9b3)
-* chore(deps): update taiga-ui to v0.136.1 (#511) (13fb809)
-* chore(deps): update dependency @types/node to v22.2.0 (#510) (390dd04)
-* chore(deps): update taiga-ui to v0.136.0 (#509) (9b176b7)
-* chore(deps): update taiga-ui to v0.135.0 (#508) (733b79e)
-* chore(deps): update nx to v19.5.7 (#507) (81f1787)
-* chore(deps): update dependency @commitlint/cli to v19.4.0 (#506) (1a28be1)
-* chore(deps): update taiga-family/ci action to v1.66.4 (#505) (7910015)
-* chore(deps): update taiga-ui to v0.133.0 (#492) (612a981)
-* chore(deps): update ng-web-apis to v4.2.1 (#504) (feeb99f)
-* chore(deps): update dependency lint-staged to v15.2.8 (#503) (32c95e4)
-* chore(deps): update dependency @types/node to v22.1.0 (#502) (4c0a315)
-* chore(deps): update dependency @types/node to v22.0.3 (#501) (65f2fc7)
-* chore(deps): update nx to v19.5.6 (#500) (bb86449)
-* chore(deps): update nx to v19.5.5 (#499) (fde4ee9)
-* chore(deps): update dependency ts-jest to v29.2.4 (#498) (b0ee2b0)
-* chore(deps): update dependency @types/node to v22.0.2 (#497) (ba88886)
-* chore(deps): update dependency @types/node to v22.0.1 (#496) (9d08e92)
-* chore(deps): update dependency jest-preset-angular to v14.2.2 (#495) (e617d08)
-* chore(deps): update nx to v19.5.4 (#494) (6a278ac)
-* chore(deps): update dependency jest-preset-angular to v14.2.1 (#493) (4b2c4cc)
-* chore(deps): update taiga-ui to v0.125.3 (#491) (bd819a5)
-* chore(deps): update dependency husky to v9.1.4 (#490) (8228f3d)
-* chore(deps): update taiga-ui to v0.125.2 (#489) (1863b02)
-* chore(deps): update dependency @types/node to v22 (#488) (c485a10)
-* chore(deps): update dependency @types/node to v20.14.13 (#477) (169f0dd)
-* chore(deps): update taiga-ui to v0.125.1 (#487) (f8b039a)
-* chore(deps): update dependency husky to v9.1.3 (#486) (ba9a666)
-* chore(deps): update taiga-family/ci action to v1.66.3 (#485) (cb6f696)
-* chore(deps): update taiga-ui to v0.125.0 (#484) (86cbeb9)
-* chore(deps): update dependency husky to v9.1.2 (#483) (4f66461)
-* chore(deps): update taiga-family/ci action to v1.66.2 (#482) (32c5857)
-* chore(deps): update nx to v19.5.3 (#481) (5155c83)
-* chore(deps): update taiga-ui to v0.122.3 (#480) (140e53c)
-* chore(deps): update taiga-ui to v0.122.2 (#479) (f16fd55)
-* chore(deps): update taiga-ui to v0.122.1 (#478) (a6b8c99)
-* chore(deps): update taiga-ui to v0.122.0 (#465) (61be0aa)
-* chore(deps): update nx to v19.5.2 (#476) (79a344f)
-* chore(deps): update dependency jest-preset-angular to v14.2.0 (#475) (9438b28)
-* chore(deps): update taiga-family/ci action to v1.66.1 (#474) (1291b7e)
-* chore(deps): update ng-web-apis to v4.2.0 (#473) (421eacc)
-* chore(deps): update dependency ts-jest to v29.2.3 (#472) (daa5951)
-* chore(deps): update nx to v19.5.1 (#471) (c4b684a)
-* chore(deps): update dependency husky to v9.1.1 (#470) (3f2271a)
-* chore(deps): update nx to v19.5.0 (#469) (f7e0a1f)
-* chore(deps): update dependency husky to v9.1.0 (#468) (d0c4ef4)
-* chore(deps): update nx to v19.4.4 (#467) (b1b7703)
-* chore(deps): update dependency @types/node to v20.14.11 (#466) (134fb44)
-* chore(deps): update taiga-family/ci action to v1.66.0 (#464) (5eb78ed)
-* chore(deps): update taiga-ui to v0.115.0 (#463) (36e1003)
-* chore(deps): update dependency release-it to v17.6.0 (#462) (daa8295)
-* chore(deps): update taiga-ui to v0.114.2 (#461) (2272988)
-* chore(deps): update dependency @taiga-ui/dompurify to v4.1.2 (#460) (802579c)
+- forgot publish licence
+  [(f42fc35)](https://github.com/taiga-family/ng-polymorpheus/commit/f42fc356645cf22578ec4acf371206b212460dec)
 
-* chore(deps): update taiga-ui (#440) (d1b0391)
-* chore(deps): update dependency @swc/helpers to v0.5.12 (#459) (14f8cd6)
-* chore(deps): update nx to v19.4.3 (#458) (fb07193)
-* chore(deps): update ng to v16.2.14 (#457) (062790e)
-* chore(deps): update taiga-family/ci action to v1.65.5 (#456) (ecd4017)
-* chore(deps): update taiga-family/ci action to v1.65.4 (#455) (efe5278)
-* chore(deps): update dependency webpack to v5.93.0 (#454) (42015f1)
-* chore(deps): update dependency ts-jest to v29.2.2 (#453) (2041cce)
-* chore(deps): update ng-web-apis to v4.1.3 (#452) (e7c5463)
-* chore(deps): update dependency ts-jest to v29.2.1 (#451) (d3e94c7)
-* chore(deps): update taiga-family/ci action to v1.65.3 (#450) (c572817)
-* chore(deps): update nx to v19.4.2 (#448) (c0e4448)
-* chore(deps): update dependency release-it to v17.5.0 (#447) (f1eefef)
-* chore(deps): update dependency release-it to v17.4.2 (#446) (7977b70)
-* chore(deps): update dependency ts-jest to v29.2.0 (#445) (54c1458)
-* chore(deps): update nx to v19.4.1 (#444) (0f42b76)
-* chore(deps): update dependency @types/node to v20.14.10 (#443) (235401e)
-* chore(deps): update taiga-family/ci action to v1.65.2 (#442) (b715ef4)
-* chore(deps): update ng-web-apis to v4 (#441) (ba35a54)
-* chore(deps): update taiga-family/ci action to v1.65.1 (#439) (2cb07b0)
-* chore(deps): update nx to v19.4.0 (#438) (858408f)
-* chore(deps): update dependency release-it to v17.4.1 (#437) (6f6a22b)
-* chore(deps): update toshimaru/auto-author-assign action to v2.1.1 (#436) (6b92bd9)
-* chore(deps): update dependency webpack to v5.92.1 (#435) (b13b5e5)
-* chore(deps): update dependency @types/node to v20.14.9 (#434) (be509b9)
-* chore(deps): update jest (#433) (96c42fb)
+### [4.7.1](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.0...v4.7.1) (2024-09-10)
 
-* chore: fix lint (95863bd)
-* chore: fix lint (dede025)
-* docs: invalid quote (#431) (cba91f9)
-* chore: add project icon (`.idea/icon.svg`) (#430) (6603f25)
+### [4.7.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.6...v4.7.0) (2024-08-27)
 
-* fix: inheritance compatibility (d86d200)
+### 🚀 Features
 
-* fix: type consistent (f22dd70)
+- add `injectContext` (#540)
+  [(e54d594)](https://github.com/taiga-family/ng-polymorpheus/commit/e54d5941b25eaa76b20b107b1e82dc4cfd82f9d1)
 
-* fix: support pass cdr (43fb937)
+### [4.6.6](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.5...v4.6.6) (2024-08-23)
 
-* feat: support pass content (85ad961)
-* chore(deps): update taiga-family/ci action to v1.62.2 (#426) (1eb3cc5)
-* chore: fixup (7505d7b)
+### [4.6.5](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.4...v4.6.5) (2024-07-13)
 
-# [4.5.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.1.0...v4.5.0) (2024-06-12)
+### [4.6.4](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.3...v4.6.4) (2024-07-02)
 
+### [4.6.3](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.2...v4.6.3) (2024-06-12)
 
-### Bug Fixes
+### 🐞 Bug Fixes
 
-* use proxy instead of replacing context of EmbeddedViewRef ([#175](https://github.com/taiga-family/ng-polymorpheus/issues/175)) ([9163e00](https://github.com/taiga-family/ng-polymorpheus/commit/9163e0056b7f7a391a96aebe5b888094d951d756))
+- inheritance compatibility
+  [(d86d200)](https://github.com/taiga-family/ng-polymorpheus/commit/d86d20070263a98a6e671100b01dc8476c4310b8)
 
+### [4.6.2](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.1...v4.6.2) (2024-06-12)
 
-* feat!: update to Angular 15 (#184) ([3cad831](https://github.com/taiga-family/ng-polymorpheus/commit/3cad83172a6e6f68a6afe5f0b13ebdc86c506904)), closes [#184](https://github.com/taiga-family/ng-polymorpheus/issues/184)
+### 🐞 Bug Fixes
 
+- type consistent
+  [(f22dd70)](https://github.com/taiga-family/ng-polymorpheus/commit/f22dd70fe44abef9a34d9bc3d450a2e42971f366)
 
-### Features
+### [4.6.1](https://github.com/taiga-family/ng-polymorpheus/compare/v4.6.0...v4.6.1) (2024-06-12)
 
-* deep typing for template ([#101](https://github.com/taiga-family/ng-polymorpheus/issues/101)) ([acb6d15](https://github.com/taiga-family/ng-polymorpheus/commit/acb6d15e2840e33c495070ac28a6b9f9a9e6076e))
+### 🐞 Bug Fixes
 
+- support pass cdr
+  [(43fb937)](https://github.com/taiga-family/ng-polymorpheus/commit/43fb937ac278304be46edecccadca4992a65ab02)
 
-### BREAKING CHANGES
+### [4.6.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.5.0...v4.6.0) (2024-06-12)
 
-* Templates now use Injector from the outlet as a fallback
+### 🚀 Features
+
+- support pass content
+  [(85ad961)](https://github.com/taiga-family/ng-polymorpheus/commit/85ad961240b9c38c79306f08d6bc308b815a633d)
+
+### [4.5.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.1.0...v4.5.0) (2024-06-12)
+
+### 🚀 Features
+
+- add angular 16 (#334)
+  [(719d046)](https://github.com/taiga-family/ng-polymorpheus/commit/719d046c8e74b2aae7df5004561817c02485d549)
+- deep typing for template (#101)
+  [(acb6d15)](https://github.com/taiga-family/ng-polymorpheus/commit/acb6d15e2840e33c495070ac28a6b9f9a9e6076e)
+
+### 🐞 Bug Fixes
+
+- use proxy instead of replacing context of EmbeddedViewRef (#175)
+  [(9163e00)](https://github.com/taiga-family/ng-polymorpheus/commit/9163e0056b7f7a391a96aebe5b888094d951d756)
+
+### [4.1.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.11...v4.1.0) (2023-04-11)
+
+### 🚀 Features
+
+- **outlet**: add `SafeValue` support (#76)
+  [(f9608be)](https://github.com/taiga-family/ng-polymorpheus/commit/f9608be656675f6958b8e38d5e49010c136b51cd)
+
+### [4.0.11](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.10...v4.0.11) (2023-04-10)
+
+### 🚀 Features
+
+- **component**: make context `any` by default (#73)
+  [(a7fbd7d)](https://github.com/taiga-family/ng-polymorpheus/commit/a7fbd7d0db8cce0bd653021e96dd3901ff849695)
+
+### [4.0.10](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.9...v4.0.10) (2022-11-14)
+
+### 🐞 Bug Fixes
+
+- **template**: fix untyped template
+  [(8c99c96)](https://github.com/taiga-family/ng-polymorpheus/commit/8c99c96b44a93a79de9a00e540f1f06e98bb44dc)
+
+### [4.0.9](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.8...v4.0.9) (2022-11-13)
+
+### 🐞 Bug Fixes
+
+- **outlet**: properly loosen context type (#60)
+  [(9c8075e)](https://github.com/taiga-family/ng-polymorpheus/commit/9c8075eb2ca33a3b38e209ec8b1f29bfea2c3056)
+
+### [4.0.8](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.7...v4.0.8) (2022-11-12)
+
+### 🐞 Bug Fixes
+
+- **outlet**: loosen context type restriction (#58)
+  [(48c2ad3)](https://github.com/taiga-family/ng-polymorpheus/commit/48c2ad36b38696ed32405fa8458e2fd21565d7ba)
+
+### [4.0.7](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.6...v4.0.7) (2022-09-05)
+
+### 🚀 Features
+
+- compat with Angular 14 and TS 4.8 (#56)
+  [(95b932f)](https://github.com/taiga-family/ng-polymorpheus/commit/95b932f50d8b228020aca003cfe24d897bdd6c8c)
+
+### [4.0.6](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.5...v4.0.6) (2022-08-16)
+
+### 🐞 Bug Fixes
+
+- default context to `any` for template too
+  [(fcb2f0e)](https://github.com/taiga-family/ng-polymorpheus/commit/fcb2f0e730bcb907d77d664c290aef2dfdf39ab3)
+
+### [4.0.5](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.4...v4.0.5) (2022-08-16)
+
+### 🐞 Bug Fixes
+
+- default content generic to `any` for better base compatibility
+  [(4f8d874)](https://github.com/taiga-family/ng-polymorpheus/commit/4f8d8748cdb9bd23a8a0041996acb0f0d123a8ab)
+
+### [4.0.4](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.3...v4.0.4) (2022-07-20)
+
+### 🐞 Bug Fixes
+
+- don't instantiate template with function content returning null (#55)
+  [(88a43d5)](https://github.com/taiga-family/ng-polymorpheus/commit/88a43d5f1daa9a6090455d172249972b10a351b9)
+
+### [4.0.3](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.2...v4.0.3) (2022-07-20)
+
+### 🐞 Bug Fixes
+
+- don't instantiate template if content is null
+  [(4d58d03)](https://github.com/taiga-family/ng-polymorpheus/commit/4d58d0338ffa769ceea5cdb967c0fcae3a0d6595)
+
+### [4.0.2](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.1...v4.0.2) (2022-07-19)
+
+### 🚀 Features
+
+- properly type primitive context (#54)
+  [(ca295de)](https://github.com/taiga-family/ng-polymorpheus/commit/ca295de2c99cb67272543d969b0f0c22ec524d07)
+
+### [4.0.1](https://github.com/taiga-family/ng-polymorpheus/compare/v4.0.0...v4.0.1) (2022-07-15)
+
+### 🚀 Features
+
+- improve typings (#52)
+  [(5272b4d)](https://github.com/taiga-family/ng-polymorpheus/commit/5272b4d65bd88650041d704bf3909ebe55899642)
+
+## [4.0.0](https://github.com/taiga-family/ng-polymorpheus/compare/v3.1.8...v4.0.0) (2021-05-24)
+
+### 🚀 Features
+
+- **outlet**: switch to using structural directive (#30)
+  [(99c8108)](https://github.com/taiga-family/ng-polymorpheus/commit/99c81087fffb7161f63271a207456c61607699f5)
+
+### [3.1.8](https://github.com/taiga-family/ng-polymorpheus/compare/v3.1.7...v3.1.8) (2021-05-14)
+
+### 🐞 Bug Fixes
+
+- **template**: fix falling back to string generic
+  [(43cc5f0)](https://github.com/taiga-family/ng-polymorpheus/commit/43cc5f0dec11c29505b8e6b3344dae6ae628c1f5)
+
+### [3.1.7](https://github.com/taiga-family/ng-polymorpheus/compare/v3.1.0...v3.1.7) (2021-05-13)
+
+### 🐞 Bug Fixes
+
+- **directive**: fix default generic value
+  [(e420116)](https://github.com/taiga-family/ng-polymorpheus/commit/e420116086e280bf42b5453b26cb5a8d92b89f17)
+
+## [3.1.0](https://github.com/taiga-family/ng-polymorpheus/compare/v2.1.0...v3.1.0) (2021-04-29)
+
+### 🚀 Features
+
+- **template**: add a way to type context (#27)
+  [(f4141f4)](https://github.com/taiga-family/ng-polymorpheus/commit/f4141f4b38419fcb0a68eaecff822d033cdd300a)
+- **outlet**: remove display: block (#25)
+  [(9dcd7f8)](https://github.com/taiga-family/ng-polymorpheus/commit/9dcd7f8fa1bab685f4fb41b40de9d14c7d00edea)
+
+### [2.1.0](https://github.com/taiga-family/ng-polymorpheus/compare/v2.0.0...v2.1.0) (2020-05-25)
+
+### 🚀 Features
+
+- **outlet**: allow attribute usage so it can be applied to native tags (#17)
+  [(62d7a5a)](https://github.com/taiga-family/ng-polymorpheus/commit/62d7a5aba8107a93a75e1f5e2faf0ad4a48de2b6)
+- **component**: handle change detection properly (#14)
+  [(334a713)](https://github.com/taiga-family/ng-polymorpheus/commit/334a713d0b10e9860db90d6d39a5547f34cc3903)
+
+## [2.0.0](https://github.com/taiga-family/ng-polymorpheus/compare/v1.1.0...v2.0.0) (2020-02-14)
+
+### [1.1.0](https://github.com/taiga-family/ng-polymorpheus/compare/v1.0.4...v1.1.0) (2020-02-12)
+
+### 🚀 Features
+
+- **component**: Polymorpheus components now behave the same way as Angular templates and mutate context instead of
+  reinstantiating if the shape of the context stayed the same (#12)
+  [(57cd932)](https://github.com/taiga-family/ng-polymorpheus/commit/57cd9321b606a750842705011f49e16a545496ea)
+
+### [1.0.4](https://github.com/taiga-family/ng-polymorpheus/compare/v1.0.3...v1.0.4) (2020-01-20)
+
+### [1.0.3](https://github.com/taiga-family/ng-polymorpheus/compare/v1.0.2...v1.0.3) (2019-12-20)
+
+### 🚀 Features
+
+- **template**: add default type as empty object (#8)
+  [(231ba62)](https://github.com/taiga-family/ng-polymorpheus/commit/231ba620ce1d3b2fa988d64f4073938802389e1e)
+
+### 🐞 Bug Fixes
+
+- **readme**: fix link to the Medium article (#7)
+  [(6b77cfd)](https://github.com/taiga-family/ng-polymorpheus/commit/6b77cfd7470a04045e4ee4d2465c4114d4fb242b)
+
+### [1.0.2](https://github.com/taiga-family/ng-polymorpheus/compare/v1.0.1...v1.0.2) (2019-10-02)
+
+### [1.0.1](https://github.com/taiga-family/ng-polymorpheus/compare/v1.0.0...v1.0.1) (2019-10-02)
+
+### 🚀 Features
+
+- **outlet**: simplify template
+  [(6a4c6ad)](https://github.com/taiga-family/ng-polymorpheus/commit/6a4c6ad65c254970fdaa6d35fad41956042f7163)
+
+### [1.0.0]() (2019-09-26)
