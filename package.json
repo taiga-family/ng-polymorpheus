@@ -42,7 +42,8 @@
         "test": "nx test ng-polymorpheus",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck",
-        "bump": "npx syncer"
+        "prebump": "npx syncer && npx nx build ng-polymorpheus",
+        "bump": "npx nx publish ng-polymorpheus"
     },
     "commitlint": {
         "extends": [

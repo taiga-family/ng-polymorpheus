@@ -7,22 +7,35 @@
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
             "options": {
-                "tsConfig": "projects/ng-polymorpheus/tsconfig.lib.json",
-                "project": "projects/ng-polymorpheus/ng-package.json"
+                "tsConfig": "projects/{projectName}/tsconfig.lib.json",
+                "project": "projects/{projectName}/ng-package.json"
             }
         },
         "test": {
             "executor": "@nx/jest:jest",
-            "outputs": ["{workspaceRoot}/coverage/ng-polymorpheus"],
+            "outputs": ["{workspaceRoot}/coverage/{projectName}"],
             "options": {
-                "jestConfig": "projects/ng-polymorpheus/jest.config.ts"
+                "jestConfig": "projects/{projectName}/jest.config.ts"
+            }
+        },
+        "prepublish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "cp ./LICENSE ./README.md ./dist/{projectName}"
             }
         },
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "export TAG=\"$(node -p \"require('./package.json')?.version?.includes('alpha') ? 'alpha' : 'latest'\")\" && npm publish --tag $TAG ./dist/ng-polymorpheus --access=public --verbose --ignore-scripts || echo 'already published'"
-            }
+                "command": "npm publish ./dist/{projectName} --ignore-scripts"
+            },
+            "dependsOn": [
+                {
+                    "target": "prepublish",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
         }
     }
 }
