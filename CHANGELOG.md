@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+### [4.7.4](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.3...v4.7.4) (2024-09-27)
+
 ### [4.7.3](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.2...v4.7.3) (2024-09-23)
 
 ### [4.7.2](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.1...v4.7.2) (2024-09-20)
