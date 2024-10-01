@@ -1,5 +1,6 @@
-name: 🤖 PR validation
-on: pull_request
+name: 🤖 PR auto merge
+on:
+  pull_request:
 
 env:
   JOBS_NAME: '[ "ci" ]'
@@ -13,7 +14,6 @@ jobs:
       - uses: actions/checkout@v4.2.0
       - uses: taiga-family/ci/actions/setup/variables@v1.89.0
       - id: matrix
-        if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
         run: echo "value=$JOBS_NAME" >> $GITHUB_OUTPUT
 
   wait:
@@ -33,36 +33,18 @@ jobs:
     needs: [wait]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4.2.0
+      - uses: taiga-family/ci/actions/setup/variables@v1.89.0
       - uses: taiga-family/ci/actions/auto/approve/double@v1.89.0
+        if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
         with:
           token1: ${{ secrets.GITHUB_TOKEN }}
           token2: ${{ secrets.TAIGA_FAMILY_APPROVE_BOT_PAT }}
       - uses: taiga-family/ci/actions/run/merge@v1.89.0
+        if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
         with:
-          token: ${{ secrets.TAIGA_FAMILY_APPROVE_BOT_PAT }}
-
-  label-when-approved:
-    name: Label when approved
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4.2.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.89.0
-      - uses: taiga-family/ci/actions/auto/label-when-approved@v1.89.0
-        with:
-          approvals: 1
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-  assign-author:
-    name: PR author as an assignee
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4.2.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.89.0
-      - uses: toshimaru/auto-author-assign@v2.1.1
-        if: env.IS_OWNER_MODE == 'true'
-        with:
-          repo-token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
-  group: pr-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
