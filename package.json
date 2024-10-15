@@ -103,7 +103,7 @@
         "@nx/node": "20.0.0",
         "@nx/workspace": "20.0.0",
         "@release-it-plugins/workspaces": "4.2.0",
-        "@release-it/conventional-changelog": "8.0.2",
+        "@release-it/conventional-changelog": "9.0.0",
         "@swc/helpers": "0.5.13",
         "@taiga-ui/auto-changelog-config": "0.222.4",
         "@taiga-ui/browserslist-config": "0.222.4",
