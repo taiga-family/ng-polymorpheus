@@ -27,5 +27,6 @@
             "cache": true
         }
     },
-    "defaultBase": "origin/main"
+    "defaultBase": "origin/main",
+    "useLegacyCache": true
 }
