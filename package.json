@@ -104,7 +104,7 @@
         "@taiga-ui/auto-changelog-config": "0.235.0",
         "@taiga-ui/browserslist-config": "0.235.0",
         "@taiga-ui/commitlint-config": "0.235.0",
-        "@taiga-ui/dompurify": "4.1.7",
+        "@taiga-ui/dompurify": "4.1.10",
         "@taiga-ui/eslint-plugin-experience": "0.235.0",
         "@taiga-ui/prettier-config": "0.235.0",
         "@taiga-ui/release-it-config": "0.235.0",
