@@ -79,6 +79,7 @@
             "@taiga-ui/stylelint-config"
         ]
     },
+    "dependencies": {},
     "devDependencies": {
         "@angular-devkit/build-angular": "16.2.16",
         "@angular-devkit/core": "16.2.16",
@@ -96,10 +97,11 @@
         "@angular/router": "16.2.12",
         "@ng-web-apis/common": "4.11.1",
         "@ng-web-apis/universal": "4.11.1",
-        "@nx/angular": "20.1.4",
-        "@nx/jest": "20.1.4",
-        "@nx/node": "20.1.4",
-        "@nx/workspace": "20.1.4",
+        "@nx/angular": "20.3.1",
+        "@nx/jest": "20.3.1",
+        "@nx/module-federation": "20.3.1",
+        "@nx/node": "20.3.1",
+        "@nx/workspace": "20.3.1",
         "@swc/helpers": "0.5.15",
         "@taiga-ui/auto-changelog-config": "0.238.0",
         "@taiga-ui/browserslist-config": "0.238.0",
@@ -124,7 +126,7 @@
         "lint-staged": "15.2.11",
         "ng-packagr": "16.2.3",
         "ngx-highlightjs": "10.0.0",
-        "nx": "20.1.4",
+        "nx": "20.3.1",
         "release-it": "17.10.0",
         "rxjs": "7.8.1",
         "ts-jest": "29.2.5",
