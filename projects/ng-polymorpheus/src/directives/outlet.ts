@@ -28,10 +28,10 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
     private c?: ComponentRef<unknown>;
 
     @Input('polymorpheusOutlet')
-    public content: PolymorpheusContent<C> = '';
+    public content: PolymorpheusContent<C | Record<never, never>> = '';
 
     @Input('polymorpheusOutletContext')
-    public context?: C;
+    public context?: C | Record<never, never>;
 
     public static ngTemplateContextGuard<T>(
         _dir: PolymorpheusOutlet<T>,
@@ -55,7 +55,9 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
             context &&
             (new Proxy(context as object, {
                 get: (_, key) =>
-                    this.getContext()?.[key as keyof (C | PolymorpheusContext<any>)],
+                    this.getContext()?.[
+                        key as keyof (C | PolymorpheusContext<any> | Record<never, never>)
+                    ],
             }) as unknown as C);
 
         if (isComponent(this.content)) {
@@ -81,7 +83,11 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         return this.content instanceof TemplateRef ? this.content : this.t;
     }
 
-    private getContext(): C | PolymorpheusContext<any> | undefined {
+    private getContext():
+        | C
+        | PolymorpheusContext<any>
+        | Record<never, never>
+        | undefined {
         if (isTemplate(this.content) || isComponent(this.content)) {
             return this.context;
         }
