@@ -1,3 +1,10 @@
+### [4.8.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.4...v4.8.0) (2025-01-16)
+
+### 🚀 Features
+
+- support fallback context (#769)
+  [(01f7f86)](https://github.com/taiga-family/ng-polymorpheus/commit/01f7f86373ebe53bdfbe813c44d129b0f5fa01c7)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See
