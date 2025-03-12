@@ -11,11 +11,7 @@ describe('isPrimitive', () => {
         expect(isPrimitive(Number(12))).toBe(true);
         expect(isPrimitive(Number(12))).toBe(true);
         expect(isPrimitive('Hello world')).toBe(true);
-        // noinspection JSPrimitiveTypeWrapperUsage
-        expect(isPrimitive(new String('Hello world'))).toBe(true);
         expect(isPrimitive(true)).toBe(true);
-        // noinspection JSPrimitiveTypeWrapperUsage
-        expect(isPrimitive(new Boolean(true))).toBe(true);
     });
 
     it('should return false for non primitive', () => {
@@ -23,5 +19,11 @@ describe('isPrimitive', () => {
         expect(isPrimitive({})).toBe(false);
         expect(isPrimitive(() => {})).toBe(false);
         expect(isPrimitive(new (class {})())).toBe(false);
+
+        // noinspection JSPrimitiveTypeWrapperUsage
+        expect(isPrimitive(new String('Hello world'))).toBe(false);
+
+        // noinspection JSPrimitiveTypeWrapperUsage
+        expect(isPrimitive(new Boolean(true))).toBe(false);
     });
 });
