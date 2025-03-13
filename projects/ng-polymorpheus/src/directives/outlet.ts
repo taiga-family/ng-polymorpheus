@@ -13,6 +13,7 @@ import {PolymorpheusComponent} from '../classes/component';
 import {PolymorpheusContext} from '../classes/context';
 import type {PolymorpheusContent} from '../types/content';
 import type {PolymorpheusPrimitive} from '../types/primitive';
+import {isPrimitive} from '../utils/is-primitive';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
@@ -53,9 +54,11 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
 
         const proxy =
             context &&
-            (new Proxy(context as object, {
+            (new Proxy(ensureContext(context) as object, {
                 get: (_, key) =>
-                    this.getContext()?.[key as keyof (C | PolymorpheusContext<any>)],
+                    ensureContext(this.getContext())?.[
+                        key as keyof (C | PolymorpheusContext<any>)
+                    ],
             }) as unknown as C);
 
         if (isComponent(this.content)) {
@@ -116,4 +119,14 @@ function isTemplate<C>(
     content: PolymorpheusContent<C>,
 ): content is PolymorpheusTemplate<C> | TemplateRef<C> {
     return isDirective(content) || content instanceof TemplateRef;
+}
+
+function ensureContext<C>(
+    context: C | PolymorpheusContext<any> | undefined,
+): C | PolymorpheusContext<any> | undefined {
+    if (context && isPrimitive(context)) {
+        return new PolymorpheusContext(context);
+    }
+
+    return context;
 }

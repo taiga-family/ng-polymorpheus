@@ -285,5 +285,13 @@ describe('PolymorpheusOutlet', () => {
             expect(text()).toBe('Component: number');
             expect(COUNTER).toBe(counter);
         });
+
+        it('create a non-object context', () => {
+            testComponent.context = 'Hello World';
+            testComponent.content = new PolymorpheusComponent(ComponentContent);
+            fixture.detectChanges();
+
+            expect(text()).toBe('Component: Hello World');
+        });
     });
 });
