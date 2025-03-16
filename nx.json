@@ -1,31 +1,40 @@
 {
-    "workspaceLayout": {
-        "libsDir": "projects",
-        "appsDir": "projects"
+  "workspaceLayout": {
+    "libsDir": "projects",
+    "appsDir": "projects"
+  },
+  "defaultProject": "demo",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/nx.json",
+      "{workspaceRoot}/tsconfig.*.json",
+      "{workspaceRoot}/tsconfig.json"
+    ],
+    "production": [
+      "default"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "inputs": [
+        "default"
+      ],
+      "cache": true
     },
-    "defaultProject": "demo",
-    "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "namedInputs": {
-        "default": ["{projectRoot}/**/*", "sharedGlobals"],
-        "sharedGlobals": [
-            "{workspaceRoot}/nx.json",
-            "{workspaceRoot}/tsconfig.*.json",
-            "{workspaceRoot}/tsconfig.json"
-        ],
-        "production": ["default"]
+    "test": {
+      "inputs": [
+        "default"
+      ],
+      "cache": true
     },
-    "targetDefaults": {
-        "build": {
-            "inputs": ["default"],
-            "cache": true
-        },
-        "test": {
-            "inputs": ["default"],
-            "cache": true
-        },
-        "lint": {
-            "cache": true
-        }
-    },
-    "defaultBase": "origin/main"
+    "lint": {
+      "cache": true
+    }
+  },
+  "defaultBase": "origin/main"
 }
