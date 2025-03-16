@@ -1,3 +1,10 @@
+### [4.9.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.8.0...v4.9.0) (2025-03-16)
+
+### 🐞 Bug Fixes
+
+- support primitive context in templates and components (#782)
+  [(5f09483)](https://github.com/taiga-family/ng-polymorpheus/commit/5f094831f3ea7bed02df196e4e51e62d028b002a)
+
 ### [4.8.0](https://github.com/taiga-family/ng-polymorpheus/compare/v4.7.4...v4.8.0) (2025-01-16)
 
 ### 🚀 Features
