@@ -100,7 +100,7 @@
         "@nx/jest": "20.1.4",
         "@nx/node": "20.1.4",
         "@nx/workspace": "20.1.4",
-        "@swc/helpers": "0.5.15",
+        "@swc/helpers": "0.5.17",
         "@taiga-ui/auto-changelog-config": "0.271.0",
         "@taiga-ui/browserslist-config": "0.271.0",
         "@taiga-ui/commitlint-config": "0.271.0",
