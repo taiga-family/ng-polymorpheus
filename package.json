@@ -112,7 +112,7 @@
         "@taiga-ui/syncer": "0.281.0",
         "@taiga-ui/tsconfig": "0.281.0",
         "@types/estree": "1.0.8",
-        "@types/express": "5.0.2",
+        "@types/express": "5.0.3",
         "@types/jest": "29.5.14",
         "@types/node": "22.15.30",
         "express": "4.21.2",
