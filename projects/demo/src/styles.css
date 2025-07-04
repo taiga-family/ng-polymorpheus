@@ -8,8 +8,8 @@ body {
 
 blockquote {
     box-shadow: inset 4px 0 #f5f5f5;
-    margin-left: 0;
-    padding-left: 1.875rem;
+    margin-inline-start: 0;
+    padding-inline-start: 1.875rem;
     font-style: italic;
 }
 
@@ -20,7 +20,7 @@ pre {
 }
 
 h2 {
-    margin-top: 2.5rem;
+    margin-block-start: 2.5rem;
 }
 
 img {
@@ -61,7 +61,7 @@ app-input {
     text-align: center;
     background: #79818c;
     border-radius: 100%;
-    margin-right: 16px;
+    margin-inline-end: 16px;
     color: #fff;
     font-weight: bold;
 }
