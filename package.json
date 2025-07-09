@@ -129,7 +129,7 @@
         "ts-jest": "29.4.0",
         "ts-node": "10.9.2",
         "typescript": "5.0.4",
-        "webpack": "5.99.9"
+        "webpack": "5.100.0"
     },
     "syncer": {
         "includePaths": [
