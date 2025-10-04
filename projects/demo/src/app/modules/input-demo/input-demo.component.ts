@@ -9,7 +9,6 @@ import * as html from '../input/input.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
-    standalone: true,
     selector: 'app-input-demo',
     imports: [HighlightModule, InputComponent, TabsComponent],
     templateUrl: './input-demo.template.html',

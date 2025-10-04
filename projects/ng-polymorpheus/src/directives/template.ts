@@ -4,7 +4,6 @@ import {ChangeDetectorRef, Directive, inject, TemplateRef} from '@angular/core';
  * ng-template wrapper directive also stores {@link ChangeDetectorRef} to properly handle change detection.
  */
 @Directive({
-    standalone: true,
     selector: 'ng-template[polymorpheus]',
     inputs: ['polymorpheus'],
     exportAs: 'polymorpheus',

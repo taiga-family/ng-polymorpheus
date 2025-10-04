@@ -1,22 +1,21 @@
-<div
-    *ngIf="!items.length; else menu"
-    class="empty"
->
-    <ng-container *polymorpheusOutlet="emptyContent as text">{{ text }}</ng-container>
-</div>
-<ng-template #menu>
-    <div
-        *ngFor="let item of items"
-        class="item"
-        [class.item_active]="isActive(item)"
-        (click)="itemClicked.emit(item)"
-        (mouseenter)="onMouseEnter(item)"
-    >
-        <div
-            *polymorpheusOutlet="content as primitive; context: getContext(item)"
-            class="string"
-        >
-            {{ primitive }}
-        </div>
+@if (!items.length) {
+    <div class="empty">
+        <ng-container *polymorpheusOutlet="emptyContent as text">{{ text }}</ng-container>
     </div>
-</ng-template>
+} @else {
+    @for (item of items; track $index) {
+        <div
+            class="item"
+            [class.item_active]="isActive(item)"
+            (click)="itemClicked.emit(item)"
+            (mouseenter)="onMouseEnter(item)"
+        >
+            <div
+                *polymorpheusOutlet="content as primitive; context: getContext(item)"
+                class="string"
+            >
+                {{ primitive }}
+            </div>
+        </div>
+    }
+}

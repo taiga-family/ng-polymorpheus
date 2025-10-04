@@ -1,4 +1,3 @@
-import {CommonModule, NgIf} from '@angular/common';
 import type {TemplateRef} from '@angular/core';
 import {ChangeDetectionStrategy, Component, ElementRef, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
@@ -17,22 +16,21 @@ let COUNTER = 0;
 describe('PolymorpheusOutlet', () => {
     @Component({
         standalone: true,
-        imports: [NgIf, PolymorpheusOutlet, PolymorpheusTemplate],
+        imports: [PolymorpheusOutlet, PolymorpheusTemplate],
         template: `
-            <div
-                *ngIf="polymorphic; else basic"
-                #element
-            >
-                <ng-container
-                    *polymorpheusOutlet="content as primitive; context: context"
-                >
-                    <div *ngIf="isNumber(primitive); else str">
-                        Number: {{ primitive }}
-                    </div>
-                    <ng-template #str>String: {{ primitive }}</ng-template>
-                </ng-container>
-            </div>
-            <ng-template #basic>
+            @if (polymorphic) {
+                <div #element>
+                    <ng-container
+                        *polymorpheusOutlet="content as primitive; context: context"
+                    >
+                        @if (isNumber(primitive)) {
+                            <div>Number: {{ primitive }}</div>
+                        } @else {
+                            String: {{ primitive }}
+                        }
+                    </ng-container>
+                </div>
+            } @else {
                 <div #element>
                     <ng-container
                         *polymorpheusOutlet="content as primitive; context: context"
@@ -40,7 +38,7 @@ describe('PolymorpheusOutlet', () => {
                         {{ primitive }}
                     </ng-container>
                 </div>
-            </ng-template>
+            }
             <ng-template
                 #plain
                 let-value
@@ -111,7 +109,6 @@ describe('PolymorpheusOutlet', () => {
             imports: [
                 ComponentContent,
                 TestComponent,
-                CommonModule,
                 PolymorpheusOutlet,
                 PolymorpheusTemplate,
             ],

@@ -17,7 +17,6 @@ import {isPrimitive} from '../utils/is-primitive';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
-    standalone: true,
     selector: '[polymorpheusOutlet]',
 })
 export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {

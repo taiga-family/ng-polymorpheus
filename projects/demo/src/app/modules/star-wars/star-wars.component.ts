@@ -1,6 +1,4 @@
-import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 import {ComboBoxComponent} from '../combo-box/combo-box.component';
 import {ben, jedi, luke, sith, vader, yoda} from '../constants';
@@ -12,9 +10,8 @@ interface StarWarsChar {
 }
 
 @Component({
-    standalone: true,
     selector: 'app-star-wars',
-    imports: [ComboBoxComponent, CommonModule, PolymorpheusOutlet],
+    imports: [ComboBoxComponent],
     templateUrl: './star-wars.template.html',
     styleUrls: ['./star-wars.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

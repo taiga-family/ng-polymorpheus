@@ -1,10 +1,11 @@
-<div
-    *ngFor="let tab of tabs"
-    class="tab"
-    [class.tab_active]="isActive(tab)"
-    (click)="onClick(tab)"
->
-    <ng-container *polymorpheusOutlet="content as primitive; context: getContext(tab)">
-        {{ primitive }}
-    </ng-container>
-</div>
+@for (tab of tabs; track $index) {
+    <div
+        class="tab"
+        [class.tab_active]="isActive(tab)"
+        (click)="onClick(tab)"
+    >
+        <ng-container *polymorpheusOutlet="content as primitive; context: getContext(tab)">
+            {{ primitive }}
+        </ng-container>
+    </div>
+}

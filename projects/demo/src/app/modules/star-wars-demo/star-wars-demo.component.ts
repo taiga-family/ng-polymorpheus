@@ -8,7 +8,6 @@ import * as html from '../star-wars/star-wars.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
-    standalone: true,
     selector: 'app-star-wars-demo',
     imports: [Highlight, TabsComponent],
     templateUrl: './star-wars-demo.template.html',
