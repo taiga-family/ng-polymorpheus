@@ -10,7 +10,6 @@ import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
 import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 @Component({
-    standalone: true,
     selector: 'app-input',
     imports: [FormsModule, PolymorpheusOutlet],
     templateUrl: './input.template.html',

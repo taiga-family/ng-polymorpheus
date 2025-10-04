@@ -9,7 +9,6 @@ import * as html from '../combo-box/combo-box.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
-    standalone: true,
     selector: 'app-combo-box-demo',
     imports: [ComboBoxComponent, HighlightModule, TabsComponent],
     templateUrl: './combo-box-demo.template.html',

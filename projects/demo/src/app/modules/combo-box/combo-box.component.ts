@@ -1,4 +1,3 @@
-import {CommonModule} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -7,16 +6,14 @@ import {
     Output,
 } from '@angular/core';
 import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
-import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 
 import {InputComponent} from '../input/input.component';
 import type {ContextWithActive} from '../interfaces';
 import {MenuComponent} from '../menu/menu.component';
 
 @Component({
-    standalone: true,
     selector: 'app-combo-box',
-    imports: [CommonModule, InputComponent, MenuComponent, PolymorpheusOutlet],
+    imports: [InputComponent, MenuComponent],
     templateUrl: './combo-box.template.html',
     styleUrls: ['./combo-box.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
