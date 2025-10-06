@@ -15,7 +15,7 @@
             "executor": "@nx/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/{projectName}"],
             "options": {
-                "jestConfig": "projects/{projectName}/jest.config.ts"
+                "jestConfig": "jest.config.ts"
             }
         },
         "publish": {
