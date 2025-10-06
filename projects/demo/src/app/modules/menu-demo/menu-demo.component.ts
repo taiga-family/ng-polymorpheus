@@ -3,9 +3,9 @@ import {HighlightModule} from 'ngx-highlightjs';
 
 import {AbstractDemo} from '../abstract-demo';
 import {MenuComponent} from '../menu/menu.component';
-import * as typescript from '../menu/menu.component.ts?raw';
-import * as css from '../menu/menu.style.less?raw';
-import * as html from '../menu/menu.template.html?raw';
+import * as TypeScript from '../menu/menu.component.ts?raw';
+import * as Style from '../menu/menu.style.less?raw';
+import * as HTML from '../menu/menu.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
@@ -22,9 +22,5 @@ export class MenuDemoComponent extends AbstractDemo {
         'Taunt a second time',
     ];
 
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
+    public readonly example = {HTML, Style, TypeScript};
 }

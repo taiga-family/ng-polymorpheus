@@ -7,13 +7,13 @@ import {AbstractDemo} from '../abstract-demo';
 import {avatar, gear} from '../constants';
 import type {CustomTab} from '../interfaces';
 import {TabComponent} from '../tab/tab.component';
-import * as typescript2 from '../tab/tab.component.ts?raw';
-import * as css2 from '../tab/tab.style.less?raw';
-import * as html2 from '../tab/tab.template.html?raw';
+import * as typescript from '../tab/tab.component.ts?raw';
+import * as css from '../tab/tab.style.less?raw';
+import * as html from '../tab/tab.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
-import * as typescript from '../tabs/tabs.component.ts?raw';
-import * as css from '../tabs/tabs.style.less?raw';
-import * as html from '../tabs/tabs.template.html?raw';
+import * as TypeScript from '../tabs/tabs.component.ts?raw';
+import * as Style from '../tabs/tabs.style.less?raw';
+import * as HTML from '../tabs/tabs.template.html?raw';
 
 @Component({
     selector: 'app-tabs-demo',
@@ -32,9 +32,9 @@ export class TabsDemoComponent extends AbstractDemo {
     ];
 
     protected readonly anotherExample: Record<string, string> = {
-        HTML: html2 as unknown as string,
-        Style: css2 as unknown as string,
-        TypeScript: typescript2 as unknown as string,
+        HTML: html as unknown as string,
+        Style: css as unknown as string,
+        TypeScript: typescript as unknown as string,
     };
 
     protected readonly content = new PolymorpheusComponent(TabComponent);
@@ -43,11 +43,7 @@ export class TabsDemoComponent extends AbstractDemo {
 
     protected customTabs: readonly CustomTab[] | null = null;
 
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
+    public readonly example = {HTML, Style, TypeScript};
 
     protected get tabCode(): string {
         const code: any = this.anotherExample[this.activeTabTab];

@@ -3,9 +3,9 @@ import {HighlightModule} from 'ngx-highlightjs';
 
 import {AbstractDemo} from '../abstract-demo';
 import {InputComponent} from '../input/input.component';
-import * as typescript from '../input/input.component.ts?raw';
-import * as css from '../input/input.style.less?raw';
-import * as html from '../input/input.template.html?raw';
+import * as TypeScript from '../input/input.component.ts?raw';
+import * as Style from '../input/input.style.less?raw';
+import * as HTML from '../input/input.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
@@ -22,9 +22,5 @@ export class InputDemoComponent extends AbstractDemo {
             S8.8,15,11,15z"/>
     </svg>`;
 
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
+    public readonly example = {HTML, Style, TypeScript};
 }

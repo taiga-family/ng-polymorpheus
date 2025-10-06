@@ -3,9 +3,9 @@ import {HighlightModule} from 'ngx-highlightjs';
 
 import {AbstractDemo} from '../abstract-demo';
 import {ComboBoxComponent} from '../combo-box/combo-box.component';
-import * as typescript from '../combo-box/combo-box.component.ts?raw';
-import * as css from '../combo-box/combo-box.style.less?raw';
-import * as html from '../combo-box/combo-box.template.html?raw';
+import * as TypeScript from '../combo-box/combo-box.component.ts?raw';
+import * as Style from '../combo-box/combo-box.style.less?raw';
+import * as HTML from '../combo-box/combo-box.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
@@ -25,9 +25,5 @@ export class ComboBoxDemoComponent extends AbstractDemo {
         'Michael Palin',
     ];
 
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
+    public readonly example = {HTML, Style, TypeScript};
 }

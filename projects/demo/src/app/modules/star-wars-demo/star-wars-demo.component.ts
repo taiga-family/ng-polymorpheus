@@ -2,9 +2,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Highlight} from 'ngx-highlightjs';
 
 import {AbstractDemo} from '../abstract-demo';
-import * as typescript from '../star-wars/star-wars.component.ts?raw';
-import * as css from '../star-wars/star-wars.style.less?raw';
-import * as html from '../star-wars/star-wars.template.html?raw';
+import * as TypeScript from '../star-wars/star-wars.component.ts?raw';
+import * as Style from '../star-wars/star-wars.style.less?raw';
+import * as HTML from '../star-wars/star-wars.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
@@ -14,9 +14,5 @@ import {TabsComponent} from '../tabs/tabs.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StarWarsDemoComponent extends AbstractDemo {
-    public readonly example = {
-        HTML: html,
-        Style: css,
-        TypeScript: typescript,
-    };
+    public readonly example = {HTML, Style, TypeScript};
 }
