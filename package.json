@@ -33,6 +33,9 @@
     "scripts": {
         "prepare": "husky",
         "start": "nx serve demo",
+        "dev:ssr": "nx run demo:serve-ssr",
+        "build:ssr": "nx build --prod && nx run demo:server:production",
+        "prerender": "nx run demo:prerender",
         "build": "nx build demo",
         "stylelint": "stylelint '**/*.{less,css}'",
         "prettier": "prettier !package-lock.json !CHANGELOG.md .  --ignore-path .gitignore",
