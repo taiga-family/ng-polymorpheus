@@ -4,7 +4,6 @@ import {
     Directive,
     inject,
     INJECTOR,
-    Input,
     TemplateRef,
     ViewContainerRef,
 } from '@angular/core';
@@ -17,8 +16,8 @@ import {isPrimitive} from '../utils/is-primitive';
 import {PolymorpheusTemplate} from './template';
 
 @Directive({
-    standalone: true,
     selector: '[polymorpheusOutlet]',
+    inputs: ['content: polymorpheusOutlet', 'context: polymorpheusOutletContext'],
 })
 export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
     private readonly vcr = inject(ViewContainerRef);
@@ -28,10 +27,7 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
 
     private c?: ComponentRef<unknown>;
 
-    @Input('polymorpheusOutlet')
     public content: PolymorpheusContent<C> = '';
-
-    @Input('polymorpheusOutletContext')
     public context?: C;
 
     public static ngTemplateContextGuard<T>(

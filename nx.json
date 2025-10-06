@@ -5,6 +5,9 @@
     },
     "defaultProject": "demo",
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
+    "tui": {
+        "enabled": false
+    },
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
         "sharedGlobals": [

@@ -31,21 +31,21 @@
         [class.item_sith]="!item.jedi && active"
     >
         <div class="avatar-wrapper">
-            <img
-                *ngIf="item.avatar; else text"
-                class="avatar"
-                [alt]="item.name"
-                [class.avatar_rotated]="active"
-                [src]="item.avatar"
-            />
-            <ng-template #text>
+            @if (item.avatar) {
+                <img
+                    class="avatar"
+                    [alt]="item.name"
+                    [class.avatar_rotated]="active"
+                    [src]="item.avatar"
+                />
+            } @else {
                 <div
                     class="text"
                     [class.text_rotated]="active"
                 >
                     {{ getInitials(item.name) }}
                 </div>
-            </ng-template>
+            }
             <img
                 alt="Race"
                 class="avatar"

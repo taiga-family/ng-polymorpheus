@@ -6,15 +6,16 @@
     (keydown.arrowDown)="onArrowDown()"
     (valueChange)="onValueChange($event)"
 />
-<app-menu
-    *ngIf="opened"
-    class="menu"
-    [content]="content"
-    [emptyContent]="emptyContent"
-    [items]="filteredItems"
-    (itemClicked)="onItemClicked($event)"
-    (mousedown)="$event.preventDefault()"
-/>
+@if (opened) {
+    <app-menu
+        class="menu"
+        [content]="content"
+        [emptyContent]="emptyContent"
+        [items]="filteredItems"
+        (itemClicked)="onItemClicked($event)"
+        (mousedown)="$event.preventDefault()"
+    />
+}
 <ng-template #icon>
     <svg
         height="24"

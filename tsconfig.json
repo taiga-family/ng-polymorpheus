@@ -3,6 +3,9 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "./dist/out-tsc",
+        "esModuleInterop": true,
+        "typeRoots": ["node_modules/@types"],
+        "types": ["node"],
         "paths": {
             "@taiga-ui/polymorpheus": ["./projects/ng-polymorpheus/src"]
         }

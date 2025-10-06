@@ -9,7 +9,6 @@ import * as html from '../menu/menu.template.html?raw';
 import {TabsComponent} from '../tabs/tabs.component';
 
 @Component({
-    standalone: true,
     selector: 'app-menu-demo',
     imports: [HighlightModule, MenuComponent, TabsComponent],
     templateUrl: './menu-demo.template.html',

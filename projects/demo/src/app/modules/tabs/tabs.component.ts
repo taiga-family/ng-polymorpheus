@@ -1,4 +1,3 @@
-import {CommonModule} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -12,9 +11,8 @@ import {PolymorpheusOutlet} from '@taiga-ui/polymorpheus';
 import type {ContextWithActive} from '../interfaces';
 
 @Component({
-    standalone: true,
     selector: 'app-tabs',
-    imports: [CommonModule, PolymorpheusOutlet],
+    imports: [PolymorpheusOutlet],
     templateUrl: './tabs.template.html',
     styleUrls: ['./tabs.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

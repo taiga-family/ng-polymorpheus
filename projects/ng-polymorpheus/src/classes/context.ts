@@ -5,9 +5,3 @@ export class PolymorpheusContext<T> {
         return this.$implicit;
     }
 }
-
-/**
- * @deprecated: use {@link PolymorpheusContext} instead
- * Primitive types used as content by {@link PolymorpheusOutlet}
- */
-export class PrimitiveContext<T> extends PolymorpheusContext<T> {}

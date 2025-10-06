@@ -9,7 +9,6 @@ import {StarWarsDemoComponent} from './modules/star-wars-demo/star-wars-demo.com
 import {TabsDemoComponent} from './modules/tabs-demo/tabs-demo.component';
 
 @Component({
-    standalone: true,
     selector: 'my-app',
     imports: [
         ComboBoxDemoComponent,

@@ -5,7 +5,7 @@
     "projectType": "library",
     "targets": {
         "build": {
-            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "executor": "@angular/build:ng-packagr",
             "options": {
                 "tsConfig": "projects/{projectName}/tsconfig.lib.json",
                 "project": "projects/{projectName}/ng-package.json"
@@ -15,7 +15,7 @@
             "executor": "@nx/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/{projectName}"],
             "options": {
-                "jestConfig": "projects/{projectName}/jest.config.ts"
+                "jestConfig": "jest.config.ts"
             }
         },
         "publish": {
