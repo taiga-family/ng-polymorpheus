@@ -4,6 +4,7 @@ import {
     Directive,
     inject,
     INJECTOR,
+    reflectComponentType,
     TemplateRef,
     ViewContainerRef,
 } from '@angular/core';
@@ -40,6 +41,7 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
     public ngOnChanges({content}: SimpleChanges): void {
         const context = this.getContext();
 
+        this.update();
         this.c?.injector.get(ChangeDetectorRef).markForCheck();
 
         if (!content) {
@@ -59,6 +61,7 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
 
         if (isComponent(this.content)) {
             this.process(this.content, proxy);
+            this.update();
         } else if (
             (context instanceof PolymorpheusContext && context.$implicit) != null
         ) {
@@ -96,6 +99,22 @@ export class PolymorpheusOutlet<C> implements OnChanges, DoCheck {
         const injector = content.createInjector(this.i, proxy);
 
         this.c = this.vcr.createComponent(content.component, {injector});
+    }
+
+    private update(): void {
+        const {context, content} = this;
+
+        if (!context || typeof context !== 'object' || !isComponent(content)) {
+            return;
+        }
+
+        const {inputs = []} = reflectComponentType(content.component) || {};
+
+        for (const {templateName} of inputs) {
+            if (templateName in context) {
+                this.c?.setInput(templateName, context[templateName as keyof C]);
+            }
+        }
     }
 }
 

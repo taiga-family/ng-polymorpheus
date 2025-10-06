@@ -1,17 +1,17 @@
-<span class="text">{{ text }}</span>
-@if (content) {
-    <div [class.template_active]="templateActive">
-        <ng-container *polymorpheusOutlet="content as primitive">
+<span class="text">{{ $implicit().text }}</span>
+@if ($implicit().content) {
+    <div [class.template_active]="templateActive()">
+        <ng-container *polymorpheusOutlet="$implicit().content as primitive">
             @if (isNumber(primitive)) {
                 <div
                     class="number"
-                    [class.number_active]="active"
+                    [class.number_active]="active()"
                 >
                     {{ primitive }}
                 </div>
             } @else {
                 <div
-                    [class.icon_active]="active"
+                    [class.icon_active]="active()"
                     [innerHTML]="primitive"
                 ></div>
             }

@@ -15,7 +15,6 @@ let COUNTER = 0;
 
 describe('PolymorpheusOutlet', () => {
     @Component({
-        standalone: true,
         imports: [PolymorpheusOutlet, PolymorpheusTemplate],
         template: `
             @if (polymorphic) {
@@ -78,10 +77,7 @@ describe('PolymorpheusOutlet', () => {
     }
 
     @Component({
-        standalone: true,
-        template: `
-            Component: {{ context.$implicit }}
-        `,
+        template: 'Component: {{ context.$implicit }}',
         // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
         changeDetection: ChangeDetectionStrategy.Default,
     })
@@ -93,15 +89,24 @@ describe('PolymorpheusOutlet', () => {
         }
     }
 
+    @Component({
+        template: '{{ value }}',
+        inputs: ['value'],
+        changeDetection: ChangeDetectionStrategy.OnPush,
+    })
+    class WithInputs {
+        public value = '';
+    }
+
     let fixture: ComponentFixture<TestComponent>;
     let testComponent: TestComponent;
 
     function text(): string {
-        return testComponent.element.nativeElement.textContent?.trim() ?? '';
+        return fixture.nativeElement.textContent?.trim() ?? '';
     }
 
     function html(): string {
-        return testComponent.element.nativeElement.innerHTML;
+        return fixture.nativeElement.innerHTML;
     }
 
     beforeEach(async () => {
@@ -289,6 +294,27 @@ describe('PolymorpheusOutlet', () => {
             fixture.detectChanges();
 
             expect(text()).toBe('Component: Hello World');
+        });
+    });
+
+    describe('Inputs', () => {
+        it('are processed initially when available', () => {
+            testComponent.context = {$implicit: 'string', value: 'Hello World'};
+            testComponent.content = new PolymorpheusComponent(WithInputs);
+            fixture.detectChanges();
+
+            expect(text()).toBe('Hello World');
+        });
+
+        it('updated when context changes', () => {
+            testComponent.context = {$implicit: 'string', value: 'Hello World'};
+            testComponent.content = new PolymorpheusComponent(WithInputs);
+            fixture.detectChanges();
+
+            testComponent.context = {$implicit: 'string', value: 'New value'};
+            fixture.detectChanges();
+
+            expect(text()).toBe('New value');
         });
     });
 });
