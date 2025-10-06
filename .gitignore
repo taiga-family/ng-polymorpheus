@@ -54,3 +54,5 @@ Thumbs.db
 
 codecov*
 !codecov.yml
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
