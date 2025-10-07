@@ -1,21 +1,19 @@
-@if (!items.length) {
-    <div class="empty">
-        <ng-container *polymorpheusOutlet="emptyContent as text">{{ text }}</ng-container>
-    </div>
-} @else {
-    @for (item of items; track $index) {
+@for (item of items(); track $index) {
+    <div
+        class="item"
+        [class.item_active]="activeItem() === item"
+        (click)="itemClicked.emit(item)"
+        (mouseenter)="activeItem.set(item)"
+    >
         <div
-            class="item"
-            [class.item_active]="isActive(item)"
-            (click)="itemClicked.emit(item)"
-            (mouseenter)="onMouseEnter(item)"
+            *polymorpheusOutlet="content() as primitive; context: {$implicit: item, active: activeItem() === item}"
+            class="string"
         >
-            <div
-                *polymorpheusOutlet="content as primitive; context: getContext(item)"
-                class="string"
-            >
-                {{ primitive }}
-            </div>
+            {{ primitive }}
         </div>
-    }
+    </div>
+} @empty {
+    <div class="empty">
+        <ng-container *polymorpheusOutlet="emptyContent() as text">{{ text }}</ng-container>
+    </div>
 }

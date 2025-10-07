@@ -1,17 +1,17 @@
 <app-input
     [content]="icon"
-    [placeholder]="placeholder"
-    [value]="stringValue"
-    (focusout)="onFocusOut()"
-    (keydown.arrowDown)="onArrowDown()"
+    [placeholder]="placeholder()"
+    [value]="string()"
+    (focusout)="open.set(false)"
+    (keydown.arrowDown)="open.set(true)"
     (valueChange)="onValueChange($event)"
 />
-@if (opened) {
+@if (open()) {
     <app-menu
         class="menu"
-        [content]="content"
-        [emptyContent]="emptyContent"
-        [items]="filteredItems"
+        [content]="content()"
+        [emptyContent]="emptyContent()"
+        [items]="filtered()"
         (itemClicked)="onItemClicked($event)"
         (mousedown)="$event.preventDefault()"
     />
@@ -23,8 +23,8 @@
         width="24"
         xmlns="http://www.w3.org/2000/svg"
         class="icon"
-        [class.icon_opened]="opened"
-        (click)="onClick()"
+        [class.icon_opened]="open()"
+        (click)="open.set(!open())"
     >
         <polyline
             fill="none"

@@ -2,16 +2,15 @@
     #input
     type="text"
     class="input"
-    [ngModel]="value"
-    [placeholder]="placeholder"
-    (ngModelChange)="onValueChange($event)"
+    [placeholder]="placeholder()"
+    [(ngModel)]="value"
 />
 <div
     class="outlet"
-    (mousedown)="onMouseDown($event, input)"
+    (mousedown)="$event.preventDefault(); input.focus()"
 >
     <div
-        *polymorpheusOutlet="content as icon"
+        *polymorpheusOutlet="content() as icon"
         [innerHTML]="icon"
     ></div>
 </div>

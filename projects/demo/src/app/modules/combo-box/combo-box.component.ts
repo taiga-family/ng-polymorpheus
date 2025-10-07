@@ -1,9 +1,10 @@
 import {
     ChangeDetectionStrategy,
     Component,
-    EventEmitter,
-    Input,
-    Output,
+    computed,
+    input,
+    model,
+    signal,
 } from '@angular/core';
 import type {PolymorpheusContent} from '@taiga-ui/polymorpheus';
 
@@ -19,69 +20,43 @@ import {MenuComponent} from '../menu/menu.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComboBoxComponent<T> {
-    protected stringValue = '';
-    protected opened = false;
+    protected readonly string = signal('');
+    protected readonly open = signal(false);
 
-    @Input()
-    public placeholder = '';
+    protected readonly selected = computed(
+        (value = this.value()) => value && this.items().includes(value),
+    );
 
-    @Input()
-    public items: readonly T[] = [];
-
-    @Input()
-    public emptyContent: PolymorpheusContent<never> = 'Nothing is found';
-
-    @Input()
-    public value: T | null = null;
-
-    @Output()
-    public readonly valueChange = new EventEmitter<T | null>();
-
-    @Input()
-    public content: PolymorpheusContent<ContextWithActive<T>> = ({
-        $implicit,
-    }: ContextWithActive<T>) => String($implicit);
-
-    @Input()
-    public stringify: (item: T) => string = (item: T) => String(item);
-
-    protected get valueSelected(): boolean {
-        return !!this.value && this.items.includes(this.value);
-    }
-
-    protected get filteredItems(): readonly T[] {
-        return this.valueSelected
-            ? this.items
-            : this.items.filter((item) =>
-                  this.stringify(item)
+    protected readonly filtered = computed(() =>
+        this.selected()
+            ? this.items()
+            : this.items().filter((item) =>
+                  this.stringify()(item)
                       .toLowerCase()
-                      .includes(this.stringValue.toLowerCase()),
-              );
-    }
+                      .includes(this.string().toLowerCase()),
+              ),
+    );
 
-    protected onClick(): void {
-        this.opened = !this.opened;
-    }
-
-    protected onArrowDown(): void {
-        this.opened = true;
-    }
-
-    protected onFocusOut(): void {
-        this.opened = false;
-    }
+    public readonly value = model<T>();
+    public readonly placeholder = input('');
+    public readonly stringify = input<(item: T) => string>(String);
+    public readonly items = input<readonly T[]>([]);
+    public readonly emptyContent = input<PolymorpheusContent<never>>('Nothing is found');
+    public readonly content = input<PolymorpheusContent<ContextWithActive<T>>>(
+        ({$implicit}: ContextWithActive<T>) => String($implicit),
+    );
 
     protected onItemClicked(item: T): void {
-        this.value = item;
-        this.valueChange.emit(item);
-        this.stringValue = this.stringify(item);
-        this.opened = false;
+        this.value.set(item);
+        this.string.set(this.stringify()(item));
+        this.open.set(false);
     }
 
-    protected onValueChange(stringValue: string): void {
-        this.stringValue = stringValue;
-        this.opened = true;
-        this.value =
-            this.items.find((item) => this.stringify(item) === this.stringValue) ?? null;
+    protected onValueChange(value: string): void {
+        this.string.set(value);
+        this.open.set(true);
+        this.value.set(
+            this.items().find((item) => this.stringify()(item) === this.string()),
+        );
     }
 }

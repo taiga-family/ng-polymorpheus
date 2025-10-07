@@ -1,11 +1,15 @@
-@for (tab of tabs; track $index) {
+@for (tab of tabs(); track $index) {
     <div
         class="tab"
-        [class.tab_active]="isActive(tab)"
-        (click)="onClick(tab)"
+        [class.tab_active]="tab === activeTab()"
+        (click)="activeTab.set(tab)"
     >
-        <ng-container *polymorpheusOutlet="content as primitive; context: getContext(tab)">
+        <ng-template
+            let-primitive
+            [polymorpheusOutlet]="content()"
+            [polymorpheusOutletContext]="{$implicit: tab, active: tab === activeTab()}"
+        >
             {{ primitive }}
-        </ng-container>
+        </ng-template>
     </div>
 }
