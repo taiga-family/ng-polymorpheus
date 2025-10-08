@@ -18,12 +18,7 @@ export class PolymorpheusComponent<T> {
     public createInjector<C>(injector: Injector, useValue?: C): Injector {
         return Injector.create({
             parent: this.i || injector,
-            providers: [
-                {
-                    provide: POLYMORPHEUS_CONTEXT,
-                    useValue,
-                },
-            ],
+            providers: useValue ? [{provide: POLYMORPHEUS_CONTEXT, useValue}] : [],
         });
     }
 }
